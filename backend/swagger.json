@@ -29,8 +29,8 @@
     "./src/app/Models/User.js",
     "./src/routes/public/user.js",
     "./src/routes/private/user.js",
-    "./src/app/Models/Project.js",
-    "./src/routes/public/project.js",
-    "./src/routes/private/project.js"
+    "./src/app/Models/Job.js",
+    "./src/routes/public/job.js",
+    "./src/routes/private/job.js"
   ]
 }
