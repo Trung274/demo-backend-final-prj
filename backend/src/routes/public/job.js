@@ -4,6 +4,7 @@
  *   /jobs:
  *     get:
  *       summary: Retrieves a list of job postings
+ *       tags: [Jobs]
  *       description: Fetches a list of all job postings from the database.
  *       responses:
  *         200:
@@ -17,6 +18,7 @@
  *   /jobs/select/{id}:
  *     get:
  *       summary: Searches for a job posting by ID
+ *       tags: [Jobs]
  *       description: Returns a single job posting matching the provided ID.
  *       parameters:
  *         - in: path

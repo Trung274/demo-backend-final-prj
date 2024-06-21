@@ -7,15 +7,14 @@ class AuthController {
   login = async (request, response) => {
     try {
       const user = await model.findOne({ email: request.body.email });
-      const match = await bcrypt.compareSync(
-        request.body.password,
-        user.password
-      );
+      if (!user) {
+        return response.status(401).json({ error: "error", message: "User does not exist" });
+      }
+
+      const match = await bcrypt.compare(request.body.password, user.password);
 
       if (!match) {
-        response
-          .status(401)
-          .send({ error: "error", message: "Password mismatch" });
+        return response.status(401).json({ error: "error", message: "Password mismatch" });
       }
 
       const token = jwt.sign({ user_id: user._id }, process.env.AUTH_SECRET, {
@@ -24,16 +23,13 @@ class AuthController {
 
       response.status(200).json({
         _id: user._id,
-        nickname: user.nickname,
         username: user.username,
-        photo: user.photo,
         email: user.email,
+        roleId: user.roleId,
         token,
       });
     } catch (error) {
-      response
-        .status(401)
-        .json({ error: error, message: "Error, user does not exists" });
+      response.status(500).json({ error: error, message: "Internal server error" });
     }
   };
 
@@ -49,9 +45,7 @@ class AuthController {
 
         return next();
       } catch (error) {
-        return response
-          .status(401)
-          .json({ error: error, message: "Invalid Token" });
+        return response.status(401).json({ error: error, message: "Invalid Token" });
       }
     } else {
       response.status(401).json("Token is required");

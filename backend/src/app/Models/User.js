@@ -32,27 +32,39 @@
 
 const mongoose = require("mongoose");
 
+const profileSchema = new mongoose.Schema({
+  phone: String,
+  city: String,
+  avatar: String,
+  description: String,
+  userTitle: [String],
+  profileLink: [String],
+  address: String,
+  businessLink: String
+}, { _id: false });
+
 const schema = mongoose.Schema({
   username: {
-    type: String,
-    required: true,
-  },
-  password: {
     type: String,
     required: true,
   },
   email: {
     type: String,
     required: true,
+    unique: true,
   },
-  photo: {
+  password: {
     type: String,
-    required: false,
+    required: true,
   },
-  nickname: {
-    type: String,
-    required: false,
+  roleId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
   },
+  profile: {
+    type: profileSchema,
+    default: {}
+  }
 });
 
 mongoose.model("User", schema);

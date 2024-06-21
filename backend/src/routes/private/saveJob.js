@@ -1,6 +1,6 @@
 /**
  * @swagger
- * /jobs/save:
+ * /savejobs/save:
  *   post:
  *     summary: Save a job for a user
  *     tags: [SaveJobs]
@@ -30,7 +30,7 @@
  *       500:
  *         description: Some server error
  * 
- * /jobs/unsave/{userId}/{jobId}:
+ * /savejobs/unsave/{userId}/{jobId}:
  *   delete:
  *     summary: Unsave a job for a user
  *     tags: [SaveJobs]
@@ -55,7 +55,7 @@
  *       500:
  *         description: Some server error
  * 
- * /jobs/saved/{userId}:
+ * /savejobs/saved/{userId}:
  *   get:
  *     summary: Get all saved jobs for a user
  *     tags: [SaveJobs]
@@ -84,7 +84,7 @@
 const SaveJobController = require("../../app/Controllers/SaveJobController");
 
 module.exports = app => {
-  app.post("/jobs/save", SaveJobController.saveJob);
-  app.delete("/jobs/unsave/:userId/:jobId", SaveJobController.unsaveJob);
-  app.get("/jobs/saved/:userId", SaveJobController.getSavedJobs);
+  app.post("/savejobs/save", SaveJobController.saveJob);
+  app.delete("/savejobs/unsave/:userId/:jobId", SaveJobController.unsaveJob);
+  app.get("/savejobs/saved/:userId", SaveJobController.getSavedJobs);
 };

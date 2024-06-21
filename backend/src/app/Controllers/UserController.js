@@ -8,7 +8,6 @@ class UserController {
   hashPassword = (password) => {
     const saltRounds = bcrypt.genSaltSync(Number(process.env.AUTH_ROUNDS));
     const hashedPassword = bcrypt.hashSync(password, saltRounds);
-
     return hashedPassword;
   };
 
@@ -20,7 +19,6 @@ class UserController {
   getAllUsers = async (request, response) => {
     try {
       const users = await model.find({});
-
       return response.status(200).json(users);
     } catch (error) {
       return response.status(500).json(error);
@@ -28,14 +26,21 @@ class UserController {
   };
 
   createUser = async (request, response) => {
-    const user = request.body;
+    const { username, email, password, roleId } = request.body;
     try {
-      user.password = this.hashPassword(user.password);
+      const hashedPassword = this.hashPassword(password);
 
-      const newUser = await model.create(user);
-      this.sendWelcomeEmail(user.email);
+      const newUser = await model.create({
+        username,
+        email,
+        password: hashedPassword,
+        roleId,
+        profile: {} // Initialize empty profile
+      });
 
-      return response.status(200).json(newUser);
+      this.sendWelcomeEmail(email);
+
+      return response.status(201).json(newUser);
     } catch (error) {
       console.log(error);
       return response.status(500).json(error);
@@ -43,24 +48,31 @@ class UserController {
   };
 
   updateUser = async (request, response) => {
-    const userData = request.body;
+    console.log(request.params)
+    const { id } = request.params;
+    const updateData = request.body;
 
-    // request.user is the authenticated user id
-    if (request.user !== request.params.id) {
-      return response.status(401).send({
+    if (request.user._id !== id) {
+      return response.status(401).json({
         error: "error",
         message: "Permission Denied...",
       });
     }
 
     try {
-      userData.password = this.hashPassword(userData.password);
+      if (updateData.password) {
+        updateData.password = this.hashPassword(updateData.password);
+      }
 
-      await model.findByIdAndUpdate(request.params.id, userData);
+      const updatedUser = await model.findByIdAndUpdate(id, updateData, { new: true });
 
-      return response.status(200).json(user);
+      if (!updatedUser) {
+        return response.status(404).json({ message: "User not found" });
+      }
+
+      return response.status(200).json(updatedUser);
     } catch (error) {
-      return response.status(404).json(error);
+      return response.status(500).json(error);
     }
   };
 
@@ -69,7 +81,11 @@ class UserController {
     try {
       const user = await model.findById(id);
 
-      let userResponse = Object.assign({}, user._doc);
+      if (!user) {
+        return response.status(404).json({ message: "User not found" });
+      }
+
+      const userResponse = { ...user.toObject() };
       delete userResponse.password;
 
       return response.status(200).json(userResponse);
@@ -81,10 +97,13 @@ class UserController {
   deleteUserById = async (request, response) => {
     const { id } = request.params;
     try {
-      await model.deleteOne({ _id: id });
+      const result = await model.deleteOne({ _id: id });
+      if (result.deletedCount === 0) {
+        return response.status(404).json({ message: "User not found" });
+      }
       return response.status(200).json({ message: "Deleted successfully" });
     } catch (error) {
-      return response.status(404).json(error);
+      return response.status(500).json(error);
     }
   };
 }
