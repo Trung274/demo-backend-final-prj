@@ -33,7 +33,7 @@
  *
  *   /users/select/{id}:
  *     get:
- *       summary: Search for a user by ID
+ *       summary: Search for an user by ID
  *       description: Returns a single user matching the provided ID.
  *       parameters:
  *         - in: path
@@ -44,7 +44,7 @@
  *             type: string
  *       responses:
  *         200:
- *           description: A user object.
+ *           description: An user object.
  *           content:
  *             application/json:
  *               schema:

@@ -66,6 +66,7 @@ const schema = mongoose.Schema({
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true,
   },
   location: {
@@ -81,7 +82,7 @@ const schema = mongoose.Schema({
     required: true,
   },
   employmentType: {
-    type: [String],
+    type: String,
     enum: ['fulltime', 'parttime', 'internship', 'remote', 'contract'],
     required: true,
   },

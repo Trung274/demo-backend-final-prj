@@ -37,7 +37,7 @@
  * paths:
  *   /users/update/{id}:
  *     put:
- *       summary: Update a user
+ *       summary: Update an user
  *       description: Updates the details of an existing user.
  *       security:
  *         - authorization: []
@@ -66,7 +66,7 @@
  *
  *   /users/delete/{id}:
  *     delete:
- *       summary: Delete a user
+ *       summary: Delete an user
  *       description: Deletes an existing user by their ID.
  *       security:
  *         - authorization: []
