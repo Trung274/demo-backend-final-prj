@@ -1,70 +1,131 @@
 /**
  * @swagger
- *  components:
- *    schemas:
- *      User:
- *        type: object
- *        required:
- *          - username
- *          - email
- *          - password
- *        properties:
- *          username:
- *            type: string
- *          email:
- *            type: string
- *            format: email
- *            description: Email for the user, needs to be unique.
- *          password:
- *            type: string
- *          photo:
- *            type: string
- *            description: Image URL string
- *          nickname:
- *            type: string
- *        example:
- *           username: Renan
- *           email: fake@email.com
- *           password: 123456aa
- *           nickname: Dexter
- *           photo: https://photourl.com/image.png
- */
+* components:
+*  schemas:
+*    Profile:
+*      type: object
+*      properties:
+*        name:
+*          type: string
+*        avatar:
+*          type: string
+*        description:
+*          type: string
+*        website:
+*          type: string
+*        industry:
+*          type: string
+*        phone:
+*          type: string
+*        city:
+*          type: string
+*        address:
+*          type: string
+*        socialMedia:
+*          type: object
+*          properties:
+*            facebook:
+*              type: string
+*            twitter:
+*              type: string
+*            linkedin:
+*              type: string
+*    User:
+*      type: object
+*      required:
+*        - firstName
+*        - lastName
+*        - email
+*        - password
+*        - roleId
+*        - profile
+*      properties:
+*        firstName:
+*          type: string
+*        lastName:
+*          type: string
+*        email:
+*          type: string
+*        password:
+*          type: string
+*        roleId:
+*          type: string  # Change to "type: object" if roleId refers to another schema
+*        profile:
+*          type: object
+*          $ref: '#/components/schemas/Profile'
+*/
 
 const mongoose = require("mongoose");
 
+// Profile Schema (for Business Profile Information)
 const profileSchema = new mongoose.Schema({
-  phone: String,
-  city: String,
-  avatar: String,
-  description: String,
-  userTitle: [String],
-  profileLink: [String],
-  address: String,
-  businessLink: String
-}, { _id: false });
+  name: { // Tên Doanh Nghiệp (Company Name)
+    type: String,
+  },
+  avatar: { // Ảnh đại diện (Profile Picture)
+    type: String,
+  },
+  description: { // Mô tả (Description)
+    type: String,
+  },
+  website: { // Trang web (Website)
+    type: String,
+  },
+  industry: { // Ngành nghề (Industry)
+    type: String,
+  },
+  phone: { // Số điện thoại (Phone Number)
+    type: String,
+  },
+  city: { // Thành phố (City)
+    type: String,
+  },
+  address: { // Địa chỉ (Address)
+    type: String,
+  },
+  socialMedia: { // Mạng xã hội (Social Media)
+    type: Object,
+    properties: {
+      facebook: {
+        type: String,
+      },
+      twitter: {
+        type: String,
+      },
+      linkedin: {
+        type: String,
+      },
+    },
+  },
+});
 
-const schema = mongoose.Schema({
-  username: {
+// User Schema (for User Information)
+const userSchema = new mongoose.Schema({
+  firstName: { // Tên (First Name)
+    type: String,
+    required: true,
+  },
+  lastName: { // Họ (Last Name)
     type: String,
     required: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true,
+    unique: true, // Ensures unique email addresses
   },
   password: {
     type: String,
     required: true,
   },
-  roleId: {
+  roleId: { // Vai trò (Role ID)
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  profile: {
+  profile: { // Thông tin doanh nghiệp (Business Profile)
     type: profileSchema,
-    default: {}
-  }
+    required: true,
+  },
 });
 
-mongoose.model("User", schema);
+mongoose.model("User", userSchema);

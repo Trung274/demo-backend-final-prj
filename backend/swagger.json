@@ -31,6 +31,8 @@
     "./src/routes/private/user.js",
     "./src/app/Models/Job.js",
     "./src/app/Models/SaveJob.js",
+    "./src/app/Models/Role.js",
+    "./src/app/Models/Permission.js",
     "./src/routes/public/job.js",
     "./src/routes/private/job.js",
     "./src/routes/private/saveJob.js"

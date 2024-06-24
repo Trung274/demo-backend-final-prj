@@ -26,21 +26,14 @@ class UserController {
   };
 
   createUser = async (request, response) => {
-    const { username, email, password, roleId } = request.body;
+    const user = request.body;
     try {
-      const hashedPassword = this.hashPassword(password);
+      user.password = this.hashPassword(user.password);
 
-      const newUser = await model.create({
-        username,
-        email,
-        password: hashedPassword,
-        roleId,
-        profile: {} // Initialize empty profile
-      });
+      const newUser = await model.create(user);
+      this.sendWelcomeEmail(user.email);
 
-      this.sendWelcomeEmail(email);
-
-      return response.status(201).json(newUser);
+      return response.status(200).json(newUser);
     } catch (error) {
       console.log(error);
       return response.status(500).json(error);
@@ -52,7 +45,7 @@ class UserController {
     const { id } = request.params;
     const updateData = request.body;
 
-    if (request.user._id !== id) {
+    if (request.user.user_id !== id) {
       return response.status(401).json({
         error: "error",
         message: "Permission Denied...",

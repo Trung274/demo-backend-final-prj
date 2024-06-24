@@ -4,7 +4,9 @@
   "description": "Node API Express, MongoDB",
   "scripts": {
     "gcp-build": "",
-    "start": "nodemon server.js",
+    "start": "server.js",
+    "debug": "nodemon --inspect=0.0.0.0 server.js",
+    "dev": "nodemon server.js",
     "deploy": "gcloud app deploy app.yaml --version=0-1-3"
   },
   "author": "Renan Lopes",

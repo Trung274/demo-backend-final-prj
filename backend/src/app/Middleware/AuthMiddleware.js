@@ -4,6 +4,7 @@
  *   /login:
  *     post:
  *       summary: User login
+ *       tags: [Public]
  *       description: Authenticates an user and returns a token along with user details.
  *       requestBody:
  *         required: true
@@ -33,19 +34,13 @@
  *                   _id:
  *                     type: string
  *                     description: The user ID.
- *                   nickname:
- *                     type: string
- *                     description: The user's nickname.
- *                   username:
- *                     type: string
- *                     description: The user's username.
- *                   photo:
- *                     type: string
- *                     description: URL to the user's photo.
  *                   email:
  *                     type: string
  *                     format: email
  *                     description: The user's email address.
+ *                   roleId:
+ *                     type: string
+ *                     description: RoleId
  *                   token:
  *                     type: string
  *                     description: Bearer token for authenticating future requests.

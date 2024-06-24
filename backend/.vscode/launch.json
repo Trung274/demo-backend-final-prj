@@ -21,6 +21,14 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\server.js"
+        },
+        {
+            "name": "Attach to Node in Docker",
+            "type": "node",
+            "address": "localhost",
+            "port": 9229,
+            "request": "attach",
+            "restart": true
         }
     ]
 }

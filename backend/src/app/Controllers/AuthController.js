@@ -23,7 +23,6 @@ class AuthController {
 
       response.status(200).json({
         _id: user._id,
-        username: user.username,
         email: user.email,
         roleId: user.roleId,
         token,

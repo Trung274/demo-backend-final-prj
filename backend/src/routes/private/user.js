@@ -1,68 +1,18 @@
 /**
  * @swagger
- * components:
+  * components:
  *   securitySchemes:
  *     authorization:
  *       type: http
  *       scheme: bearer
  *       bearerFormat: JWT
- *   schemas:
- *     User:
- *       type: object
- *       required:
- *         - username
- *         - email
- *         - password
- *         - roleId
- *       properties:
- *         _id:
- *           type: string
- *           description: The auto-generated id of the user
- *         username:
- *           type: string
- *         email:
- *           type: string
- *           format: email
- *           description: Email for the user, needs to be unique.
- *         password:
- *           type: string
- *         roleId:
- *           type: string
- *           description: ObjectId of the user's role
- *         profile:
- *           type: object
- *           properties:
- *             phone:
- *               type: string
- *             city:
- *               type: string
- *             avatar:
- *               type: string
- *             description:
- *               type: string
- *             userTitle:
- *               type: array
- *               items:
- *                 type: string
- *             profileLink:
- *               type: array
- *               items:
- *                 type: string
- *             address:
- *               type: string
- *             businessLink:
- *               type: string
- *       example:
- *         username: JohnDoe
- *         email: john@example.com
- *         password: securePassword123
- *         roleId: 60d5ecb8b4d7c62a90132b5f
- *         profile: {}
- * 
  * paths:
- *   /users/create:
+ *   /users/add:
  *     post:
  *       summary: Create a new user
+ *       tags: [User]
+ *       security:
+ *       - authorization: []
  *       description: Creates a new user with username, email, password, and roleId. The profile is initialized as an empty object.
  *       requestBody:
  *         required: true
@@ -81,7 +31,9 @@
  *   /users:
  *     get:
  *       summary: Get all users
- *       tags: [Users]
+ *       tags: [User]
+ *       security:
+ *       - authorization: []
  *       description: Retrieves a list of all users.
  *       responses:
  *         200:
@@ -96,7 +48,9 @@
  *   /users/select/{id}:
  *     get:
  *       summary: Search for a user by ID
- *       tags: [Users]
+ *       tags: [User]
+ *       security:
+ *       - authorization: []
  *       description: Returns a single user matching the provided ID.
  *       parameters:
  *         - in: path
@@ -118,7 +72,9 @@
  *   /users/update/{id}:
  *     put:
  *       summary: Update a user
- *       tags: [Users]
+ *       tags: [User]
+ *       security:
+ *       - authorization: []
  *       description: Updates the details of an existing user.
  *       parameters:
  *         - in: path
