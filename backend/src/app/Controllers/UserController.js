@@ -40,7 +40,29 @@ class UserController {
     }
   };
 
-  updateUser = async (request, response) => {
+  updateUserById = async (request, response) => {
+    console.log(request.params)
+    const { id } = request.params;
+    const updateData = request.body;
+
+    try {
+      if (updateData.password) {
+        updateData.password = this.hashPassword(updateData.password);
+      }
+
+      const updatedUser = await model.findByIdAndUpdate(id, updateData, { new: true });
+
+      if (!updatedUser) {
+        return response.status(404).json({ message: "User not found" });
+      }
+
+      return response.status(200).json(updatedUser);
+    } catch (error) {
+      return response.status(500).json(error);
+    }
+  };
+
+  updateProfile = async (request, response) => {
     console.log(request.params)
     const { id } = request.params;
     const updateData = request.body;

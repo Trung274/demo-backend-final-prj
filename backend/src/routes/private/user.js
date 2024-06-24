@@ -106,5 +106,6 @@ module.exports = (app) => {
   app.post("/users/create", UserController.createUser);
   app.get("/users", UserController.getAllUsers);
   app.get("/users/select/:id", UserController.searchUserById);
-  app.put("/users/update/:id", UserController.updateUser);
+  app.put("/users/update/:id", UserController.updateUserById);
+  app.put("/users/updateProfile", UserController.updateProfile);
 };
