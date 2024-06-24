@@ -2,7 +2,7 @@
  * @swagger
  * /savejobs/save:
  *   post:
- *     summary: Save a job for a user
+ *     summary: Save a job for an user
  *     tags: [SaveJobs]
  *     security:
  *       - authorization: []
@@ -32,7 +32,7 @@
  * 
  * /savejobs/unsave/{userId}/{jobId}:
  *   delete:
- *     summary: Unsave a job for a user
+ *     summary: Unsave a job for an user
  *     tags: [SaveJobs]
  *     security:
  *       - authorization: []
@@ -57,7 +57,7 @@
  * 
  * /savejobs/saved/{userId}:
  *   get:
- *     summary: Get all saved jobs for a user
+ *     summary: Get all saved jobs for an user
  *     tags: [SaveJobs]
  *     security:
  *       - authorization: []

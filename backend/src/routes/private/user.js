@@ -1,6 +1,6 @@
 /**
  * @swagger
-  * components:
+ * components:
  *   securitySchemes:
  *     authorization:
  *       type: http
@@ -47,7 +47,7 @@
  * 
  *   /users/select/{id}:
  *     get:
- *       summary: Search for a user by ID
+ *       summary: Search for an user by ID
  *       tags: [User]
  *       security:
  *       - authorization: []
@@ -61,7 +61,7 @@
  *             type: string
  *       responses:
  *         200:
- *           description: A user object.
+ *           description: An user object.
  *           content:
  *             application/json:
  *               schema:
@@ -71,7 +71,7 @@
  * 
  *   /users/update/{id}:
  *     put:
- *       summary: Update a user
+ *       summary: Update an user
  *       tags: [User]
  *       security:
  *       - authorization: []
@@ -98,6 +98,93 @@
  *           description: Unauthorized if the user is not authenticated.
  *         404:
  *           description: User not found.
+ * 
+  * /users/updateProfile:
+ *   put:
+ *     summary: Update user's own profile
+ *     tags: [User]
+ *     security:
+ *       - authorization: []
+ *     description: Allows a user to update their own profile information.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *               lastName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *                 format: email
+ *               password:
+ *                 type: string
+ *               profile:
+ *                 type: object
+ *                 properties:
+ *                   name:
+ *                     type: string
+ *                   avatar:
+ *                     type: string
+ *                   description:
+ *                     type: string
+ *                   website:
+ *                     type: string
+ *                   industry:
+ *                     type: string
+ *                   phone:
+ *                     type: string
+ *                   city:
+ *                     type: string
+ *                   address:
+ *                     type: string
+ *                   socialMedia:
+ *                     type: object
+ *                     properties:
+ *                       facebook:
+ *                         type: string
+ *                       twitter:
+ *                         type: string
+ *                       linkedin:
+ *                         type: string
+ *     responses:
+ *       200:
+ *         description: Profile updated successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       400:
+ *         description: Bad request if the input data is invalid.
+ *       401:
+ *         description: Unauthorized if the user is not authenticated.
+ *       404:
+ *         description: User not found.
+ *       500:
+ *         description: Server error.
+ * /users/me:
+ *   get:
+ *     summary: Get current user's profile
+ *     tags: [User]
+ *     security:
+ *       - authorization: []
+ *     description: Retrieves the profile of the currently authenticated user.
+ *     responses:
+ *       200:
+ *         description: Current user's profile retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       401:
+ *         description: Unauthorized - User is not authenticated.
+ *       404:
+ *         description: User not found.
+ *       500:
+ *         description: Server error.
  */
 
 const UserController = require("../../app/Controllers/UserController");
@@ -108,4 +195,5 @@ module.exports = (app) => {
   app.get("/users/select/:id", UserController.searchUserById);
   app.put("/users/update/:id", UserController.updateUserById);
   app.put("/users/updateProfile", UserController.updateProfile);
+  app.get("/users/me", UserController.getCurrentUser);
 };

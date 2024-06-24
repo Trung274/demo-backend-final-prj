@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const model = mongoose.model("User");
 
 const MailerService = require("../Services/Mail");
+const { request, response } = require("../../config/express");
 
 class UserController {
   hashPassword = (password) => {
@@ -63,31 +64,36 @@ class UserController {
   };
 
   updateProfile = async (request, response) => {
-    console.log(request.params)
-    const { id } = request.params;
     const updateData = request.body;
-
-    if (request.user.user_id !== id) {
-      return response.status(401).json({
-        error: "error",
-        message: "Permission Denied...",
-      });
-    }
-
+    const userId = request.user.user_id; 
+  
     try {
-      if (updateData.password) {
-        updateData.password = this.hashPassword(updateData.password);
+      // Only allow updating of specific fields
+      const allowedUpdates = ['firstName', 'lastName', 'email', 'password', 'profile'];
+      const updates = Object.keys(updateData)
+        .filter(key => allowedUpdates.includes(key))
+        .reduce((obj, key) => {
+          obj[key] = updateData[key];
+          return obj;
+        }, {});
+  
+      if (updates.password) {
+        updates.password = this.hashPassword(updates.password);
       }
-
-      const updatedUser = await model.findByIdAndUpdate(id, updateData, { new: true });
-
+  
+      const updatedUser = await model.findByIdAndUpdate(userId, updates, { new: true });
+  
       if (!updatedUser) {
         return response.status(404).json({ message: "User not found" });
       }
-
-      return response.status(200).json(updatedUser);
+  
+      // Remove sensitive information before sending the response
+      const userResponse = updatedUser.toObject();
+      delete userResponse.password;
+  
+      return response.status(200).json(userResponse);
     } catch (error) {
-      return response.status(500).json(error);
+      return response.status(500).json({ error: error.message });
     }
   };
 
@@ -119,6 +125,25 @@ class UserController {
       return response.status(200).json({ message: "Deleted successfully" });
     } catch (error) {
       return response.status(500).json(error);
+    }
+  };
+
+  getCurrentUser = async (request, response) => {
+    try {
+      const userId = request.user.user_id;
+      const user = await model.findById(userId);
+
+      if (!user) {
+        return response.status(404).json({ message: "User not found" });
+      }
+
+      // Remove sensitive information before sending the response
+      const userResponse = user.toObject();
+      delete userResponse.password;
+
+      return response.status(200).json(userResponse);
+    } catch (error) {
+      return response.status(500).json({ error: error.message });
     }
   };
 }

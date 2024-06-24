@@ -35,9 +35,10 @@ class App {
 
   database = () => {
     mongoose.connect(this.databaseUrl, {
-      useCreateIndex: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
     });
 
     mongoose.connection.on("connected", () => {
