@@ -105,7 +105,7 @@
  *     tags: [User]
  *     security:
  *       - authorization: []
- *     description: Allows a user to update their own profile information.
+ *     description: Allows an user to update their own profile information.
  *     requestBody:
  *       required: true
  *       content:
@@ -185,6 +185,83 @@
  *         description: User not found.
  *       500:
  *         description: Server error.
+ * 
+ /users/changePassword:
+ *   put:
+ *     summary: Change user's password
+ *     tags: [User]
+ *     security:
+ *       - authorization: []
+ *     description: Allows an user to change their password with password confirmation.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - currentPassword
+ *               - newPassword
+ *               - retypeNewPassword
+ *             properties:
+ *               currentPassword:
+ *                 type: string
+ *               newPassword:
+ *                 type: string
+ *               retypeNewPassword:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Password changed successfully.
+ *       400:
+ *         description: Bad request - Invalid current password or new passwords do not match.
+ *       401:
+ *         description: Unauthorized - User is not authenticated.
+ *       404:
+ *         description: User not found.
+ *       500:
+ *         description: Server error.
+ * 
+ * /users/deleteAccount:
+ *   delete:
+ *     summary: Delete user's own account
+ *     tags: [User]
+ *     security:
+ *       - authorization: []
+ *     description: Allows an user to delete their own account.
+ *     responses:
+ *       200:
+ *         description: Account deleted successfully.
+ *       401:
+ *         description: Unauthorized - User is not authenticated.
+ *       404:
+ *         description: User not found.
+ *       500:
+ *         description: Server error.
+ * 
+ * /users/delete/{id}:
+ *   delete:
+ *     summary: Delete an user
+ *     tags: [User]
+ *     security:
+ *       - authorization: []
+ *     description: Deletes an existing user by ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Unique ID of the user to delete.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: User deleted successfully.
+ *       401:
+ *         description: Unauthorized if the user is not authenticated.
+ *       404:
+ *         description: User not found.
+ *       500:
+ *         description: Server error.
  */
 
 const UserController = require("../../app/Controllers/UserController");
@@ -196,4 +273,7 @@ module.exports = (app) => {
   app.put("/users/update/:id", UserController.updateUserById);
   app.put("/users/updateProfile", UserController.updateProfile);
   app.get("/users/me", UserController.getCurrentUser);
+  app.put("/users/changePassword", UserController.changePassword);
+  app.delete("/users/deleteAccount", UserController.deleteAccount);
+  app.delete("/users/delete/:id", UserController.deleteUserById);
 };
