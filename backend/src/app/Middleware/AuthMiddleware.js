@@ -4,7 +4,7 @@
  *   /login:
  *     post:
  *       summary: User login
- *       tags: [Public]
+ *       tags: [Register and Login]
  *       description: Authenticates an user and returns a token along with user details.
  *       requestBody:
  *         required: true

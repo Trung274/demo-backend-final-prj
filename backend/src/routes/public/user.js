@@ -4,7 +4,7 @@
  *   /users/create:
  *     post:
  *       summary: Create a new user
- *       tags: [Public]
+ *       tags: [Register and Login]
  *       description: Creates a new user with username, email, password, and roleId. The profile is initialized as an empty object.
  *       requestBody:
  *         required: true
