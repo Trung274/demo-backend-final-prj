@@ -35,6 +35,8 @@
     "./src/app/Models/Permission.js",
     "./src/routes/public/job.js",
     "./src/routes/private/job.js",
-    "./src/routes/private/saveJob.js"
+    "./src/routes/private/saveJob.js",
+    "./src/routes/private/jobCategory.js",
+    "./src/routes/public/jobCategory.js"
   ]
 }

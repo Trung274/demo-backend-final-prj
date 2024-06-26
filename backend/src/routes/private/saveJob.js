@@ -30,28 +30,24 @@
  *       500:
  *         description: Some server error
  * 
- * /savejobs/unsave/{userId}/{jobId}:
+ * /savejobs/unsave/{jobId}:
  *   delete:
- *     summary: Unsave a job for an user
+ *     summary: Unsave a job for the authenticated user
  *     tags: [SaveJobs]
  *     security:
  *       - authorization: []
  *     parameters:
  *       - in: path
- *         name: userId
- *         schema:
- *           type: string
- *         required: true
- *         description: The user id
- *       - in: path
  *         name: jobId
  *         schema:
  *           type: string
  *         required: true
- *         description: The job id
+ *         description: The job id to unsave
  *     responses:
  *       200:
  *         description: The job was successfully unsaved
+ *       404:
+ *         description: Saved job not found
  *       500:
  *         description: Some server error
  * 
@@ -85,6 +81,6 @@ const SaveJobController = require("../../app/Controllers/SaveJobController");
 
 module.exports = app => {
   app.post("/savejobs/save", SaveJobController.saveJob);
-  app.delete("/savejobs/unsave/:userId/:jobId", SaveJobController.unsaveJob);
+  app.delete("/savejobs/unsave/:jobId", SaveJobController.unsaveJob);
   app.get("/savejobs/saved/:userId", SaveJobController.getSavedJobs);
 };

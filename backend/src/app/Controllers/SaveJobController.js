@@ -13,15 +13,22 @@ class SaveJobController {
     }
   }
 
-  async unsaveJob(request, response) {
+   async unsaveJob(request, response) {
     try {
-      const { userId, jobId } = request.params;
-      await SaveJobModel.deleteOne({ userId, jobId });
+      const userId = request.user.user_id; // Get user ID from authenticated request
+      const { jobId } = request.params; // Get jobId from URL params
+      const result = await SaveJobModel.deleteOne({ userId, jobId });
+      
+      if (result.deletedCount === 0) {
+        return response.status(404).json({ message: "Saved job not found" });
+      }
+      
       return response.status(200).json({ message: "Job unsaved successfully" });
     } catch (error) {
-      return response.status(500).json(error);
+      return response.status(500).json({ error: error.message });
     }
   }
+
 
   async getSavedJobs(request, response) {
     try {
