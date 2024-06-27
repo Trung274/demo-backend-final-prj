@@ -1,0 +1,42 @@
+.btn.btn-social {
+    @apply mr-2 w-9 h-9 flex items-center justify-center text-gray-300 border border-gray-500 rounded transition duration-300;
+}
+
+.btn.btn-social:hover {
+    @apply text-primary border-gray-300;
+}
+
+.btn.btn-link {
+    @apply block mb-2 p-0 text-left text-sm font-normal capitalize transition duration-300;
+}
+
+.btn.btn-link::before {
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    @apply mr-2.5;
+}
+
+.btn.btn-link:hover {
+    @apply tracking-wider;
+}
+
+.form-control {
+    @apply border-gray-500;
+}
+
+.copyright {
+    @apply py-6 text-sm border-t border-gray-800;
+}
+
+.copyright a {
+    @apply text-gray-300;
+}
+
+.footer-menu a {
+    @apply mr-4 pr-4 border-r border-gray-700;
+}
+
+.footer-menu a:last-child {
+    @apply mr-0 pr-0 border-r-0;
+}
