@@ -1,0 +1,42 @@
+.nav-link {
+    @apply text-dark text-sm uppercase font-medium hover:text-primary transition duration-300;
+}
+
+.nav-link.active {
+    @apply text-primary;
+}
+
+.dropdown-toggle::after {
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    @apply ml-1 inline-block transition duration-300;
+}
+
+.dropdown-menu {
+    @apply hidden absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none;
+}
+
+.group:hover .dropdown-menu {
+    @apply block;
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        top: 100%;
+        margin-top: 0;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        transform: rotateX(0deg);
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
