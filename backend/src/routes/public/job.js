@@ -36,6 +36,38 @@
  *                 $ref: '#/components/schemas/Job'
  *         404:
  *           description: Job posting not found.
+ *   /jobs/search:
+ *     get:
+ *       summary: Search for jobs
+ *       tags: [Jobs]
+ *       description: Searches for jobs based on various criteria.
+ *       parameters:
+ *         - in: query
+ *           name: query
+ *           schema:
+ *             type: string
+ *           description: Search query for job title or description
+ *         - in: query
+ *           name: location
+ *           schema:
+ *             type: string
+ *           description: Job location
+ *         - in: query
+ *           name: category
+ *           schema:
+ *             type: string
+ *           description: Job category
+ *       responses:
+ *         200:
+ *           description: List of jobs matching the search criteria
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: array
+ *                 items:
+ *                   $ref: '#/components/schemas/Job'
+ *         500:
+ *           description: Server error
  * components:
  *   schemas:
  *     Job:
@@ -53,6 +85,9 @@
  *         location:
  *           type: string
  *           description: Location of the job
+ *         category:
+ *           type: string
+ *           description: Category of the job
  *         businessLogoUrl:
  *           type: string
  *           description: URL of the business logo
@@ -82,6 +117,7 @@
  *         description: We are looking for an experienced software engineer...
  *         userId: 5f9d5a3b9d3e2a1b1c9d5a3b
  *         location: San Francisco, CA
+ *         category: Information Technology
  *         businessLogoUrl: https://example.com/logo.png
  *         salary: $120,000 - $150,000 per year
  *         employmentType: [fulltime, remote]
@@ -94,4 +130,5 @@ const JobController = require("../../app/Controllers/JobController");
 module.exports = app => {
   app.get("/jobs", JobController.getAllJobs);
   app.get("/jobs/select/:id", JobController.searchJobById);
+  app.get('/jobs/search', JobController.searchJobs);
 };

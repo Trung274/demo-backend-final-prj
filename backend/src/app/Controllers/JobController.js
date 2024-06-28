@@ -97,6 +97,36 @@ class JobController {
       return response.status(500).json(error);
     }
   }
+
+  searchJobs = async (request, response) => {
+    try {
+      const { query, location, category } = request.query;
+      
+      let searchCriteria = {};
+  
+      if (query) {
+        searchCriteria.$or = [
+          { jobTitle: { $regex: query, $options: 'i' } },
+          { description: { $regex: query, $options: 'i' } }
+        ];
+      }
+  
+      if (location) {
+        searchCriteria.location = { $regex: location, $options: 'i' };
+      }
+  
+      if (category) {
+        searchCriteria.category = { $regex: category, $options: 'i' };
+      }
+  
+      const jobs = await model.find(searchCriteria);
+  
+      return response.status(200).json(jobs);
+    } catch (error) {
+      console.error('Error searching jobs:', error);
+      return response.status(500).json({ error: 'An error occurred while searching for jobs' });
+    }
+  };
 }
 
 module.exports = new JobController();
