@@ -4,7 +4,9 @@
             "@/*": ["*"],
             "@components/*": ["components/*"],
             "@pages/*": ["pages/*"],
-            "@layouts/*": ["layouts/*"]
+            "@layouts/*": ["layouts/*"],
+            "@utils/*": ["utils/*"],
+            "@types/*": ["types/*"]
         }
     }
  }
