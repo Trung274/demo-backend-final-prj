@@ -1,15 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import { StoreProvider } from './store'
 import * as serviceWorker from './serviceWorker';
 import './index.css'
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StoreProvider>
     <App />
-  </StoreProvider>,
-  document.getElementById('root')
+  </StoreProvider>
 );
 
 // If you want your app to work offline and load faster, you can change
