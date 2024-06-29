@@ -91,12 +91,30 @@ const Profile = {
   unfollow: (username: string) => requests.del(`/profiles/${username}/follow`)
 };
 
+// const Jobs = {
+//   all: (page: number, limit: number) => 
+//     requests.get(`/jobs?${limit(limit, page)}`),
+//   byUser: (userId: string, page: number, limit: number) => 
+//     requests.get(`/jobs?userId=${encode(userId)}&${limit(limit, page)}`),
+//   del: (jobId: string) => 
+//     requests.del(`/jobs/${jobId}`),
+//   get: (jobId: string) => 
+//     requests.get(`/jobs/${jobId}`),
+//   update: (jobId: string, job: any) => 
+//     requests.put(`/jobs/${jobId}`, { job }),
+//   create: (job: any) => 
+//     requests.post('/jobs', { job }),
+//   search: (query: string, page: number, limit: number) => 
+//     requests.get(`/jobs/search?query=${encode(query)}&${limit(limit, page)}`)
+// };
+
 const agent = {
   Articles,
   Auth,
   Comments,
   Profile,
   Tags,
-};
+  // Jobs,
+}
 
 export default agent;

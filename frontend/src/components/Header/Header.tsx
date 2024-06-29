@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Observer } from 'mobx-react-lite';
 import { useStore } from '../../store'
+import logo from '../../assets/svg/Logo.svg';
 
 const LoggedOutView = (props: any) => {
     if (!props.currentUser) {
@@ -12,15 +13,15 @@ const LoggedOutView = (props: any) => {
                         <div className="flex items-center">
                             <a className="hidden sm:flex" href="/">
                                 <div>
-                                    <span >
-                                        <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/assets/img/logo.svg" />
+                                    <span>
+                                        <img src={logo} alt="Logo" aria-hidden="true" />
                                     </span>
                                 </div>
                             </a>
                             <a className="sm:hidden flex" href="/">
                                 <div>
                                     <span>
-                                        <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/assets/img/logo.svg" />
+                                        <img src={logo} alt="Logo" aria-hidden="true" />
                                     </span>
                                 </div>
                             </a>
@@ -28,19 +29,18 @@ const LoggedOutView = (props: any) => {
                         <div>
                             <ul className="bg-white w-full z-50 menu-open md:space-x-8 space-x-6 font-semibold hidden absolute left-0 top-20 lg:static lg:flex">
                                 <li className="ml-6 xl:ml-0 xl:mb-0"><a className="text-themePrimary text-xs  font-medium transition-all hover:text-themePrimary" href="/">Home</a></li>
-                                <li className="ml-6 xl:ml-0 xl:mb-0"><a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/find-job">Find Job</a></li>
-                                <li className="ml-6 xl:ml-0 xl:mb-0"><a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/company">Company</a></li>
+                                <li className="ml-6 xl:ml-0 xl:mb-0"><a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/jobs">Find Jobs</a></li>
+                                <li className="ml-6 xl:ml-0 xl:mb-0"><a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/businesses">Businesses</a></li>
                                 <li className="ml-6 xl:ml-0 xl:mb-0">
-                                    <a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/candidate">Candidate</a>
+                                    <a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/candidates">Candidates</a>
                                 </li>
-                                <li className="ml-6 xl:ml-0 xl:mb-0"><a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/career-advice">Career Advice</a></li>
                                 <li className="ml-6 xl:ml-0 xl:mb-0"><a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/contact-us">Contact Us</a></li>
                             </ul>
                         </div>
                         <div>
                             <ul className="flex py-2">
                                 <li className="">
-                                    <button className="block bg-black text-white px-3 py-3 text-xs font-medium rounded-md hover:!bg-themePrimary transition-all outline-none">Sign In</button>
+                                    <button className="block bg-[#333] text-white px-3 py-3 text-xs font-medium rounded-md hover:!bg-themePrimary transition-all outline-none">Sign In</button>
                                 </li>
                                 <li className="ml-4 hidden md:block">
                                     <button className="block bg-themePrimary text-white px-3 py-3 text-xs font-medium rounded-md hover:bg-black transition-all outline-none">Sign Up</button>
