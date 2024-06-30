@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                       <li className="mb-1 flex"><i className="fa-regular fa-circle-check text-emerald-600 text-xl me-2"></i> Create your own skin to match your brand</li>
                     </ul>
                     <div className="mt-6">
-                      <a href="/contactus" className="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white mt-2 rounded-md">
+                      <a href="/contact-us" className="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white mt-2 rounded-md">
                         <i className="fa-regular fa-envelope"></i> Contact us</a>
                     </div>
                   </div>
