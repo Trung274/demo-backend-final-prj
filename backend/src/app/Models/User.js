@@ -13,6 +13,10 @@
 *          type: string
 *        website:
 *          type: string
+*        slogan:
+*          type: string
+*        employees:
+*          type: string
 *        industry:
 *          type: string
 *        phone:

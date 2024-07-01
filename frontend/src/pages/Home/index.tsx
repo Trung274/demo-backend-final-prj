@@ -84,7 +84,7 @@ const Home: React.FC = () => {
                           <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
                         </div>
                         <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
+                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
                           <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
                         </div>
                       </div>
@@ -104,7 +104,7 @@ const Home: React.FC = () => {
                           <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
                         </div>
                         <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
+                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
                           <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
                         </div>
                       </div>
@@ -124,7 +124,7 @@ const Home: React.FC = () => {
                           <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
                         </div>
                         <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
+                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
                           <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
                         </div>
                       </div>
@@ -144,7 +144,7 @@ const Home: React.FC = () => {
                           <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
                         </div>
                         <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
+                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
                           <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
                         </div>
                       </div>
@@ -164,7 +164,7 @@ const Home: React.FC = () => {
                           <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
                         </div>
                         <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
+                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
                           <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
                         </div>
                       </div>
@@ -184,6 +184,61 @@ const Home: React.FC = () => {
                     <p>Part Time</p>
                   </TabItem>
                 </TabList>
+              </div>
+            </div>
+          </section>
+          <section className="py-16 md:py-20 lg:py-24 bg-white">
+            <div className="container">
+              <div className="text-center mb-14">
+                <p className="text-themePrimary font-bold text-xs leading-none mb-1">Our Blog</p>
+                <h2 className="text-xl font-bold text-black">See How You Can Up Your Career Status</h2>
+              </div>
+              <div className="grid gap-4 xl:gap-6 xl:grid-cols-3 md:grid-cols-2">
+                <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">
+                  <div className="img mb-4 overflow-hidden rounded-md">
+                    <a href="/blog/single-blog">
+                      <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fpost%2Fblog-img-1.webp&w=1080&q=75" />
+                    </a>
+                  </div>
+                  <p className="text-grayLight text-xss font-normal mb-2">17 July 2022</p>
+                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Simple &amp; Awesome Blog Title Here Lorem Ipsum Dummy Text</a>
+                  <div className="mb-6">
+                    <p className="text-xs text-deep font-normal leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                  <div className="blog-btn">
+                    <a className="inline-flex gap-3 items-center py-2.5 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all text-xxs group-hover:!text-white" href="/blog/single-blog">Read More</a>
+                  </div>
+                </div>
+                <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">
+                  <div className="img mb-4 overflow-hidden rounded-md">
+                    <a href="/blog/single-blog">
+                      <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fpost%2Fblog-img-1.webp&w=1080&q=75" />
+                    </a>
+                  </div>
+                  <p className="text-grayLight text-xss font-normal mb-2">17 July 2022</p>
+                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Simple &amp; Awesome Blog Title Here Lorem Ipsum Dummy Text</a>
+                  <div className="mb-6">
+                    <p className="text-xs text-deep font-normal leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                  <div className="blog-btn">
+                    <a className="inline-flex gap-3 items-center py-2.5 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all text-xxs group-hover:!text-white" href="/blog/single-blog">Read More</a>
+                  </div>
+                </div>
+                <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">
+                  <div className="img mb-4 overflow-hidden rounded-md">
+                    <a href="/blog/single-blog">
+                      <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fpost%2Fblog-img-1.webp&w=1080&q=75" />
+                    </a>
+                  </div>
+                  <p className="text-grayLight text-xss font-normal mb-2">17 July 2022</p>
+                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Simple &amp; Awesome Blog Title Here Lorem Ipsum Dummy Text</a>
+                  <div className="mb-6">
+                    <p className="text-xs text-deep font-normal leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                  <div className="blog-btn">
+                    <a className="inline-flex gap-3 items-center py-2.5 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all text-xxs group-hover:!text-white" href="/blog/single-blog">Read More</a>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
