@@ -23,6 +23,7 @@ const App: React.FC = () => {
   })
   return (
     <BrowserRouter>
+      <Toaster position='top-right' toastOptions={{ duration: 2000 }} />
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />

@@ -100,7 +100,7 @@ class JobController {
 
   searchJobs = async (request, response) => {
     try {
-      const { query, location, category } = request.query;
+      const { query, location, categoryId } = request.query;
       
       let searchCriteria = {};
   
@@ -115,8 +115,8 @@ class JobController {
         searchCriteria.location = { $regex: location, $options: 'i' };
       }
   
-      if (category) {
-        searchCriteria.category = { $regex: category, $options: 'i' };
+      if (categoryId) {
+        searchCriteria.categoryId = categoryId;
       }
   
       const jobs = await model.find(searchCriteria);

@@ -131,6 +131,10 @@
  *                     type: string
  *                   description:
  *                     type: string
+ *                   slogan:
+ *                     type: string
+ *                   employees:
+ *                     type: string
  *                   website:
  *                     type: string
  *                   industry:

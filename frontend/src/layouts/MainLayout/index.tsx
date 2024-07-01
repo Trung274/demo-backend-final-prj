@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom"
 import './index.css';
 import Header from '@/components/Header/Header';
 import ScrollTop from "@components/ScrollTop";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer/Footer";
 
 const MainLayout = () => {
   return (
