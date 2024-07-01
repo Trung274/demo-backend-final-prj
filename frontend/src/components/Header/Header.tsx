@@ -57,20 +57,20 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar }: { sidebarOpen: boolean, t
                     </div>
                 </div>
             </nav>
-            
+
             {/* Modal Overlay */}
             <Modal open={open} onClose={() => setOpen(false)}>
-                    <div className="text-center w-56">
-                        <div className="mx-auto my-4 w-48">
-                            <h3 className="text-lg font-black text-gray-800">Confirm to Continue</h3>
-                            <p className="text-sm text-gray-500">Are you sure to Continue</p>
-                        </div>
-                        <div className="flex gap-4">
-                            <button className="btn btn-success w-full">Continue</button>
-                            <button onClick={() => setOpen(false)} className="btn btn-light w-full">Cancel</button>
-                        </div>
+                <div className="text-center w-56">
+                    <div className="mx-auto my-4 w-48">
+                        <h3 className="text-lg font-black text-gray-800">Confirm to Continue</h3>
+                        <p className="text-sm text-gray-500">Are you sure to Continue</p>
                     </div>
-                </Modal>
+                    <div className="flex gap-4">
+                        <button className="btn btn-success w-full">Continue</button>
+                        <button onClick={() => setOpen(false)} className="btn btn-light w-full">Cancel</button>
+                    </div>
+                </div>
+            </Modal>
 
             {/* Sidebar */}
             <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out z-50`}>
@@ -93,7 +93,7 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar }: { sidebarOpen: boolean, t
                     </div>
                 </div>
             </div>
-            
+
             {/* Overlay */}
             {sidebarOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={toggleSidebar}></div>

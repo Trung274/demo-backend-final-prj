@@ -55,7 +55,8 @@ const Footer = () => {
           </div>
           <div>
             <h5 className="text-white text-lg font-bold mb-4">Newsletter</h5>
-            <p className="mb-4">Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+            <p className="mb-4">Stay Updated!
+            <br />Subscribe to our newsletter to get the latest updates, job alerts, and career tips delivered right to your inbox.</p>
             <div className="relative max-w-xs">
               <input type="text" placeholder="Your email" className="bg-gray-700 text-white w-full py-2 px-4 rounded-md" />
               <button className="absolute right-0 top-0 bg-blue-500 text-white py-2 px-4 rounded-r-md">SignUp</button>
@@ -67,7 +68,7 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-center md:text-left mb-4 md:mb-0">
-              &copy; <a href="/" className="text-white hover:underline">JobHub</a>, All Right Reserved. 
+              &copy; <a href="/" className="text-white hover:underline">JobHub</a>, All Right Reserved.
             </div>
             <div className="flex space-x-4">
               <a href="/" className="text-gray-300 hover:text-white">Home</a>
