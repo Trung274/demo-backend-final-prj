@@ -95,7 +95,7 @@ const Candidates: React.FC = () => {
                 <div className="container p-16 relative z-3">
                     <div className="w-10/12 m-auto pt-10 pb-7">
                         <div className="text-center">
-                            <h1 className="text-xxl xl:text-xxxl font-bold text-white text-center leading-none mb-6">Candidate List</h1>
+                            <h1 className="text-5xl xl:text-6xl font-bold text-white text-center leading-none mb-3">Candidate List</h1>
                         </div>
                     </div>
                 </div>

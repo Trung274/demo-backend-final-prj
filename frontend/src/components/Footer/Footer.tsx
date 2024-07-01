@@ -11,15 +11,15 @@ const Footer = () => {
           <div>
             <h5 className="text-white text-lg font-bold mb-4">Company</h5>
             <a href="#" className="block text-gray-300 hover:text-white mb-2">About Us</a>
-            <a href="#" className="block text-gray-300 hover:text-white mb-2">Contact Us</a>
+            <a href="contact-us" className="block text-gray-300 hover:text-white mb-2">Contact Us</a>
             <a href="#" className="block text-gray-300 hover:text-white mb-2">Our Services</a>
             <a href="#" className="block text-gray-300 hover:text-white mb-2">Privacy Policy</a>
             <a href="#" className="block text-gray-300 hover:text-white mb-2">Terms & Condition</a>
           </div>
           <div>
             <h5 className="text-white text-lg font-bold mb-4">Quick Links</h5>
-            <a href="#" className="block text-gray-300 hover:text-white mb-2">About Us</a>
-            <a href="#" className="block text-gray-300 hover:text-white mb-2">Contact Us</a>
+            <a href="/about" className="block text-gray-300 hover:text-white mb-2">About Us</a>
+            <a href="contact-us" className="block text-gray-300 hover:text-white mb-2">Contact Us</a>
             <a href="#" className="block text-gray-300 hover:text-white mb-2">Our Services</a>
             <a href="#" className="block text-gray-300 hover:text-white mb-2">Privacy Policy</a>
             <a href="#" className="block text-gray-300 hover:text-white mb-2">Terms & Condition</a>
@@ -28,11 +28,11 @@ const Footer = () => {
             <h5 className="text-white text-lg font-bold mb-4">Contact</h5>
             <p className="flex items-center mb-2">
               <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-              18 Hoàng Quốc Việt, Nghĩa Đô, Cầu Giấy, Hà Nội 100000, Vietnam
+              15/8 P. Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội 11310, Vietnam
             </p>
             <p className="flex items-center mb-2">
               <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
-              +84 815 68196
+              +84 981 568196
             </p>
             <p className="flex items-center mb-2">
               <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
@@ -67,7 +67,7 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-center md:text-left mb-4 md:mb-0">
-              &copy; <a href="#" className="text-white hover:underline">JobHub</a>, All Right Reserved. 
+              &copy; <a href="/" className="text-white hover:underline">JobHub</a>, All Right Reserved. 
             </div>
             <div className="flex space-x-4">
               <a href="/" className="text-gray-300 hover:text-white">Home</a>

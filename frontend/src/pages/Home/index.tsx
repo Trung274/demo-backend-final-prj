@@ -5,8 +5,11 @@ import { Banner } from './Banner';
 import { Category } from './Category';
 import TabList from '@/components/Tabs/TabList';
 import TabItem from '@/components/Tabs/TabItem';
-import about1 from '../../assets/img/about-1.jpg';
-import about2 from '../../assets/img/about-2.jpg';
+import about1 from '../../assets/img/about1.jpg';
+import about2 from '../../assets/img/about2.jpg';
+import article1 from '../../assets/img/article1.jpg';
+import article2 from '../../assets/img/article2.jpg';
+import article3 from '../../assets/img/article3.jpg';
 
 const Home: React.FC = () => {
   const { commonStore } = useStore();
@@ -197,13 +200,13 @@ const Home: React.FC = () => {
                 <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">
                   <div className="img mb-4 overflow-hidden rounded-md">
                     <a href="/blog/single-blog">
-                      <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fpost%2Fblog-img-1.webp&w=1080&q=75" />
+                      <img alt="" aria-hidden="true" src={article1} />
                     </a>
                   </div>
-                  <p className="text-grayLight text-xss font-normal mb-2">17 July 2022</p>
-                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Simple &amp; Awesome Blog Title Here Lorem Ipsum Dummy Text</a>
+                  <p className="text-grayLight text-xss font-normal mb-2">01 July 2024</p>
+                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">How to Ace Your Next Job Interview</a>
                   <div className="mb-6">
-                    <p className="text-xs text-deep font-normal leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p className="text-xs text-deep font-normal leading-6">"Preparing for a job interview can be a daunting task, but with the right strategies, you can make a lasting impression. Start by researching the company and understanding its culture. Practice common interview questions and answers, and dress appropriately for the role. During the interview, be confident, make eye contact, and listen carefully to the questions before responding. After the interview, don't forget to send a thank-you email to express your appreciation for the opportunity. These steps can significantly increase your chances of landing the job."</p>
                   </div>
                   <div className="blog-btn">
                     <a className="inline-flex gap-3 items-center py-2.5 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all text-xxs group-hover:!text-white" href="/blog/single-blog">Read More</a>
@@ -212,13 +215,13 @@ const Home: React.FC = () => {
                 <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">
                   <div className="img mb-4 overflow-hidden rounded-md">
                     <a href="/blog/single-blog">
-                      <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fpost%2Fblog-img-1.webp&w=1080&q=75" />
+                      <img alt="" aria-hidden="true" src={article2} />
                     </a>
                   </div>
-                  <p className="text-grayLight text-xss font-normal mb-2">17 July 2022</p>
-                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Simple &amp; Awesome Blog Title Here Lorem Ipsum Dummy Text</a>
+                  <p className="text-grayLight text-xss font-normal mb-2">15 June 2024</p>
+                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">The Importance of Networking in Your Career</a>
                   <div className="mb-6">
-                    <p className="text-xs text-deep font-normal leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p className="text-xs text-deep font-normal leading-6">"Networking is a powerful tool that can propel your career to new heights. Building a strong professional network opens doors to opportunities that might not be advertised publicly. Attend industry events, join professional associations, and participate in online forums to meet new people in your field. Networking isn't just about what others can do for you; it's also about what you can offer in return. Share your knowledge, skills, and resources to build mutually beneficial relationships. Over time, your network can provide valuable support, advice, and job leads."</p>
                   </div>
                   <div className="blog-btn">
                     <a className="inline-flex gap-3 items-center py-2.5 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all text-xxs group-hover:!text-white" href="/blog/single-blog">Read More</a>
@@ -227,13 +230,13 @@ const Home: React.FC = () => {
                 <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">
                   <div className="img mb-4 overflow-hidden rounded-md">
                     <a href="/blog/single-blog">
-                      <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fpost%2Fblog-img-1.webp&w=1080&q=75" />
+                      <img alt="" aria-hidden="true" src={article3} />
                     </a>
                   </div>
-                  <p className="text-grayLight text-xss font-normal mb-2">17 July 2022</p>
-                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Simple &amp; Awesome Blog Title Here Lorem Ipsum Dummy Text</a>
+                  <p className="text-grayLight text-xss font-normal mb-2">30 May 2024</p>
+                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Balancing Work and Life: Tips for a Healthier Lifestyle</a>
                   <div className="mb-6">
-                    <p className="text-xs text-deep font-normal leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p className="text-xs text-deep font-normal leading-6">"Achieving a healthy work-life balance is essential for both your mental and physical well-being. Start by setting clear boundaries between work and personal time. Make a schedule that includes time for work, family, and leisure activities. Prioritize tasks and learn to say no to non-essential commitments. Incorporate regular exercise and healthy eating into your daily routine to boost your energy levels and reduce stress. Additionally, ensure you get enough sleep each night to allow your body to recover. Remember, a well-balanced life leads to greater productivity and happiness."</p>
                   </div>
                   <div className="blog-btn">
                     <a className="inline-flex gap-3 items-center py-2.5 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all text-xxs group-hover:!text-white" href="/blog/single-blog">Read More</a>

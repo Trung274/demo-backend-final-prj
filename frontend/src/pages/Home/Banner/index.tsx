@@ -1,14 +1,17 @@
 import React from "react";
+import main from "../../../assets/img/main.jpg"
 
 export function Banner() {
     return (
-            <section className="py-16 md:py-20 lg:py-24 relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url(https://metajobs.vercel.app/assets/img/banner-bg.webp)" }}>
+        <section 
+        className="py-16 md:py-20 lg:py-24 relative bg-cover bg-center bg-no-repeat" 
+        style={{ backgroundImage: `url(${main})` }}>
                 <div className="absolute w-full h-full left-0 top-0 z-2" style={{ backgroundColor: "rgba(0, 124, 50, 0.7)" }}></div>
                 <div className="container">
                     <div className="w-10/12 m-auto z-4 relative">
                         <div className="text-center">
-                            <h1 className="text-5xl xl:text-6xl font-bold text-white text-center leading-none mb-3">Find Your Dream Job <br className="hidden xl:inline" />With Brand Name</h1>
-                            <p className="text-lg font-normal text-white leading-8">Lorem Ipsum is simply dummy text of the printing and <br className="hidden xl:inline" />typesetting industry’s standard dummy text</p>
+                            <h1 className="text-5xl xl:text-6xl font-bold text-white text-center leading-none mb-3">Discover Your Ideal Career Path <br className="hidden xl:inline" />With JobHub</h1>
+                            <p className="text-lg font-normal text-white leading-8">Find opportunities that match your skills and aspirations. <br className="hidden xl:inline" />Start your journey towards a fulfilling career today!</p>
                         </div>
                         <div className="search-wrapper mt-10 p-2 rounded-2xl mb-10" style={{ backgroundColor: "rgba(121, 184, 151, 0.5)" }}>
                             <form>

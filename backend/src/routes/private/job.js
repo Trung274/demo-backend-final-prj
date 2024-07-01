@@ -29,9 +29,14 @@
  *           type: string
  *           description: Salary information for the job
  *         employmentType:
+ *           type: array
+ *           items:
+ *             type: string
+ *             enum: [fulltime, parttime, internship, remote, contract]
+ *           description: Type(s) of employment for the job
+ *         categoryId:
  *           type: string
- *           enum: [fulltime, parttime, internship, remote, contract]
- *           description: Type of employment for the job
+ *           description: ID of the job category
  *         expiredAt:
  *           type: string
  *           format: date-time
@@ -43,7 +48,8 @@
  *         location: San Francisco, CA
  *         businessLogoUrl: https://example.com/logo.png
  *         salary: $120,000 - $150,000 per year
- *         employmentType: fulltime
+ *         employmentType: [fulltime, remote]
+ *         categoryId: 5f9d5a3b9d3e2a1b1c9d5a3c
  *         expiredAt: 2023-07-01T00:00:00.000Z
  *
  * paths:

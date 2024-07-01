@@ -86,7 +86,7 @@ const schema = mongoose.Schema({
     required: true,
   },
   employmentType: {
-    type: String,
+    type: [String],
     enum: ['fulltime', 'parttime', 'internship', 'remote', 'contract'],
     required: true,
   },
