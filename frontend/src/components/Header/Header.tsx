@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Observer } from 'mobx-react-lite';
 import { useStore } from '../../store'
+import Modal from '../Model';
 import logo from '../../assets/svg/Logo.svg';
 
 const LoggedOutView = (props: any) => {
+    const [open, setOpen] = useState(false)
+
     if (!props.currentUser) {
         return (
             <header className="shadow-sm bg-white">
@@ -34,13 +37,14 @@ const LoggedOutView = (props: any) => {
                                 <li className="ml-6 xl:ml-0 xl:mb-0">
                                     <a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/candidates">Candidates</a>
                                 </li>
+                                <li className="ml-6 xl:ml-0 xl:mb-0"><a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/career-advice">Career Advice</a></li>
                                 <li className="ml-6 xl:ml-0 xl:mb-0"><a className="text-arsenic text-xs  font-medium transition-all hover:text-themePrimary" href="/contact-us">Contact Us</a></li>
                             </ul>
                         </div>
                         <div>
                             <ul className="flex py-2">
                                 <li className="">
-                                    <button className="block bg-[#333] text-white px-3 py-3 text-xs font-medium rounded-md hover:!bg-themePrimary transition-all outline-none">Sign In</button>
+                                    <button className="block bg-black text-white px-3 py-3 text-xs font-medium rounded-md hover:!bg-themePrimary transition-all outline-none" onClick={() => setOpen(true)}>Sign In</button>
                                 </li>
                                 <li className="ml-4 hidden md:block">
                                     <button className="block bg-themePrimary text-white px-3 py-3 text-xs font-medium rounded-md hover:bg-black transition-all outline-none">Sign Up</button>
@@ -56,6 +60,18 @@ const LoggedOutView = (props: any) => {
                         </div>
                     </div>
                 </nav>
+                <Modal open={open} onClose={() => setOpen(false)}>
+                    <div className="text-center w-56">
+                        <div className="mx-auto my-4 w-48">
+                            <h3 className="text-lg font-black text-gray-800">Confirm to Continue</h3>
+                            <p className="text-sm text-gray-500">Are you sure to Continue</p>
+                        </div>
+                        <div className="flex gap-4">
+                            <button className="btn btn-success w-full">Continue</button>
+                            <button onClick={() => setOpen(false)} className="btn btn-light w-full">Cancel</button>
+                        </div>
+                    </div>
+                </Modal>
             </header>
         );
     }
