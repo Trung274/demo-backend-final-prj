@@ -187,6 +187,61 @@ const Home: React.FC = () => {
               </div>
             </div>
           </section>
+          <section className="py-16 md:py-20 lg:py-24 bg-white">
+            <div className="container">
+              <div className="text-center mb-14">
+                <p className="text-themePrimary font-bold text-xs leading-none mb-1">Our Blog</p>
+                <h2 className="text-xl font-bold text-black">See How You Can Up Your Career Status</h2>
+              </div>
+              <div className="grid gap-4 xl:gap-6 xl:grid-cols-3 md:grid-cols-2">
+                <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">
+                  <div className="img mb-4 overflow-hidden rounded-md">
+                    <a href="/blog/single-blog">
+                      <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fpost%2Fblog-img-1.webp&w=1080&q=75" />
+                    </a>
+                  </div>
+                  <p className="text-grayLight text-xss font-normal mb-2">17 July 2022</p>
+                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Simple &amp; Awesome Blog Title Here Lorem Ipsum Dummy Text</a>
+                  <div className="mb-6">
+                    <p className="text-xs text-deep font-normal leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                  <div className="blog-btn">
+                    <a className="inline-flex gap-3 items-center py-2.5 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all text-xxs group-hover:!text-white" href="/blog/single-blog">Read More</a>
+                  </div>
+                </div>
+                <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">
+                  <div className="img mb-4 overflow-hidden rounded-md">
+                    <a href="/blog/single-blog">
+                      <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fpost%2Fblog-img-1.webp&w=1080&q=75" />
+                    </a>
+                  </div>
+                  <p className="text-grayLight text-xss font-normal mb-2">17 July 2022</p>
+                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Simple &amp; Awesome Blog Title Here Lorem Ipsum Dummy Text</a>
+                  <div className="mb-6">
+                    <p className="text-xs text-deep font-normal leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                  <div className="blog-btn">
+                    <a className="inline-flex gap-3 items-center py-2.5 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all text-xxs group-hover:!text-white" href="/blog/single-blog">Read More</a>
+                  </div>
+                </div>
+                <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">
+                  <div className="img mb-4 overflow-hidden rounded-md">
+                    <a href="/blog/single-blog">
+                      <img alt="" aria-hidden="true" src="https://metajobs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fpost%2Fblog-img-1.webp&w=1080&q=75" />
+                    </a>
+                  </div>
+                  <p className="text-grayLight text-xss font-normal mb-2">17 July 2022</p>
+                  <a className="text-arsenic hover:text-themePrimary transition-all duration-300 ease-in-out text-lg2 font-bold leading-6 mb-3 block" href="/blog/single-blog">Simple &amp; Awesome Blog Title Here Lorem Ipsum Dummy Text</a>
+                  <div className="mb-6">
+                    <p className="text-xs text-deep font-normal leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                  <div className="blog-btn">
+                    <a className="inline-flex gap-3 items-center py-2.5 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all text-xxs group-hover:!text-white" href="/blog/single-blog">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
       </div>
     )
