@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Observer } from 'mobx-react-lite';
 import { useStore } from '../../store'
+import Modal from '../Model';
 import logo from '../../assets/svg/Logo.svg';
 
 const LoggedOutView = ({ sidebarOpen, toggleSidebar }: { sidebarOpen: boolean, toggleSidebar: () => void }) => {
+    const [open, setOpen] = useState(false);
     return (
         <header className="shadow-sm bg-white">
             <nav className="container py-2.5">
@@ -39,7 +41,7 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar }: { sidebarOpen: boolean, t
                     <div>
                         <ul className="flex py-2">
                             <li className="">
-                                <button className="block bg-[#333] text-white px-3 py-3 text-xs font-medium rounded-md hover:!bg-themePrimary transition-all outline-none">Sign In</button>
+                                <button className="block bg-[#333] text-white px-3 py-3 text-xs font-medium rounded-md hover:!bg-themePrimary transition-all outline-none" onClick={() => setOpen(true)}>Sign In</button>
                             </li>
                             <li className="ml-4 hidden md:block">
                                 <button className="block bg-themePrimary text-white px-3 py-3 text-xs font-medium rounded-md hover:bg-black transition-all outline-none">Sign Up</button>
@@ -56,6 +58,20 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar }: { sidebarOpen: boolean, t
                 </div>
             </nav>
             
+            {/* Modal Overlay */}
+            <Modal open={open} onClose={() => setOpen(false)}>
+                    <div className="text-center w-56">
+                        <div className="mx-auto my-4 w-48">
+                            <h3 className="text-lg font-black text-gray-800">Confirm to Continue</h3>
+                            <p className="text-sm text-gray-500">Are you sure to Continue</p>
+                        </div>
+                        <div className="flex gap-4">
+                            <button className="btn btn-success w-full">Continue</button>
+                            <button onClick={() => setOpen(false)} className="btn btn-light w-full">Cancel</button>
+                        </div>
+                    </div>
+                </Modal>
+
             {/* Sidebar */}
             <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out z-50`}>
                 <div className="p-4">
