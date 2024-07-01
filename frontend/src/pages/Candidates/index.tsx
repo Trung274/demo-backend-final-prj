@@ -1,6 +1,16 @@
 import React from 'react';
 import CandidateCard from './CandidateCard/CandidateCard';
-import candidate from '../../assets/img/candidate.jpg'
+import candidate from '../../assets/img/candidate.jpg';
+import person1 from '../../assets/temp/person1.jpg';
+import person2 from '../../assets/temp/person2.jpg';
+import person3 from '../../assets/temp/person3.jpg';
+import person4 from '../../assets/temp/person4.jpg';
+import person5 from '../../assets/temp/person5.jpg';
+import person6 from '../../assets/temp/person6.jpg';
+import person7 from '../../assets/temp/person7.jpg';
+import person8 from '../../assets/temp/person8.jpg';
+import person9 from '../../assets/temp/person9.jpg';
+import person10 from '../../assets/temp/person10.jpg';
 
 // Mock database
 const mockUsers = [
@@ -8,7 +18,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f6a" },
     profile: {
       name: "Shanya Chaturvedi",
-      avatar: "/assets/img/pic5.png",
+      avatar: person1,
       city: "New York",
     },
   },
@@ -16,7 +26,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f6b" },
     profile: {
       name: "John Doe",
-      avatar: "/assets/img/pic1.png",
+      avatar: person2,
       city: "London",
     },
   },
@@ -24,7 +34,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f6c" },
     profile: {
       name: "Jane Smith",
-      avatar: "/assets/img/pic2.png",
+      avatar: person3,
       city: "Paris",
     },
   },
@@ -32,7 +42,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f6d" },
     profile: {
       name: "Carlos Hernandez",
-      avatar: "/assets/img/pic3.png",
+      avatar: person4,
       city: "Madrid",
     },
   },
@@ -40,7 +50,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f6e" },
     profile: {
       name: "Akira Yamamoto",
-      avatar: "/assets/img/pic4.png",
+      avatar: person5,
       city: "Tokyo",
     },
   },
@@ -48,7 +58,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f6f" },
     profile: {
       name: "Maria Rossi",
-      avatar: "/assets/img/pic6.png",
+      avatar: person6,
       city: "Rome",
     },
   },
@@ -56,7 +66,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f70" },
     profile: {
       name: "Liam O'Connor",
-      avatar: "/assets/img/pic7.png",
+      avatar: person7,
       city: "Dublin",
     },
   },
@@ -64,7 +74,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f71" },
     profile: {
       name: "Elena Petrova",
-      avatar: "/assets/img/pic8.png",
+      avatar: person8,
       city: "Moscow",
     },
   },
@@ -72,7 +82,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f72" },
     profile: {
       name: "Pierre Dubois",
-      avatar: "/assets/img/pic9.png",
+      avatar: person9,
       city: "Montreal",
     },
   },
@@ -80,7 +90,7 @@ const mockUsers = [
     _id: { $oid: "66794a73d5b8d77104564f73" },
     profile: {
       name: "Fatima Al-Mansouri",
-      avatar: "/assets/img/pic10.png",
+      avatar: person10,
       city: "Dubai",
     },
   },

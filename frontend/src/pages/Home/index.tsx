@@ -3,6 +3,7 @@ import { Observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
 import { Banner } from './Banner';
 import { Category } from './Category';
+import JobCard from '@components/JobCard/JobCard';
 import TabList from '@/components/Tabs/TabList';
 import TabItem from '@/components/Tabs/TabItem';
 import about1 from '../../assets/img/about1.jpg';
@@ -10,6 +11,63 @@ import about2 from '../../assets/img/about2.jpg';
 import article1 from '../../assets/img/article1.jpg';
 import article2 from '../../assets/img/article2.jpg';
 import article3 from '../../assets/img/article3.jpg';
+
+const mockJobs = [
+  {
+    _id: "1",
+    jobTitle: "Marketing Director",
+    employmentType: "Full Time",
+    businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-1.jpg",
+    location: "New York, USA",
+    salary: "$4,000 - $5,000",
+    expiredAt: "2024-08-15"
+  },
+  {
+    _id: "2",
+    jobTitle: "Software Engineer",
+    employmentType: "Part Time",
+    businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-2.jpg",
+    location: "San Francisco, USA",
+    salary: "$6,000 - $8,000",
+    expiredAt: "2024-07-30"
+  },
+  {
+    _id: "3",
+    jobTitle: "Data Analyst",
+    employmentType: "Remote",
+    businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-3.jpg",
+    location: "London, UK",
+    salary: "$3,500 - $4,500",
+    expiredAt: "2024-09-01"
+  },
+  {
+    _id: "4",
+    jobTitle: "Product Manager",
+    employmentType: "Full Time",
+    businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-4.jpg",
+    location: "Berlin, Germany",
+    salary: "$5,000 - $7,000",
+    expiredAt: "2024-08-20"
+  },
+  {
+    _id: "5",
+    jobTitle: "UX Designer",
+    employmentType: "Contract",
+    businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-5.jpg",
+    location: "Toronto, Canada",
+    salary: "$4,500 - $6,000",
+    expiredAt: "2024-07-25"
+  },
+  {
+    _id: "6",
+    jobTitle: "Sales Representative",
+    employmentType: "Full Time",
+    businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-6.jpg",
+    location: "Sydney, Australia",
+    salary: "$3,000 - $4,000",
+    expiredAt: "2024-08-10"
+  }
+];
 
 const Home: React.FC = () => {
   const { commonStore } = useStore();
@@ -21,7 +79,6 @@ const Home: React.FC = () => {
     loadTags();
   }, [commonStore]);
 
-
   return <Observer>{() => {
     const { appName, isLoadingTags, tags, token } = commonStore;
     return (
@@ -29,6 +86,8 @@ const Home: React.FC = () => {
         <main>
           <Banner />
           <Category />
+
+          {/* Contact Us */}
           <section className="py-16 md:py-20 lg:py-25 bg-white">
             <div className="container md:pb-16">
               <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
@@ -64,118 +123,23 @@ const Home: React.FC = () => {
               </div>
             </div>
           </section>
+
+          {/* Popular Listed Jobs */}
           <section className="py-16 md:py-20 lg:py-24 !bg-light">
             <div className="container">
               <div className="text-center mb-14">
                 <h2 className="text-4xl font-bold text-black">Popular Listed jobs</h2>
                 <TabList classCss='flex gap-2 justify-center p-2' activeTabIndex={0}>
                   <TabItem label="Featured">
-                    <div className="grid grid-cols-1 gap-[25px]">
-                      <div className="group relative overflow-hidden md:flex justify-between items-center rounded shadow hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-6 bg-white">
-                        <div className="flex items-center">
-                          <div className="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
-                            <img src="https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-1.jpg" className="size-14" alt="" />
-                          </div>
-                          <a href="job-detail-two.html" className="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">Marketing Director</a>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-4">
-                          <span className="block"><span className="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Part Time</span></span>
-                          <span className="block text-slate-400 text-sm md:mt-1 mt-0"><i className="uil uil-clock"></i> 20th Feb 2023</span>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-2">
-                          <span className="text-slate-400"><i className="uil uil-map-marker"></i> USA</span>
-                          <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                        </div>
-                        <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
-                          <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
-                        </div>
-                      </div>
-                      <div className="group relative overflow-hidden md:flex justify-between items-center rounded shadow hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-6 bg-white">
-                        <div className="flex items-center">
-                          <div className="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
-                            <img src="https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-1.jpg" className="size-14" alt="" />
-                          </div>
-                          <a href="job-detail-two.html" className="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">Marketing Director</a>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-4">
-                          <span className="block"><span className="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Part Time</span></span>
-                          <span className="block text-slate-400 text-sm md:mt-1 mt-0"><i className="uil uil-clock"></i> 20th Feb 2023</span>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-2">
-                          <span className="text-slate-400"><i className="uil uil-map-marker"></i> USA</span>
-                          <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                        </div>
-                        <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
-                          <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
-                        </div>
-                      </div>
-                      <div className="group relative overflow-hidden md:flex justify-between items-center rounded shadow hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-6 bg-white">
-                        <div className="flex items-center">
-                          <div className="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
-                            <img src="https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-1.jpg" className="size-14" alt="" />
-                          </div>
-                          <a href="job-detail-two.html" className="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">Marketing Director</a>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-4">
-                          <span className="block"><span className="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Part Time</span></span>
-                          <span className="block text-slate-400 text-sm md:mt-1 mt-0"><i className="uil uil-clock"></i> 20th Feb 2023</span>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-2">
-                          <span className="text-slate-400"><i className="uil uil-map-marker"></i> USA</span>
-                          <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                        </div>
-                        <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
-                          <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
-                        </div>
-                      </div>
-                      <div className="group relative overflow-hidden md:flex justify-between items-center rounded shadow hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-6 bg-white">
-                        <div className="flex items-center">
-                          <div className="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
-                            <img src="https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-1.jpg" className="size-14" alt="" />
-                          </div>
-                          <a href="job-detail-two.html" className="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">Marketing Director</a>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-4">
-                          <span className="block"><span className="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Part Time</span></span>
-                          <span className="block text-slate-400 text-sm md:mt-1 mt-0"><i className="uil uil-clock"></i> 20th Feb 2023</span>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-2">
-                          <span className="text-slate-400"><i className="uil uil-map-marker"></i> USA</span>
-                          <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                        </div>
-                        <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
-                          <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
-                        </div>
-                      </div>
-                      <div className="group relative overflow-hidden md:flex justify-between items-center rounded shadow hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-6 bg-white">
-                        <div className="flex items-center">
-                          <div className="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
-                            <img src="https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-1.jpg" className="size-14" alt="" />
-                          </div>
-                          <a href="job-detail-two.html" className="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">Marketing Director</a>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-4">
-                          <span className="block"><span className="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Part Time</span></span>
-                          <span className="block text-slate-400 text-sm md:mt-1 mt-0"><i className="uil uil-clock"></i> 20th Feb 2023</span>
-                        </div>
-                        <div className="md:block flex justify-between md:mt-0 mt-2">
-                          <span className="text-slate-400"><i className="uil uil-map-marker"></i> USA</span>
-                          <span className="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                        </div>
-                        <div className="md:mt-0 mt-4">
-                          <a href="" className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark size-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></a>
-                          <a href="" className="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
-                        </div>
-                      </div>
-                      <div className="mt-8">
-                        <div className="grid grid-cols-1">
-                          <div className="text-center">
-                            <a href="job-categories.html" className="btn text-white border-transparent btn focus:ring focus:ring-custom-500/20 bg-[#1caf57]">View More  <i className="uil uil-arrow-right ms-1"></i></a>
-                          </div>
+                    <div className="grid gap-6 xl:gap-6 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 justify-normal sm:justify-center">
+                      {mockJobs.map((job) => (
+                        <JobCard key={job._id} job={job} />
+                      ))}
+                    </div>
+                    <div className="mt-8">
+                      <div className="grid grid-cols-1">
+                        <div className="text-center">
+                          <a href="/jobs" className="btn text-white border-transparent btn focus:ring focus:ring-custom-500/20 bg-[#1caf57]">View More  <i className="uil uil-arrow-right ms-1"></i></a>
                         </div>
                       </div>
                     </div>
@@ -190,10 +154,12 @@ const Home: React.FC = () => {
               </div>
             </div>
           </section>
+
+          {/* Blog */}
           <section className="py-16 md:py-20 lg:py-24 bg-white">
             <div className="container">
               <div className="text-center mb-14">
-                <p className="text-themePrimary font-bold text-xs leading-none mb-1">Our Blog</p>
+                <p className="text-themePrimary font-bold text-3xl leading-none mb-1">Our Blog.</p>
                 <h2 className="text-xl font-bold text-black">See How You Can Up Your Career Status</h2>
               </div>
               <div className="grid gap-4 xl:gap-6 xl:grid-cols-3 md:grid-cols-2">

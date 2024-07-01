@@ -18,12 +18,27 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
   return (
     <div className="overflow-hidden relative h-full grid content-between px-6 !pt-4 pb-6 border-gray bg-white border border-solid transition-all rounded-md group hover:!border-themePrimary">
 
-      {/* Employment Type */}
-      <span className="flex flex-wrap gap-2 left-0">
+      {/* Top Section with Employment Type and Save Button */}
+      <div className="flex justify-between items-center mb-2">
         <span className="bg-blue-100 py-1 px-2.5 rounded-sm text-xss1 font-normal text-blue-500">
           {job.employmentType}
         </span>
-      </span>
+        <a href=""
+          className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            className="feather feather-bookmark size-4">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </a>
+      </div>
 
       {/* Job Details */}
       <div className="text-center !pt-5 pb-6">
@@ -63,10 +78,10 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
         </ul>
         <div>
           <a
-            className="block leading-4 text-deep text-xs group-hover:text-white text-center py-3 px-6 bg-light rounded-md transition-all group-hover:!bg-themePrimary"
+            className="block leading-4 text-deep text-xs group-hover:text-white text-center py-3 px-6 bg-light rounded-md transition-all group-hover:!bg-themePrimary hover:!text-white"
             href={`/job/${job._id}`}
           >
-            Apply Now
+            View Details
           </a>
         </div>
       </div>

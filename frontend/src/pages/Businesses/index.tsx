@@ -1,7 +1,22 @@
 import React from 'react';
 import BusinessCard from './BusinessCard/BusinessCard';
 import BusinessFilter from './BusinessFilter/BusinessFilter';
-import business from '../../assets/img/business.jpg'
+import business from '../../assets/img/business.jpg';
+import logo1 from '../../assets/temp/logo1.jpg';
+import logo2 from '../../assets/temp/logo2.jpg';
+import logo3 from '../../assets/temp/logo3.jpg';
+import logo4 from '../../assets/temp/logo4.png';
+import logo5 from '../../assets/temp/logo5.jpg';
+import logo6 from '../../assets/temp/logo6.jpg';
+import logo7 from '../../assets/temp/logo7.jpg';
+import logo8 from '../../assets/temp/logo8.jpg';
+import logo9 from '../../assets/temp/logo9.jpg';
+import logo10 from '../../assets/temp/logo10.png';
+import logo11 from '../../assets/temp/logo11.jpg';
+import logo12 from '../../assets/temp/logo12.jpg';
+import logo13 from '../../assets/temp/logo13.png';
+import logo14 from '../../assets/temp/logo14.png';
+import logo15 from '../../assets/temp/logo15.jpg';
 
 // Mock database
 const mockBusinesses = [
@@ -11,7 +26,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f6a" },
       name: "X company",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo1,
       slogan: "Get it done with love",
       description: "",
       website: "https://xcompany.com",
@@ -28,7 +43,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f6b" },
       name: "Y Solutions",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo2,
       slogan: "Innovate with passion",
       description: "",
       website: "https://ysolutions.com",
@@ -45,7 +60,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f6c" },
       name: "Z Retailers",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo3,
       slogan: "Shop with confidence",
       description: "",
       website: "https://zretailers.com",
@@ -62,7 +77,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f6d" },
       name: "HealthCare Inc.",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo4,
       slogan: "Your health, our priority",
       description: "",
       website: "https://healthcareinc.com",
@@ -79,7 +94,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f6e" },
       name: "EcoWorld",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo5,
       slogan: "Sustainable living",
       description: "",
       website: "https://ecoworld.com",
@@ -96,7 +111,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f6f" },
       name: "FinancePro",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo6,
       slogan: "Your money, managed well",
       description: "",
       website: "https://financepro.com",
@@ -113,7 +128,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f70" },
       name: "EduFuture",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo7,
       slogan: "Learning for tomorrow",
       description: "",
       website: "https://edufuture.com",
@@ -130,7 +145,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f71" },
       name: "Creative Minds",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo8,
       slogan: "Design your world",
       description: "",
       website: "https://creativeminds.com",
@@ -147,7 +162,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f72" },
       name: "TravelCo",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo9,
       slogan: "Explore the world",
       description: "",
       website: "https://travelco.com",
@@ -164,7 +179,7 @@ const mockBusinesses = [
     profile: {
       _id: { $oid: "66794a73d5b8d77104564f73" },
       name: "Culinary Delight",
-      avatar: "https://via.placeholder.com/100",
+      avatar: logo10,
       slogan: "Taste the difference",
       description: "",
       website: "https://culinarydelight.com",
@@ -173,6 +188,92 @@ const mockBusinesses = [
       city: "New Orleans",
       address: "789 Culinary Court",
       employees: "201-500"
+    },
+  },
+  // Add more businesses if needed, each with a unique logo (logo11, logo12, etc.)
+  {
+    _id: 11,
+    roleId: { $oid: "66627f747573d122a0410147" },
+    profile: {
+      _id: { $oid: "66794a73d5b8d77104564f74" },
+      name: "TechGiant",
+      avatar: logo11,
+      slogan: "Innovate the future",
+      description: "",
+      website: "https://techgiant.com",
+      industry: "Technology",
+      phone: "+1123456789",
+      city: "Silicon Valley",
+      address: "123 Tech Park",
+      employees: "5000+"
+    },
+  },
+  {
+    _id: 12,
+    roleId: { $oid: "66627f747573d122a0410148" },
+    profile: {
+      _id: { $oid: "66794a73d5b8d77104564f75" },
+      name: "HealthFirst",
+      avatar: logo12,
+      slogan: "Care with compassion",
+      description: "",
+      website: "https://healthfirst.com",
+      industry: "Healthcare",
+      phone: "+1987654322",
+      city: "Houston",
+      address: "456 Wellness Way",
+      employees: "500-1000"
+    },
+  },
+  {
+    _id: 13,
+    roleId: { $oid: "66627f747573d122a0410149" },
+    profile: {
+      _id: { $oid: "66794a73d5b8d77104564f76" },
+      name: "GreenEnergy",
+      avatar: logo13,
+      slogan: "Powering the planet",
+      description: "",
+      website: "https://greenenergy.com",
+      industry: "Energy",
+      phone: "+1678394022",
+      city: "Dallas",
+      address: "789 Solar Street",
+      employees: "100-500"
+    },
+  },
+  {
+    _id: 14,
+    roleId: { $oid: "66627f747573d122a0410150" },
+    profile: {
+      _id: { $oid: "66794a73d5b8d77104564f77" },
+      name: "FutureFin",
+      avatar: logo14,
+      slogan: "Finance for the future",
+      description: "",
+      website: "https://futurefin.com",
+      industry: "Finance",
+      phone: "+1346792581",
+      city: "San Diego",
+      address: "987 Economy Blvd",
+      employees: "200-500"
+    },
+  },
+  {
+    _id: 15,
+    roleId: { $oid: "66627f747573d122a0410151" },
+    profile: {
+      _id: { $oid: "66794a73d5b8d77104564f78" },
+      name: "EduWorld",
+      avatar: logo15,
+      slogan: "Education for all",
+      description: "",
+      website: "https://eduworld.com",
+      industry: "Education",
+      phone: "+1234908766",
+      city: "Philadelphia",
+      address: "123 University Ave",
+      employees: "50-200"
     },
   },
 ];
