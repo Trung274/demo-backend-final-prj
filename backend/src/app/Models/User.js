@@ -59,42 +59,22 @@ const mongoose = require("mongoose");
 
 // Profile Schema (for Business Profile Information)
 const profileSchema = new mongoose.Schema({
-  name: { // Tên Doanh Nghiệp (Company Name)
-    type: String,
-  },
-  avatar: { // Ảnh đại diện (Profile Picture)
-    type: String,
-  },
-  description: { // Mô tả (Description)
-    type: String,
-  },
-  website: { // Trang web (Website)
-    type: String,
-  },
-  industry: { // Ngành nghề (Industry)
-    type: String,
-  },
-  phone: { // Số điện thoại (Phone Number)
-    type: String,
-  },
-  city: { // Thành phố (City)
-    type: String,
-  },
-  address: { // Địa chỉ (Address)
-    type: String,
-  },
-  socialMedia: { // Mạng xã hội (Social Media)
+  name: { type: String },
+  avatar: { type: String },
+  description: { type: String },
+  slogan: { type: String }, 
+  employees: { type: String }, 
+  website: { type: String },
+  industry: { type: String },
+  phone: { type: String },
+  city: { type: String },
+  address: { type: String },
+  socialMedia: {
     type: Object,
     properties: {
-      facebook: {
-        type: String,
-      },
-      twitter: {
-        type: String,
-      },
-      linkedin: {
-        type: String,
-      },
+      facebook: { type: String },
+      twitter: { type: String },
+      linkedin: { type: String },
     },
   },
 });

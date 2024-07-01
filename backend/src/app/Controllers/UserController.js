@@ -68,8 +68,8 @@ class UserController {
     const userId = request.user.user_id; 
   
     try {
-      // Only allow updating of specific fields
-      const allowedUpdates = ['firstName', 'lastName', 'email', 'password', 'profile'];
+       // Only allow updating of specific fields
+      const allowedUpdates = ['firstName', 'lastName', 'email', 'profile'];
       const updates = Object.keys(updateData)
         .filter(key => allowedUpdates.includes(key))
         .reduce((obj, key) => {
@@ -77,8 +77,17 @@ class UserController {
           return obj;
         }, {});
   
-      if (updates.password) {
-        updates.password = this.hashPassword(updates.password);
+      if (updates.profile) {
+        const allowedProfileUpdates = [
+          'name', 'avatar', 'description', 'slogan', 'employees',
+          'website', 'industry', 'phone', 'city', 'address', 'socialMedia'
+        ];
+        updates.profile = Object.keys(updates.profile)
+          .filter(key => allowedProfileUpdates.includes(key))
+          .reduce((obj, key) => {
+            obj[key] = updates.profile[key];
+            return obj;
+          }, {});
       }
   
       const updatedUser = await model.findByIdAndUpdate(userId, updates, { new: true });
