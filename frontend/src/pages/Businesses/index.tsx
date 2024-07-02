@@ -302,7 +302,7 @@ const Businesses: React.FC = () => {
               <div className='grid gap-6 xl:gap-6 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1'>
                 {mockBusinesses.map((business) => (
                   <BusinessCard
-                    key={business._id}
+                    _id={business._id.toString()} 
                     name={business.profile.name}
                     slogan={business.profile.slogan}
                     description={business.profile.description}

@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h5 className="text-white text-lg font-bold mb-4">Company</h5>
-            <a href="#" className="block text-gray-300 hover:text-white mb-2">About Us</a>
+            <a href="/about" className="block text-gray-300 hover:text-white mb-2">About Us</a>
             <a href="contact-us" className="block text-gray-300 hover:text-white mb-2">Contact Us</a>
             <a href="#" className="block text-gray-300 hover:text-white mb-2">Our Services</a>
             <a href="#" className="block text-gray-300 hover:text-white mb-2">Privacy Policy</a>
@@ -18,11 +18,10 @@ const Footer = () => {
           </div>
           <div>
             <h5 className="text-white text-lg font-bold mb-4">Quick Links</h5>
-            <a href="/about" className="block text-gray-300 hover:text-white mb-2">About Us</a>
-            <a href="contact-us" className="block text-gray-300 hover:text-white mb-2">Contact Us</a>
-            <a href="#" className="block text-gray-300 hover:text-white mb-2">Our Services</a>
-            <a href="#" className="block text-gray-300 hover:text-white mb-2">Privacy Policy</a>
-            <a href="#" className="block text-gray-300 hover:text-white mb-2">Terms & Condition</a>
+            <a href="/" className="block text-gray-300 hover:text-white mb-2">Home</a>
+            <a href="/jobs" className="block text-gray-300 hover:text-white mb-2">Job Listings</a>
+            <a href="/candidates" className="block text-gray-300 hover:text-white mb-2">Employee Resources</a>
+            <a href="#" className="block text-gray-300 hover:text-white mb-2">Blogs</a>
           </div>
           <div>
             <h5 className="text-white text-lg font-bold mb-4">Contact</h5>

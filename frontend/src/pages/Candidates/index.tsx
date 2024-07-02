@@ -81,17 +81,17 @@ const mockUsers = [
   {
     _id: { $oid: "66794a73d5b8d77104564f72" },
     profile: {
-      name: "Pierre Dubois",
+      name: "Jimmy McGill",
       avatar: person9,
-      city: "Montreal",
+      city: "Albuquerque",
     },
   },
   {
     _id: { $oid: "66794a73d5b8d77104564f73" },
     profile: {
-      name: "Fatima Al-Mansouri",
+      name: "Mike Ehrmantraut",
       avatar: person10,
-      city: "Dubai",
+      city: "Albuquerque",
     },
   },
 ];

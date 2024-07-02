@@ -115,7 +115,7 @@ const Home: React.FC = () => {
                       <li className="mb-1 flex"><i className="fa-regular fa-circle-check text-emerald-600 text-xl me-2"></i> Create your own skin to match your brand</li>
                     </ul>
                     <div className="mt-6">
-                      <a href="/contact-us" className="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white mt-2 rounded-md">
+                      <a href="/contact-us" className="md:w-28 block bg-themePrimary text-white px-4 py-4 text-xs font-medium rounded-md hover:bg-black transition-all outline-none">
                         <i className="fa-regular fa-envelope"></i> Contact us</a>
                     </div>
                   </div>
@@ -159,8 +159,8 @@ const Home: React.FC = () => {
           <section className="py-16 md:py-20 lg:py-24 bg-white">
             <div className="container">
               <div className="text-center mb-14">
-                <p className="text-themePrimary font-bold text-3xl leading-none mb-1">Our Blog.</p>
-                <h2 className="text-xl font-bold text-black">See How You Can Up Your Career Status</h2>
+                <p className="text-black font-bold text-3xl leading-none mb-1">Our Blog</p>
+                <h2 className="text-xl font-medium text-black">See How You Can Up Your Career Status</h2>
               </div>
               <div className="grid gap-4 xl:gap-6 xl:grid-cols-3 md:grid-cols-2">
                 <div className="single-blog !p-5 border-gray border border-solid transition-all rounded-md group hover:border-themePrimary">

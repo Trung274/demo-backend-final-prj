@@ -1,5 +1,8 @@
 import React from "react";
-import main from "../../../assets/img/main.jpg"
+import main from "../../../assets/img/main.jpg";
+import businessman from 'assets/svg/businessman.svg';
+import company from 'assets/svg/company.svg';
+import jobs from 'assets/svg/jobs.svg';
 
 export function Banner() {
     return (
@@ -43,21 +46,21 @@ export function Banner() {
                         <div className="grid gap-8 xl:gap-12 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1">
                             <div className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
                                 <div className="flex mb-6 justify-center">
-                                    <img alt="img" src="https://metajobs.vercel.app/assets/img/job.svg" decoding="async" data-nimg="intrinsic" />
+                                    <img alt="img" src={jobs} />
                                 </div>
                                 <h2 className="text-3xl text-black font-bold leading-none mb-2">23 +</h2>
                                 <p className="text-xs text-deep font-medium">JOB AVAILABLE</p>
                             </div>
                             <div className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
                                 <div className="flex mb-6 justify-center">
-                                    <img alt="img" src="https://metajobs.vercel.app/assets/img/job.svg" decoding="async" data-nimg="intrinsic" />
+                                    <img alt="img" src={company}/>
                                 </div>
                                 <h2 className="text-3xl text-black font-bold leading-none mb-2">6 +</h2>
                                 <p className="text-xs text-deep font-medium">COMPANY</p>
                             </div>
                             <div className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
                                 <div className="flex mb-6 justify-center">
-                                    <img alt="img" src="https://metajobs.vercel.app/assets/img/job.svg" decoding="async" data-nimg="intrinsic" />
+                                    <img alt="img" src={businessman}/>
                                 </div>
                                 <h2 className="text-3xl text-black font-bold leading-none mb-2">3 +</h2>
                                 <p className="text-xs text-deep font-medium">AVAILABLE RESUMES</p>

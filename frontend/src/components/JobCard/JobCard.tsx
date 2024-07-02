@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faDollarSign, faClock } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 interface JobProps {
   job: {
@@ -77,13 +78,13 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
           </li>
         </ul>
         <div>
-          <a
-            className="block leading-4 text-deep text-xs group-hover:text-white text-center py-3 px-6 bg-light rounded-md transition-all group-hover:!bg-themePrimary hover:!text-white"
-            href={`/job/${job._id}`}
-          >
-            View Details
-          </a>
-        </div>
+        <Link
+          to={`/jobs/${job._id}`} 
+          className="block leading-4 text-deep text-xs group-hover:text-white text-center py-3 px-6 bg-light rounded-md transition-all group-hover:!bg-themePrimary hover:!text-white"
+        >
+          View Details
+        </Link>
+      </div>
       </div>
     </div>
   );

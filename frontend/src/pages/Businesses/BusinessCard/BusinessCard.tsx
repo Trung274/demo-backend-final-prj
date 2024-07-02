@@ -1,8 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 interface BusinessCardProps {
+  _id: string;
   name: string;
   slogan: string;
   description: string;
@@ -11,7 +13,7 @@ interface BusinessCardProps {
   avatar: string;
 }
 
-const BusinessCard: React.FC<BusinessCardProps> = ({ name, slogan, description, employees, city, avatar }) => {
+const BusinessCard: React.FC<BusinessCardProps> = ({ _id, name, slogan, description, employees, city, avatar }) => {
   return (
     <div className="relative grid content-between bg-white p-6 border-gray border border-solid transition-all rounded-md group hover:!border-themePrimary">
       <div className="text-center pt-4 pb-6">
@@ -38,9 +40,12 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ name, slogan, description, 
         </ul>
       </div>
       <div>
-        <a className="block leading-4 text-deep transition-all font-medium text-xs group-hover:text-white text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary" href="#">
+        <Link
+          to={`/business/${_id}`}
+          className="block leading-4 text-deep transition-all font-medium text-xs group-hover:text-white text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary"
+        >
           See Details
-        </a>
+        </Link>
       </div>
     </div>
   );
