@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faContactCard } from '@fortawesome/free-regular-svg-icons';
 import { faHeadphones, faUserTie, faPeopleRoof, faChartLine, faHandshakeSlash, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export function Category() {
     return (
@@ -13,62 +13,62 @@ export function Category() {
                     <h2 className="text-4xl font-bold text-black">Explore By Category</h2>
                 </div>
                 <div className="grid gap-4 xl:gap-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-                    <Link to="/jobs/category/marketing" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                    <NavLink to="/jobs/category/marketing" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
                         <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
                             <FontAwesomeIcon icon={faContactCard} size="3x" className="text-[#1caf57]" />
                         </div>
                         <h4 className="text-lg text-black font-bold mb-3">Marketing</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </Link>
-                    <Link to="/jobs/category/customer-service" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                    </NavLink>
+                    <NavLink to="/jobs/category/customer-service" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
                         <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
                             <FontAwesomeIcon icon={faHeadphones} size="3x" className="text-[#1caf57]" />
                         </div>
                         <h4 className="text-lg text-black font-bold mb-3">Customer Service</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </Link>
-                    <Link to="/jobs/category/human-resource" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                    </NavLink>
+                    <NavLink to="/jobs/category/human-resource" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
                         <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
                             <FontAwesomeIcon icon={faUserTie} size="3x" className="text-[#1caf57]" />
                         </div>
                         <h4 className="text-lg text-black font-bold mb-3">Human Resource</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </Link>
-                    <Link to="/jobs/category/project-management" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                    </NavLink>
+                    <NavLink to="/jobs/category/project-management" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
                         <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
                             <FontAwesomeIcon icon={faPeopleRoof} size="3x" className="text-[#1caf57]" />
                         </div>
                         <h4 className="text-lg text-black font-bold mb-3">Project Management</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </Link>
-                    <Link to="/jobs/category/business-development" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                    </NavLink>
+                    <NavLink to="/jobs/category/business-development" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
                         <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
                             <FontAwesomeIcon icon={faChartLine} size="3x" className="text-[#1caf57]" />
                         </div>
                         <h4 className="text-lg text-black font-bold mb-3">Business Development</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </Link>
-                    <Link to="/jobs/category/programming" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                    </NavLink>
+                    <NavLink to="/jobs/category/programming" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
                         <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
                             <FontAwesomeIcon icon={faHandshakeSlash} size="3x" className="text-[#1caf57]" />
                         </div>
                         <h4 className="text-lg text-black font-bold mb-3">Programming</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </Link>
-                    <Link to="/jobs/category/teaching-education" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                    </NavLink>
+                    <NavLink to="/jobs/category/teaching-education" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
                         <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
                             <FontAwesomeIcon icon={faChalkboardTeacher} size="3x" className="text-[#1caf57]" />
                         </div>
                         <h4 className="text-lg text-black font-bold mb-3">Teaching & Education</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </Link>
-                    <Link to="/jobs/category/design-creative" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                    </NavLink>
+                    <NavLink to="/jobs/category/design-creative" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
                         <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
                             <FontAwesomeIcon icon={faContactCard} size="3x" className="text-[#1caf57]" />
                         </div>
                         <h4 className="text-lg text-black font-bold mb-3">Design & Creative</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </Link>
+                    </NavLink>
                 </div>
             </div>
         </section>

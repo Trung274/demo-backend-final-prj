@@ -33,10 +33,10 @@ export class AuthStore {
       .finally(action(() => { this.inProgress = false; }));
   }
 
-  register(email: string, password: string) {
+  register(firstName: string, lastName: string, email: string, password: string, roleId: string) {
     this.inProgress = true;
     this.errors = undefined;
-    return agent.Auth.register(email, password)
+    return agent.Auth.register(firstName, lastName, email, password, roleId)
       .then((user: LoginResponse) => commonStore.setToken(user.token))
       .then(() => userStore.pullUser())
       .catch(action((err: ResponseError) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface BusinessCardProps {
   _id: string;
@@ -40,12 +40,12 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ _id, name, slogan, descript
         </ul>
       </div>
       <div>
-        <Link
+        <NavLink
           to={`/business/${_id}`}
           className="block leading-4 text-deep transition-all font-medium text-xs group-hover:text-white-important text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary"
         >
           See Details
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

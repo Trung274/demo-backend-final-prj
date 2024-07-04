@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import main from "../../../assets/img/main.jpg";
 import businessman from 'assets/svg/businessman.svg';
 import company from 'assets/svg/company.svg';
@@ -45,27 +45,27 @@ export function Banner() {
                         </form>
                     </div>
                     <div className="grid gap-8 xl:gap-12 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1">
-                        <Link to="/jobs" className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
+                        <NavLink to="/jobs" className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
                             <div className="flex mb-6 justify-center">
                                 <img alt="Available Jobs" src={jobs} />
                             </div>
                             <h2 className="text-3xl text-black font-bold leading-none mb-2">23 +</h2>
                             <p className="text-xs text-deep font-medium">JOB AVAILABLE</p>
-                        </Link>
-                        <Link to="/businesses" className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
+                        </NavLink>
+                        <NavLink to="/businesses" className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
                             <div className="flex mb-6 justify-center">
                                 <img alt="Companies" src={company} />
                             </div>
                             <h2 className="text-3xl text-black font-bold leading-none mb-2">6 +</h2>
                             <p className="text-xs text-deep font-medium">COMPANY</p>
-                        </Link>
-                        <Link to="/candidates" className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
+                        </NavLink>
+                        <NavLink to="/candidates" className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
                             <div className="flex mb-6 justify-center">
                                 <img alt="Available Resumes" src={businessman} />
                             </div>
                             <h2 className="text-3xl text-black font-bold leading-none mb-2">3 +</h2>
                             <p className="text-xs text-deep font-medium">AVAILABLE RESUMES</p>
-                        </Link>
+                        </NavLink>
                     </div>
                 </div>
             </div>

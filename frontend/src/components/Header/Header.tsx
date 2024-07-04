@@ -4,13 +4,17 @@ import { Observer } from 'mobx-react-lite';
 import { useStore } from '../../store'
 import logo from '../../assets/svg/Logo.svg';
 import LoginDialog from '../LoginDialog';
+import RegisterDialog from '../RegisterDialog';
 import DropdownUser from './DropdownUser';
 
 const LoggedOutView = ({ sidebarOpen, toggleSidebar, currentUser }: { sidebarOpen: boolean, toggleSidebar: () => void, currentUser: any }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
-    const handleOpenModal = () => setIsOpen(true);
-    const handleCloseModal = () => setIsOpen(false);
+    const handleOpenLoginModal = () => setIsLoginOpen(true);
+    const handleCloseLoginModal = () => setIsLoginOpen(false);
+    const handleOpenRegisterModal = () => setIsRegisterOpen(true);
+    const handleCloseRegisterModal = () => setIsRegisterOpen(false);
     return (
         <header className="shadow-sm bg-white">
             <nav className="container py-2.5">
@@ -52,14 +56,14 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar, currentUser }: { sidebarOpe
                     </div>
                     <div>
                         {currentUser ? (
-                             <DropdownUser />
+                            <DropdownUser />
                         ) : (
                             <ul className="flex py-2">
                                 <li className="">
-                                    <button className="block bg-[#333] text-white px-3 py-3 text-xs font-medium rounded-md hover:!bg-themePrimary transition-all outline-none" onClick={handleOpenModal}>Sign In</button>
+                                    <button className="block bg-[#333] text-white px-3 py-3 text-xs font-medium rounded-md hover:!bg-themePrimary transition-all outline-none" onClick={handleOpenLoginModal}>Sign In</button>
                                 </li>
                                 <li className="ml-4">
-                                    <button className="block bg-themePrimary text-white px-3 py-3 text-xs font-medium rounded-md hover:bg-black transition-all outline-none">Sign Up</button>
+                                    <button className="block bg-themePrimary text-white px-3 py-3 text-xs font-medium rounded-md hover:bg-black transition-all outline-none" onClick={handleOpenRegisterModal}>Sign Up</button>
                                 </li>
                                 <li>
                                     <button onClick={toggleSidebar} className="mobile-toggle flex lg:hidden p-2 rounded-full transition-all outline-none">
@@ -73,7 +77,7 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar, currentUser }: { sidebarOpe
 
                     </div>
                 </div>
-                <LoginDialog isOpen={isOpen} onClose={handleCloseModal} />
+                <LoginDialog isOpen={isLoginOpen} onClose={handleCloseLoginModal} />
             </nav>
 
             {/* Sidebar */}
@@ -85,11 +89,11 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar, currentUser }: { sidebarOpe
                         </svg>
                     </button>
                     <ul className="mt-8 space-y-4">
-                        <li><a className="text-arsenic text-sm font-medium transition-all hover:text-themePrimary" href="/">Home</a></li>
-                        <li><a className="text-arsenic text-sm font-medium transition-all hover:text-themePrimary" href="/jobs">Find Jobs</a></li>
-                        <li><a className="text-arsenic text-sm font-medium transition-all hover:text-themePrimary" href="/businesses">Businesses</a></li>
-                        <li><a className="text-arsenic text-sm font-medium transition-all hover:text-themePrimary" href="/candidates">Candidates</a></li>
-                        <li><a className="text-arsenic text-sm font-medium transition-all hover:text-themePrimary" href="/contact-us">Contact Us</a></li>
+                        <li><a className="text-arsenic text-lg font-medium transition-all hover:text-themePrimary" href="/">Home</a></li>
+                        <li><a className="text-arsenic text-lg font-medium transition-all hover:text-themePrimary" href="/jobs">Find Jobs</a></li>
+                        <li><a className="text-arsenic text-lg font-medium transition-all hover:text-themePrimary" href="/businesses">Businesses</a></li>
+                        <li><a className="text-arsenic text-lg font-medium transition-all hover:text-themePrimary" href="/candidates">Candidates</a></li>
+                        <li><a className="text-arsenic text-lg font-medium transition-all hover:text-themePrimary" href="/contact-us">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -98,6 +102,9 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar, currentUser }: { sidebarOpe
             {sidebarOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={toggleSidebar}></div>
             )}
+
+            <LoginDialog isOpen={isLoginOpen} onClose={handleCloseLoginModal} />
+            <RegisterDialog isOpen={isRegisterOpen} onClose={handleCloseRegisterModal} />
         </header>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {
@@ -56,14 +57,17 @@ const LoginDialog: React.FC<LoginProps> = ({ isOpen, onClose }) => {
             authStore.login(data.email, data.password)
             .then((x:any) => {
                 debugger
+                toast.success('Logged in successfully!');
                 onClose();
             })
             .catch((e: any) => {
-                debugger               
+                debugger
+                toast.error(e.message || 'An error occurred during login');
+                setLoginError(e.message);
             });
-            setLoading(false);
         } catch (e: any) {
             setLoginError(e.message);
+            toast.error(e.message || 'An error occurred during login');
         } finally {
             setLoading(false);
         }
@@ -112,7 +116,7 @@ const LoginDialog: React.FC<LoginProps> = ({ isOpen, onClose }) => {
                                     ml="auto"
                                     textAlign="right"
                                     fontSize={{ base: "12px", md: "14px" }}>
-                                    forgot your password?
+                                    Forgot your password?
                                 </Link>
                             </Stack>
                             <Button type="submit" className="button-default mb-6" isLoading={isLoading}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { twMerge } from 'tailwind-merge';
@@ -30,7 +30,7 @@ const JobTitle: React.FC<JobTitleProps> = ({
         </div>
       </div>
       <div className="grid">
-        <Link
+        <NavLink
           to={`/businesses/${businessId}`}
           className={twMerge(
             "py-2.5 px-6 mb-2 leading-4 text-white bg-themePrimary rounded-md transition-all",
@@ -38,7 +38,7 @@ const JobTitle: React.FC<JobTitleProps> = ({
           )}
         >
           View Business
-        </Link>
+        </NavLink>
       </div>
       <button
         className={twMerge(
