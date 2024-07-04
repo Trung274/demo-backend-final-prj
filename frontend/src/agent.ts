@@ -2,6 +2,7 @@ import superagentPromise from 'superagent-promise';
 import _superagent, { ResponseError, Request, Response } from 'superagent';
 import commonStore from './stores/commonStore';
 import authStore from './stores/authStore';
+import qs from 'query-string';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
@@ -91,22 +92,22 @@ const Profile = {
   unfollow: (username: string) => requests.del(`/profiles/${username}/follow`)
 };
 
-// const Jobs = {
-//   all: (page: number, limit: number) => 
-//     requests.get(`/jobs?${limit(limit, page)}`),
-//   byUser: (userId: string, page: number, limit: number) => 
-//     requests.get(`/jobs?userId=${encode(userId)}&${limit(limit, page)}`),
-//   del: (jobId: string) => 
-//     requests.del(`/jobs/${jobId}`),
-//   get: (jobId: string) => 
-//     requests.get(`/jobs/${jobId}`),
-//   update: (jobId: string, job: any) => 
-//     requests.put(`/jobs/${jobId}`, { job }),
-//   create: (job: any) => 
-//     requests.post('/jobs', { job }),
-//   search: (query: string, page: number, limit: number) => 
-//     requests.get(`/jobs/search?query=${encode(query)}&${limit(limit, page)}`)
-// };
+const Jobs = {
+  all: (page: number, limit: number) => 
+    requests.get(`/jobs?${qs.stringify({ limit, page })}`),
+  byUser: (userId: string, page: number, limit: number) => 
+    requests.get(`/jobs?userId=${encode(userId)}&${qs.stringify({ limit, page })}`),
+  del: (jobId: string) => 
+    requests.del(`/jobs/${jobId}`),
+  get: (jobId: string) => 
+    requests.get(`/jobs/${jobId}`),
+  update: (jobId: string, job: any) => 
+    requests.put(`/jobs/${jobId}`, { job }),
+  create: (job: any) => 
+    requests.post('/jobs', { job }),
+  search: (params: { query?: string; location?: string; categoryId?: string; employmentType?: string[]; page?: number; limit?: number }) => 
+    requests.get(`/jobs/search?${qs.stringify(params)}`)
+};
 
 const agent = {
   Articles,
@@ -114,7 +115,7 @@ const agent = {
   Comments,
   Profile,
   Tags,
-  // Jobs,
+  Jobs,
 }
 
 export default agent;

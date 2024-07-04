@@ -42,7 +42,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ _id, name, slogan, descript
       <div>
         <Link
           to={`/business/${_id}`}
-          className="block leading-4 text-deep transition-all font-medium text-xs group-hover:text-white text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary"
+          className="block leading-4 text-deep transition-all font-medium text-xs group-hover:text-white-important text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary"
         >
           See Details
         </Link>
