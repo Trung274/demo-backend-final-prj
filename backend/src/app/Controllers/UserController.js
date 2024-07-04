@@ -34,10 +34,19 @@ class UserController {
       const newUser = await model.create(user);
       this.sendWelcomeEmail(user.email);
 
-      return response.status(200).json(newUser);
+      const token = jwt.sign({ user_id: newUser._id }, process.env.AUTH_SECRET, {
+        expiresIn: "3h",
+      });
+
+      return response.status(201).json({
+        _id: newUser._id,
+        email: newUser.email,
+        roleId: newUser.roleId,
+        token,
+      });
     } catch (error) {
-      console.log(error);
-      return response.status(500).json(error);
+      console.error('Error creating user:', error);
+      return response.status(500).json({ error: 'An error occurred while creating the user' });
     }
   };
 

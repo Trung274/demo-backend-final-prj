@@ -37,11 +37,18 @@ export class AuthStore {
     this.inProgress = true;
     this.errors = undefined;
     return agent.Auth.register(firstName, lastName, email, password, roleId)
-      .then((user: LoginResponse) => commonStore.setToken(user.token))
+      .then((user: LoginResponse) => {
+        commonStore.setToken(user.token);
+        return { success: true, user };
+      })
       .then(() => userStore.pullUser())
       .catch(action((err: ResponseError) => {
         this.errors = err.response && err.response.body && err.response.body.errors;
-        throw err;
+        console.error('Registration error:', err);
+        return { 
+          success: false, 
+          message: err.response?.body?.message || err.message || 'An error occurred during registration'
+        };
       }))
       .finally(action(() => { this.inProgress = false; }));
   }
