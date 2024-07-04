@@ -23,12 +23,14 @@ const BusinessFilter: React.FC = () => {
               className="border-0 focus:shadow-none py-3 bg-light text-xxs text-grayLight text-base font-normal focus-visible:white focus:outline-none svg_icon px-2 appearance-none w-full"
             >
               <option value="">Select Category</option>
-              <option value="Design/Creative">Design/Creative</option>
-              <option value="Education Training">Education Training</option>
-              <option value="Engineer/Architects">Engineer/Architects</option>
-              <option value="Marketing/Sales">Marketing/Sales</option>
-              <option value="IT/Telecommunication">IT/Telecommunication</option>
-              <option value="Accounting/Finance">Accounting/Finance</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Customer Service">Customer Service</option>
+              <option value="Human Resource">Human Resource</option>
+              <option value="Project Management">Project Management</option>
+              <option value="Business Development">Business Development</option>
+              <option value="Programming">Programming</option>
+              <option value="Teaching & Education">Teaching & Education</option>
+              <option value="Design & Creative">Design & Creative</option>
             </select>
           </div>
           <div className="jobCategorise pb-4">

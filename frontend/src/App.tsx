@@ -44,6 +44,7 @@ const App: React.FC = () => {
           <Route path="mock-job" element={<MockJob />} />
           <Route path="business/:id" element={<BusinessProfile />} />
           <Route path="mock-business" element={<MockBusiness />} />
+          {/* <Route path="/jobs/category/:categoryName" element={<JobCategoryPage />} /> */}
           {/* <Route path="faq" element={<Faq />} />
           <Route path="etc" element={<Etc />} /> */}
         </Route>

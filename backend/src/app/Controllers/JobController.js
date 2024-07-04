@@ -98,10 +98,9 @@ class JobController {
     }
   }
 
-  searchJobs = async (request, response) => {
+  async searchJobs(request, response) {
     try {
-      const { query, location, categoryId } = request.query;
-      
+      const { query, location, categoryId, employmentType } = request.query;
       let searchCriteria = {};
   
       if (query) {
@@ -119,14 +118,21 @@ class JobController {
         searchCriteria.categoryId = categoryId;
       }
   
-      const jobs = await model.find(searchCriteria);
+      if (employmentType) {
+        searchCriteria.employmentType = { $in: employmentType.split(',') };
+      }
+  
+      const jobs = await model.find(searchCriteria)
+        .populate('categoryId', 'name iconUrl')
+        .sort({ createdAt: -1 })
+        .limit(20);  // Limit to 20 results for performance, adjust as needed
   
       return response.status(200).json(jobs);
     } catch (error) {
       console.error('Error searching jobs:', error);
       return response.status(500).json({ error: 'An error occurred while searching for jobs' });
     }
-  };
+  }
 }
 
 module.exports = new JobController();

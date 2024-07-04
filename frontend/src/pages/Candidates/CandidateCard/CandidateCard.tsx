@@ -30,7 +30,7 @@ const CandidateCard: React.FC<CandidateCardProps> = ({ name, avatar, city, id })
       </div>
       <a
         href={`/resume/${id}`}
-        className="block text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all font-medium text-xs group-hover:text-white"
+        className="block text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary leading-4 text-deep transition-all font-medium text-xs group-hover:text-white-important"
       >
         View Candidate
       </a>

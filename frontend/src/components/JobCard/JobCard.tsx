@@ -80,7 +80,7 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
         <div>
         <Link
           to={`/jobs/${job._id}`} 
-          className="block leading-4 text-deep text-xs group-hover:text-white text-center py-3 px-6 bg-light rounded-md transition-all group-hover:!bg-themePrimary hover:!text-white"
+          className="block leading-4 text-deep transition-all font-medium text-xs group-hover:text-white-important text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary"
         >
           View Details
         </Link>

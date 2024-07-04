@@ -148,9 +148,14 @@ button,select {
 .group-hover\:\!bg-themePrimary:hover {
     --tw-bg-opacity: 1 !important;
     background-color: rgb(28 175 87 / var(--tw-bg-opacity)) !important;
-  }
+    color: white !important; 
+}
   
-  .hover\:\!text-white:hover {
+.hover\:\!text-white:hover {
     --tw-text-opacity: 1 !important;
     color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
-  }
+}
+
+  .group-hover\:text-white-important:hover {
+    color: white !important;
+}

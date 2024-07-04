@@ -48,11 +48,11 @@ export function Category() {
                         <h4 className="text-lg text-black font-bold mb-3">Business Development</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
                     </Link>
-                    <Link to="/jobs/category/sales-communication" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                    <Link to="/jobs/category/programming" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
                         <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
                             <FontAwesomeIcon icon={faHandshakeSlash} size="3x" className="text-[#1caf57]" />
                         </div>
-                        <h4 className="text-lg text-black font-bold mb-3">Sales & Communication</h4>
+                        <h4 className="text-lg text-black font-bold mb-3">Programming</h4>
                         <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
                     </Link>
                     <Link to="/jobs/category/teaching-education" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
