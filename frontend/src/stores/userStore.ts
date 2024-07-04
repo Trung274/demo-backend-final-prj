@@ -37,7 +37,6 @@ export class UserStore {
   }
 
   pullUser() {
-    debugger
     this.loadingUser = true;
     return agent.Auth.current()
       .then(action(( user: User) => { this.currentUser = user; }))

@@ -5,10 +5,13 @@ import { StoreProvider } from './store'
 import * as serviceWorker from './serviceWorker';
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 import './index.css'
+import { ChakraProvider } from '@chakra-ui/react';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StoreProvider>
-    <App />
+    <ChakraProvider>
+      <App />
+    </ChakraProvider>
   </StoreProvider>
 );
 

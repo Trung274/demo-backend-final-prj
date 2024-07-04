@@ -4,12 +4,15 @@
   "private": true,
   "homepage": "",
   "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.2",
     "@craco/craco": "^7.1.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@hookform/resolvers": "^3.6.0",
     "@react-google-maps/api": "^2.19.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^11.0.4",
@@ -32,7 +35,9 @@
     "superagent": "^5.2.2",
     "superagent-promise": "^1.1.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.5.3",
+    "yup": "^1.4.0"
   },
   "scripts": {
     "start": "craco start",
