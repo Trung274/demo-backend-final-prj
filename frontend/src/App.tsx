@@ -9,8 +9,6 @@ import ContactUs from './pages/ContactUs/';
 import UserProfile from './pages/UserProfile';
 import JobDetails from '@pages/JobDetails';
 import BusinessProfile from './pages/BusinessProfile';
-import Login from '@components/Login';
-import Register from '@components/Register';
 import PrivateRoute from '@components/PrivateRoute';
 import { Toaster } from 'react-hot-toast';
 import  MainLayout  from './layouts/MainLayout';

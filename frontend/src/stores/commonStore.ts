@@ -3,7 +3,7 @@ import agent from '../agent';
 
 export class CommonStore {
 
-  appName = 'Conduit';
+  appName = 'JobHub';
   token = window.localStorage.getItem('jwt');
   appLoaded = false;
 
