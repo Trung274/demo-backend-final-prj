@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const model = mongoose.model("User");
+const Role = mongoose.model("Role");
+const Permission = mongoose.model("Permission");
 
 const MailerService = require("../Services/Mail");
 const { request, response } = require("../../config/express");
@@ -149,21 +151,29 @@ class UserController {
   getCurrentUser = async (request, response) => {
     try {
       const userId = request.user.user_id;
-      const user = await model.findById(userId);
-
+      const user = await model.findById(userId).populate({
+        path: 'roleId',
+        model: Role,
+        populate: {
+          path: 'permissions',
+          model: Permission
+        }
+      });
+  
       if (!user) {
         return response.status(404).json({ message: "User not found" });
       }
-
+  
       // Remove sensitive information before sending the response
       const userResponse = user.toObject();
       delete userResponse.password;
-
+  
       return response.status(200).json(userResponse);
     } catch (error) {
-      return response.status(500).json({ error: error.message });
+      console.error(error);
+      return response.status(500).json({ error: "Internal server error" });
     }
-  };
+  };  
 
   changePassword = async (request, response) => {
     try {
