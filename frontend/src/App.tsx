@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useStore } from '@/store';
 import Home from '@pages/Home';
@@ -31,25 +31,26 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Toaster position='top-right' toastOptions={{ duration: 2000 }} />
       <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path='jobs' element={<Jobs />} />
-          <Route path='businesses' element={<Businesses />} />
-          <Route path='candidates' element={<Candidates />} />
-          <Route path='contact-us' element={<ContactUs />} />
-          <Route path="about" element={<About />} />
+        <Fragment>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path='jobs' element={<Jobs />} />
+            <Route path='businesses' element={<Businesses />} />
+            <Route path='candidates' element={<Candidates />} />
+            <Route path='contact-us' element={<ContactUs />} />
+            <Route path="about" element={<About />} />
 
-          <Route path="mock-profile" element={<MockProfile />} />
-          <Route path="jobs/:id" element={<JobDetails />} />
-          <Route path="mock-job" element={<MockJob />} />
-          <Route path="business/:id" element={<BusinessProfile />} />
-          <Route path="mock-business" element={<MockBusiness />} />
-        </Route>
-        <Route path="/" element={<PrivateLayout />}>
-          <PrivateRoute path="dashboard" component={<Dashboard />} />
-          <PrivateRoute path="resume/:id" component={<UserProfile />} />
-          {/* <PrivateRoute path="/jobs/saved" component={<SaveJob />} /> */}
-        </Route>
+            <Route path="mock-profile" element={<MockProfile />} />
+            <Route path="jobs/:id" element={<JobDetails />} />
+            <Route path="mock-job" element={<MockJob />} />
+            <Route path="business/:id" element={<BusinessProfile />} />
+            <Route path="mock-business" element={<MockBusiness />} />
+          </Route>
+          <Route path="/" element={<PrivateLayout />}>
+            <Route path="dashboard" element={(<PrivateRoute><Dashboard /></PrivateRoute>)} />
+            <Route path="resume/:id" element={(<PrivateRoute><UserProfile /></PrivateRoute>)} />
+          </Route>
+        </Fragment>
       </Routes>
     </BrowserRouter>
   );
