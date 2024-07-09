@@ -18,6 +18,10 @@ import About from './pages/About';
 import MockProfile from './pages/UserProfile/index.mock.test';
 import MockJob from './pages/JobDetails/index.mock.test';
 import MockBusiness from './pages/BusinessProfile/index.mock.test';
+import MockSaveJobs from './pages/SaveJobs/index.mock.test';
+import MockManageJobs from './pages/ManageJobs/index.mock.test';
+import MockManageUsers from './pages/ManageUsers/index.mock.test';
+import MockAddUsers from './pages/AddUsers/index.mock.test';
 
 const App: React.FC = () => {
   const { commonStore, userStore } = useStore()
@@ -39,7 +43,7 @@ const App: React.FC = () => {
             <Route path='candidates' element={<Candidates />} />
             <Route path='contact-us' element={<ContactUs />} />
             <Route path="about" element={<About />} />
-
+            <Route path="resume/:id" element={<UserProfile />} />
             <Route path="mock-profile" element={<MockProfile />} />
             <Route path="jobs/:id" element={<JobDetails />} />
             <Route path="mock-job" element={<MockJob />} />
@@ -48,7 +52,11 @@ const App: React.FC = () => {
           </Route>
           <Route path="/" element={<PrivateLayout />}>
             <Route path="dashboard" element={(<PrivateRoute><Dashboard /></PrivateRoute>)} />
-            <Route path="resume/:id" element={(<PrivateRoute><UserProfile /></PrivateRoute>)} />
+            <Route path="mock-savejobs" element={(<PrivateRoute><MockSaveJobs /></PrivateRoute>)} />
+            <Route path="mock-manage-jobs" element={(<PrivateRoute><MockManageJobs /></PrivateRoute>)} />
+            <Route path="mock-manage-users" element={(<PrivateRoute><MockManageUsers /></PrivateRoute>)} />
+            <Route path="mock-add-users" element={(<PrivateRoute><MockAddUsers /></PrivateRoute>)} />
+            {/* <Route path="users/me" element={(<PrivateRoute><UserProfile /></PrivateRoute>)} /> */}
           </Route>
         </Fragment>
       </Routes>

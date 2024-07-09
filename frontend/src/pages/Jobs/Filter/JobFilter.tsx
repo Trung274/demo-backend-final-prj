@@ -125,7 +125,7 @@ const JobFilter: React.FC = observer(() => {
         </div>
       </div>
       <div className="px-6 pb-6">
-        <button onClick={handleSubmit} className="bg-green-500 text-white py-2 px-4 rounded-md w-full">
+        <button onClick={handleSubmit} className="bg-themePrimary text-white py-2 px-4 rounded-md w-full">
           Search Jobs
         </button>
       </div>

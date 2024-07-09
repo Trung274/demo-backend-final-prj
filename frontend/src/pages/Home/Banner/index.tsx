@@ -49,21 +49,21 @@ export function Banner() {
                             <div className="flex mb-6 justify-center">
                                 <img alt="Available Jobs" src={jobs} />
                             </div>
-                            <h2 className="text-3xl text-black font-bold leading-none mb-2">23 +</h2>
+                            <h2 className="text-3xl text-black font-bold leading-none mb-2">26 +</h2>
                             <p className="text-xs text-deep font-medium">JOB AVAILABLE</p>
                         </NavLink>
                         <NavLink to="/businesses" className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
                             <div className="flex mb-6 justify-center">
                                 <img alt="Companies" src={company} />
                             </div>
-                            <h2 className="text-3xl text-black font-bold leading-none mb-2">6 +</h2>
+                            <h2 className="text-3xl text-black font-bold leading-none mb-2">20 +</h2>
                             <p className="text-xs text-deep font-medium">COMPANY</p>
                         </NavLink>
                         <NavLink to="/candidates" className="bg-white rounded-lg text-center p-8 duration-300 transition hover:bg-opacity-90">
                             <div className="flex mb-6 justify-center">
                                 <img alt="Available Resumes" src={businessman} />
                             </div>
-                            <h2 className="text-3xl text-black font-bold leading-none mb-2">3 +</h2>
+                            <h2 className="text-3xl text-black font-bold leading-none mb-2">20 +</h2>
                             <p className="text-xs text-deep font-medium">AVAILABLE RESUMES</p>
                         </NavLink>
                     </div>

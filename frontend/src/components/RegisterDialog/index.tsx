@@ -56,16 +56,16 @@ const RegisterDialog: React.FC<RegisterProps> = ({ isOpen, onClose }) => {
             setLoading(true);
             const roleId = data.role === 'candidate' ? '66627f747573d122a0410137' : '66627f747573d122a0410138';
             authStore.register(data.firstName, data.lastName, data.email, data.password, roleId)
-            .then((x: any) => {
-                debugger
-                toast.success('Registered successfully! Please log in.');
-                onClose();
-            })
-            .catch((e: any) => {
-                debugger
-                toast.error(e.message || 'An error occurred during registration');
-                setRegisterError(e.message);
-            });
+                .then((x: any) => {
+                    debugger
+                    toast.success('Registered successfully! Please log in.');
+                    onClose();
+                })
+                .catch((e: any) => {
+                    debugger
+                    toast.error(e.message || 'An error occurred during registration');
+                    setRegisterError(e.message);
+                });
         } catch (e: any) {
             setRegisterError(e.message);
             toast.error(e.message || 'An error occurred during registration');
@@ -90,12 +90,26 @@ const RegisterDialog: React.FC<RegisterProps> = ({ isOpen, onClose }) => {
                             </Text>
                         )}
                         <Stack spacing="20px">
-                            <RadioGroup>
+                            <Stack spacing="20px">
                                 <HStack spacing="24px">
-                                    <Radio {...register("role")} value="candidate">Candidate</Radio>
-                                    <Radio {...register("role")} value="employer">Employer</Radio>
+                                    <Button
+                                        {...register("role")}
+                                        value="candidate"
+                                        className="button-default"
+                                        type="button"
+                                    >
+                                        Candidate
+                                    </Button>
+                                    <Button
+                                        {...register("role")}
+                                        value="employer"
+                                        className="button-default"
+                                        type="button"
+                                    >
+                                        Employer
+                                    </Button>
                                 </HStack>
-                            </RadioGroup>
+                            </Stack>
                             <FormControl isInvalid={!!errors.firstName}>
                                 <FormLabel className='!font-normal'>First Name</FormLabel>
                                 <Input

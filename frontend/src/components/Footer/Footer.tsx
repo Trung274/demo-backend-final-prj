@@ -27,7 +27,7 @@ const Footer = () => {
             <h5 className="text-white text-lg font-bold mb-4">Contact</h5>
             <p className="flex items-center mb-2">
               <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-              15/8 P. Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội 11310, Vietnam
+              15/8 Duy Tan Street, Dich Vong Hau, Cau Giay District, Hanoi 11310, Vietnam
             </p>
             <p className="flex items-center mb-2">
               <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
