@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -16,11 +16,7 @@ import {
     FormErrorMessage,
     Button,
     Stack,
-    Radio,
-    RadioGroup,
     Text,
-    Link,
-    HStack,
 } from '@chakra-ui/react';
 import { PasswordInput } from '@/components/PasswordInput';
 import { useStore } from '../../store';
@@ -42,7 +38,7 @@ const RegisterDialog: React.FC<RegisterProps> = ({ isOpen, onClose }) => {
     const { authStore } = useStore();
     const [isLoading, setLoading] = useState(false);
     const [registerError, setRegisterError] = useState<string>("");
-
+    const [role, setRole] = useState<string>("candidate");
     const {
         register,
         handleSubmit,
@@ -54,7 +50,7 @@ const RegisterDialog: React.FC<RegisterProps> = ({ isOpen, onClose }) => {
     const onSubmit = async (data: any) => {
         try {
             setLoading(true);
-            const roleId = data.role === 'candidate' ? '66627f747573d122a0410137' : '66627f747573d122a0410138';
+            const roleId = role === 'candidate' ? '66627f747573d122a0410137' : '66627f747573d122a0410138';
             authStore.register(data.firstName, data.lastName, data.email, data.password, roleId)
                 .then((x: any) => {
                     debugger
@@ -90,26 +86,32 @@ const RegisterDialog: React.FC<RegisterProps> = ({ isOpen, onClose }) => {
                             </Text>
                         )}
                         <Stack spacing="20px">
-                            <Stack spacing="20px">
-                                <HStack spacing="24px">
+                            <div className="flex gap-6 pt-2 pb-8 w-full">
+                                <div className="w-6/12">
                                     <Button
                                         {...register("role")}
                                         value="candidate"
-                                        className="button-default"
-                                        type="button"
+                                        className={`w-full ${role === 'employer' ? "button-greenLight" : "button-green"}`}
+                                        onClick={() => {
+                                            setRole('candidate')
+                                        }}
                                     >
                                         Candidate
                                     </Button>
+                                </div>
+                                <div className="w-6/12">
                                     <Button
                                         {...register("role")}
                                         value="employer"
-                                        className="button-default"
-                                        type="button"
+                                        className={`w-full ${role === 'candidate' ? "button-greenLight" : "button-green"}`}
+                                        onClick={() => {
+                                            setRole('employer')
+                                        }}
                                     >
                                         Employer
                                     </Button>
-                                </HStack>
-                            </Stack>
+                                </div>
+                            </div>
                             <FormControl isInvalid={!!errors.firstName}>
                                 <FormLabel className='!font-normal'>First Name</FormLabel>
                                 <Input
