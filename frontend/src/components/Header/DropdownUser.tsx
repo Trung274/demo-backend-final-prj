@@ -60,7 +60,7 @@ const DropdownUser = () => {
                     className={`z-[99999] absolute right-0 mt-[.5rem] flex w-[16rem] flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark`}
                 >
                     <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7 dark:border-strokedark">
-                        <li>
+                        {/* <li>
                             <NavLink
                                 to="/users/me"
                                 className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
@@ -68,7 +68,7 @@ const DropdownUser = () => {
                                 <FontAwesomeIcon icon={faUser} style={{color: '#01b04f'}} />
                                 My Profile
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li>
                             <NavLink
                                 to="/dashboard"

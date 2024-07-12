@@ -3,6 +3,7 @@ import _superagent, { ResponseError, Request, Response } from 'superagent';
 import commonStore from './stores/commonStore';
 import authStore from './stores/authStore';
 import qs from 'query-string';
+import { User } from './stores/userStore';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
@@ -64,7 +65,8 @@ const Auth = {
       roleId,
       profile: {} 
     }),
-  save: (user: any) => requests.put('/user', { user })
+  save: (user: any) => requests.put('/user', { user }),
+  updateProfile: (profileData: Partial<User>) => requests.put('/users/updateProfile', profileData)
 };
 
 const Tags = {

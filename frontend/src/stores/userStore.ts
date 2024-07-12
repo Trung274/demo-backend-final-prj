@@ -1,4 +1,4 @@
-import { observable, action, makeObservable } from 'mobx';
+import { observable, action, makeObservable, runInAction } from 'mobx';
 import agent from '../agent';
 
 export type LoginResponse = {
@@ -14,7 +14,21 @@ export type User = {
   email: string;
   roleId: string;
   profile: {
-    name: string;
+    name?: string;
+    avatar?: string;
+    description?: string;
+    website?: string;
+    slogan?: string;
+    employees?: string;
+    industry?: string;
+    phone?: string;
+    city?: string;
+    address?: string;
+    socialMedia?: {
+      facebook?: string;
+      twitter?: string;
+      linkedin?: string;
+    }
   },
 }
 
@@ -32,14 +46,15 @@ export class UserStore {
       updatingUserErrors: observable,
       pullUser: action,
       updateUser: action,
-      forgetUser: action
+      forgetUser: action,
+      updateProfile: action
     });
   }
 
   pullUser() {
     this.loadingUser = true;
     return agent.Auth.current()
-      .then(action(( user: User) => { this.currentUser = user; }))
+      .then(action((user: User) => { this.currentUser = user; }))
       .finally(action(() => { this.loadingUser = false; }))
   }
 
@@ -53,6 +68,23 @@ export class UserStore {
   forgetUser() {
     this.currentUser = undefined;
   }
+
+  updateProfile = async (profileData: Partial<User>) => {
+    this.updatingUser = true;
+    try {
+      const updatedUser = await agent.Auth.updateProfile(profileData);
+      runInAction(() => {
+        this.currentUser = updatedUser;
+      });
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      throw error;
+    } finally {
+      runInAction(() => {
+        this.updatingUser = false;
+      });
+    }
+  };
 }
 
 export default new UserStore();

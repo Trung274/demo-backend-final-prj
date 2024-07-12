@@ -15,6 +15,7 @@ import { Toaster } from 'react-hot-toast';
 import MainLayout from './layouts/MainLayout';
 import PrivateLayout from './layouts/PrivateLayout';
 import About from './pages/About';
+import ProfileSettings from './pages/ProfileSettings';
 import MockProfile from './pages/UserProfile/index.mock.test';
 import MockJob from './pages/JobDetails/index.mock.test';
 import MockBusiness from './pages/BusinessProfile/index.mock.test';
@@ -52,6 +53,7 @@ const App: React.FC = () => {
           </Route>
           <Route path="/" element={<PrivateLayout />}>
             <Route path="dashboard" element={(<PrivateRoute><Dashboard /></PrivateRoute>)} />
+            <Route path="users/me" element={(<PrivateRoute><ProfileSettings /></PrivateRoute>)} />
             <Route path="mock-savejobs" element={(<PrivateRoute><MockSaveJobs /></PrivateRoute>)} />
             <Route path="mock-manage-jobs" element={(<PrivateRoute><MockManageJobs /></PrivateRoute>)} />
             <Route path="mock-manage-users" element={(<PrivateRoute><MockManageUsers /></PrivateRoute>)} />
