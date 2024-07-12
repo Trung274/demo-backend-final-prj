@@ -214,3 +214,29 @@ select {
 .ghost-button-with-icon {
   @apply flex items-center gap-3.5 p-6 text-sm font-medium duration-300 ease-in-out lg:text-base justify-normal !important;
 }
+
+
+.bg-greenLight {
+  --tw-bg-opacity: 1;
+  background-color: rgb(232 247 238/var(--tw-bg-opacity)) !important
+}
+.bg-greenLight-hover{--tw-bg-opacity:1;background-color:rgb(210 239 221/var(--tw-bg-opacity))}
+.text-themePrimary-hover {
+  --tw-text-opacity: 1;
+  color: rgb(28 175 87 / var(--tw-text-opacity));
+}
+.text-themeDark {
+  --tw-text-opacity: 1;
+  color: rgb(54 65 76 / var(--tw-text-opacity));
+}
+
+.button-greenLight {
+  @apply duration-300 ease-in-out bg-white text-themeDark bg-greenLight p-6 !important;
+  &:hover {
+    @apply bg-greenLight-hover text-themePrimary-hover !important;
+  }
+}
+
+.button-green {
+  @apply duration-300 ease-in-out bg-white text-white bg-themePrimary p-6 !important; 
+}
