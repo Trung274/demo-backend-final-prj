@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const expressServer = require("./src/config/express");
 const cluster = require("cluster");
 const OS = require("os");
+const express = require('express');
+const path = require('path');
 require("dotenv").config();
 
 class App {
@@ -89,6 +91,10 @@ class App {
     const workers = cpus * workersByCpu;
     return workers;
   };
+
+  setupStaticFileServing() {
+    expressServer.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+  }
 }
 
 new App();

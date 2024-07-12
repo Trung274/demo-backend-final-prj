@@ -4,10 +4,10 @@ import { faUserTie, faBuilding, faBriefcase, faBookmark } from '@fortawesome/fre
 
 const Dashboard: React.FC = () => {
   const stats = [
-    { title: 'Total Users', value: 1250, icon: faUserTie },
-    { title: 'Active Businesses', value: 483, icon: faBuilding },
-    { title: 'Open Jobs', value: 729, icon: faBriefcase },
-    { title: 'Saved Jobs', value: 156, icon: faBookmark },
+    { title: 'Total Users', value: 12, icon: faUserTie },
+    { title: 'Active Businesses', value: 21, icon: faBuilding },
+    { title: 'Open Jobs', value: 17, icon: faBriefcase },
+    { title: 'Saved Jobs', value: 3, icon: faBookmark },
   ];
 
   return (

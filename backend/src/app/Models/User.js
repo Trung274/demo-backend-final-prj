@@ -85,28 +85,28 @@ const profileSchema = new mongoose.Schema({
 
 // User Schema (for User Information)
 const userSchema = new mongoose.Schema({
-  firstName: { // Tên (First Name)
+  firstName: { 
     type: String,
     required: true,
   },
-  lastName: { // Họ (Last Name)
+  lastName: { 
     type: String,
     required: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true, // Ensures unique email addresses
+    unique: true, 
   },
   password: {
     type: String,
     required: true,
   },
-  roleId: { // Vai trò (Role ID)
+  roleId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  profile: { // Thông tin doanh nghiệp (Business Profile)
+  profile: { 
     type: profileSchema,
     required: true,
   },

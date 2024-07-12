@@ -47,7 +47,14 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
           <div style={{ marginBottom: '-7px' }}>
             <span style={{ boxSizing: "border-box", display: "inline-block", overflow: "hidden", width: "initial", height: "initial", background: "none", opacity: 1, border: "0px", margin: "0px", padding: "0px", position: "relative", maxWidth: "100%" }}>
               <span style={{ boxSizing: "border-box", display: "block", width: "initial", height: "initial", background: "none", opacity: 1, border: "0px", margin: "0px", padding: "0px", maxWidth: "100%" }}>
-                <img src={job.businessLogoUrl} alt="Company Logo" className="rounded-lg w-16 h-16" />
+                <img
+                  src={`${process.env.REACT_APP_API_URL}${job.businessLogoUrl}`}
+                  alt="Company Logo"
+                  className="rounded-lg w-16 h-16"
+                  onError={(e) => {
+                    e.currentTarget.src = '/path/to/fallback/image.png';
+                  }}
+                />
               </span>
             </span>
           </div>
@@ -78,13 +85,13 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
           </li>
         </ul>
         <div>
-        <NavLink
-          to={`/jobs/${job._id}`} 
-          className="block leading-4 text-deep transition-all font-medium text-xs group-hover:text-white-important text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary"
-        >
-          View Details
-        </NavLink>
-      </div>
+          <NavLink
+            to={`/jobs/${job._id}`}
+            className="block leading-4 text-deep transition-all font-medium text-xs group-hover:text-white-important text-center py-3 px-6 bg-light rounded-md group-hover:!bg-themePrimary"
+          >
+            View Details
+          </NavLink>
+        </div>
       </div>
     </div>
   );
