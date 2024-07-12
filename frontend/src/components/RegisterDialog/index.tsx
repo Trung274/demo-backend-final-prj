@@ -20,7 +20,6 @@ import {
 } from '@chakra-ui/react';
 import { PasswordInput } from '@/components/PasswordInput';
 import { useStore } from '../../store';
-import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface RegisterProps {
     isOpen: boolean;
@@ -78,7 +77,6 @@ const RegisterDialog: React.FC<RegisterProps> = ({ isOpen, onClose }) => {
                     <ModalCloseButton />
                 </ModalHeader>
                 <ModalBody pb={6}>
-                <LoadingSpinner />
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {registerError && (
                             <Text fontSize="14px" color="primary.500">
