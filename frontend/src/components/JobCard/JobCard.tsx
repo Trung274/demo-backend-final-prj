@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faDollarSign, faClock } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
+import FallbackImage from '@assets/img/default-fallback-image.png';
 
 interface JobProps {
   job: {
@@ -52,7 +53,7 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
                   alt="Company Logo"
                   className="rounded-lg w-16 h-16"
                   onError={(e) => {
-                    e.currentTarget.src = '/path/to/fallback/image.png';
+                    e.currentTarget.src = FallbackImage;
                   }}
                 />
               </span>
