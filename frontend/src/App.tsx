@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useStore } from '@/store';
 import Home from '@pages/Home';
@@ -23,16 +23,26 @@ import MockSaveJobs from './pages/SaveJobs/index.mock.test';
 import MockManageJobs from './pages/ManageJobs/index.mock.test';
 import MockManageUsers from './pages/ManageUsers/index.mock.test';
 import MockAddUsers from './pages/AddUsers/index.mock.test';
+import Loader from './common/loader';
 
 const App: React.FC = () => {
   const { commonStore, userStore } = useStore()
+  const [loading, setLoading] = useState<boolean>(true);
+
   useEffect(() => {
     if (commonStore.token) {
       userStore.pullUser()
         .finally(() => commonStore.setAppLoaded())
     }
   })
-  return (
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
+
+  return loading ? (
+    <Loader />
+  ) : (
     <BrowserRouter>
       <Toaster position='top-right' toastOptions={{ duration: 2000 }} />
       <Routes>

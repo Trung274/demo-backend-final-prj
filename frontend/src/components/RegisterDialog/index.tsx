@@ -20,6 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { PasswordInput } from '@/components/PasswordInput';
 import { useStore } from '../../store';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface RegisterProps {
     isOpen: boolean;
@@ -50,15 +51,13 @@ const RegisterDialog: React.FC<RegisterProps> = ({ isOpen, onClose }) => {
     const onSubmit = async (data: any) => {
         try {
             setLoading(true);
-            const roleId = role === 'candidate' ? '66627f747573d122a0410137' : '66627f747573d122a0410138';
+            const roleId = role === 'candidate' ? '667912d3f4be8728ccf4de3e' : '6690f83949b634c6f84831d1';
             authStore.register(data.firstName, data.lastName, data.email, data.password, roleId)
                 .then((x: any) => {
-                    debugger
                     toast.success('Registered successfully! Please log in.');
                     onClose();
                 })
                 .catch((e: any) => {
-                    debugger
                     toast.error(e.message || 'An error occurred during registration');
                     setRegisterError(e.message);
                 });
@@ -79,6 +78,7 @@ const RegisterDialog: React.FC<RegisterProps> = ({ isOpen, onClose }) => {
                     <ModalCloseButton />
                 </ModalHeader>
                 <ModalBody pb={6}>
+                <LoadingSpinner />
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {registerError && (
                             <Text fontSize="14px" color="primary.500">
