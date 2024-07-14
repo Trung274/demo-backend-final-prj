@@ -4,6 +4,7 @@ import { useStore } from "@/store";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { User } from '@/stores/userStore';
+import toast from 'react-hot-toast';
 
 interface FormData extends Omit<User, 'profile'> {
   profile: {
@@ -56,10 +57,10 @@ const ProfileSettings: React.FC = () => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       await userStore.updateProfile(data);
-      // Handle success (e.g., show a success message)
+      toast.success('Profile updated successfully!');
     } catch (error) {
       console.error('Error updating profile:', error);
-      // Handle error (e.g., show an error message)
+      toast.error('Oops! Something went wrong while updating your profile picture. Please try again later.');
     }
   };
 

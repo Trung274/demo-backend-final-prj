@@ -6,7 +6,7 @@ const mockJobs = [
   {
     _id: '1',
     jobTitle: 'Software Engineer',
-    employmentType: 'Full-time',
+    employmentType: ["Full-time"],
     businessLogoUrl: 'https://example.com/logo1.png',
     location: 'San Francisco, CA',
     salary: '$100,000 - $150,000',
@@ -15,7 +15,7 @@ const mockJobs = [
   {
     _id: '2',
     jobTitle: 'Data Scientist',
-    employmentType: 'Contract',
+    employmentType: ["Contract"],
     businessLogoUrl: 'https://example.com/logo2.png',
     location: 'New York, NY',
     salary: '$120,000 - $180,000',
@@ -24,7 +24,7 @@ const mockJobs = [
   {
     _id: '3',
     jobTitle: 'UX Designer',
-    employmentType: 'Part-time',
+    employmentType: ["Part-time"],
     businessLogoUrl: 'https://example.com/logo3.png',
     location: 'Remote',
     salary: '$80,000 - $120,000',
@@ -33,7 +33,7 @@ const mockJobs = [
   {
     _id: '4',
     jobTitle: 'C++ Programmer',
-    employmentType: 'Part-time',
+    employmentType: ["Part-time"],
     businessLogoUrl: 'https://example.com/logo3.png',
     location: 'Remote',
     salary: '$80,000 - $120,000',
@@ -42,7 +42,7 @@ const mockJobs = [
   {
     _id: '5',
     jobTitle: 'Accountant',
-    employmentType: 'Part-time',
+    employmentType: ["Part-time"],
     businessLogoUrl: 'https://example.com/logo3.png',
     location: 'Remote',
     salary: '$80,000 - $120,000',

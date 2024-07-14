@@ -16,7 +16,7 @@ const mockJobs = [
   {
     _id: "1",
     jobTitle: "Marketing Director",
-    employmentType: "Full Time",
+    employmentType: ["Full Time"],
     businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-1.jpg",
     location: "New York, USA",
     salary: "$4,000 - $5,000",
@@ -25,7 +25,7 @@ const mockJobs = [
   {
     _id: "2",
     jobTitle: "Software Engineer",
-    employmentType: "Part Time",
+    employmentType: ["Part Time"],
     businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-2.jpg",
     location: "San Francisco, USA",
     salary: "$6,000 - $8,000",
@@ -34,7 +34,7 @@ const mockJobs = [
   {
     _id: "3",
     jobTitle: "Data Analyst",
-    employmentType: "Remote",
+    employmentType: ["Remote"],
     businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-3.jpg",
     location: "London, UK",
     salary: "$3,500 - $4,500",
@@ -43,7 +43,7 @@ const mockJobs = [
   {
     _id: "4",
     jobTitle: "Product Manager",
-    employmentType: "Full Time",
+    employmentType: ["Full Time"],
     businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-4.jpg",
     location: "Berlin, Germany",
     salary: "$5,000 - $7,000",
@@ -52,7 +52,7 @@ const mockJobs = [
   {
     _id: "5",
     jobTitle: "UX Designer",
-    employmentType: "Contract",
+    employmentType: ["Contract"],
     businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-5.jpg",
     location: "Toronto, Canada",
     salary: "$4,500 - $6,000",
@@ -61,7 +61,7 @@ const mockJobs = [
   {
     _id: "6",
     jobTitle: "Sales Representative",
-    employmentType: "Full Time",
+    employmentType: ["Full Time"],
     businessLogoUrl: "https://demo.htmlcodex.com/2246/job-portal-website-template/img/com-logo-6.jpg",
     location: "Sydney, Australia",
     salary: "$3,000 - $4,000",

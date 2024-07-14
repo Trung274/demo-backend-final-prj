@@ -9,7 +9,7 @@ export interface Job {
   location: string;
   businessLogoUrl: string;
   salary: string;
-  employmentType: string;
+  employmentType: string[];
   categoryId: string;
   createdAt: string;
   updatedAt: string;
