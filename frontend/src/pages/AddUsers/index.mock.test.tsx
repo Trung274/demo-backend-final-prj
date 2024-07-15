@@ -165,11 +165,12 @@ const AddPeopleBusinesses: React.FC = () => {
                 Description
               </label>
               <textarea
-                {...register("profile.description")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="profile.description"
+                {...register('profile.description')}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline min-h-[150px] resize-y"
+                id="description"
                 placeholder="Description"
-              ></textarea>
+                rows={20}
+              />
             </div>
             {roleType === 'business' && (
               <>
