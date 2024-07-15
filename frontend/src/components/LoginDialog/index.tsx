@@ -28,6 +28,7 @@ import {
 } from '@chakra-ui/react';
 import { PasswordInput } from '@/components/PasswordInput';
 import { useStore } from '../../store';
+import { useLoader } from '@/stores/LoaderProvider';
 
 interface LoginProps {
     isOpen: boolean; // Flag to control modal visibility
@@ -43,6 +44,8 @@ const LoginDialog: React.FC<LoginProps> = ({ isOpen, onClose }) => {
     const { authStore } = useStore();
     const [isLoading, setLoading] = useState<boolean | undefined>(false);
     const [loginError, setLoginError] = useState<String>("");
+    const loadingService = useLoader();
+
     const {
         register,
         handleSubmit,
@@ -54,14 +57,15 @@ const LoginDialog: React.FC<LoginProps> = ({ isOpen, onClose }) => {
     const onSubmit = async (data: any) => {
         try {
             setLoading(true);
+            loadingService.start();
             authStore.login(data.email, data.password)
             .then((x:any) => {
-                debugger
+                loadingService.stop();
                 toast.success('Logged in successfully!');
                 onClose();
             })
             .catch((e: any) => {
-                debugger
+                loadingService.stop();
                 toast.error(e.message || 'An error occurred during login');
                 setLoginError(e.message);
             });
