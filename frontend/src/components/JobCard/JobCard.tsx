@@ -8,7 +8,7 @@ interface JobProps {
   job: {
     _id: string;
     jobTitle: string;
-    employmentType: string;
+    employmentType: string[];
     businessLogoUrl: string;
     location: string;
     salary: string;
@@ -23,7 +23,7 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
       {/* Top Section with Employment Type and Save Button */}
       <div className="flex justify-between items-center mb-2">
         <span className="bg-blue-100 py-1 px-2.5 rounded-sm text-xss1 font-normal text-blue-500">
-          {job.employmentType}
+          {job.employmentType.join(', ')}
         </span>
         <a href=""
           className="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative">

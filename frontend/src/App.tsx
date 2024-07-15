@@ -17,7 +17,6 @@ import PrivateLayout from './layouts/PrivateLayout';
 import About from './pages/About';
 import ProfileSettings from './pages/ProfileSettings';
 import MockProfile from './pages/UserProfile/index.mock.test';
-import MockJob from './pages/JobDetails/index.mock.test';
 import MockBusiness from './pages/BusinessProfile/index.mock.test';
 import MockSaveJobs from './pages/SaveJobs/index.mock.test';
 import MockManageJobs from './pages/ManageJobs/index.mock.test';
@@ -61,7 +60,6 @@ const App: React.FC = () => {
               <Route path="resume/:id" element={<UserProfile />} />
               <Route path="mock-profile" element={<MockProfile />} />
               <Route path="jobs/:id" element={<JobDetails />} />
-              <Route path="mock-job" element={<MockJob />} />
               <Route path="business/:id" element={<BusinessProfile />} />
               <Route path="mock-business" element={<MockBusiness />} />
             </Route>
