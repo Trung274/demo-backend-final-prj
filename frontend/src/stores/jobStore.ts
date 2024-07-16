@@ -71,23 +71,26 @@ export class JobStore {
   updateJob = async (jobId: string, jobData: Partial<Job>) => {
     this.setLoading(true);
     try {
-      const updatedJob = await agent.Jobs.update(jobId, jobData);
-      runInAction(() => {
-        const index = this.jobs.findIndex(job => job._id === jobId);
-        if (index !== -1) {
-          this.jobs[index] = updatedJob;
-        }
-        this.setLoading(false);
-      });
-      return updatedJob;
+        const updatedJob = await agent.Jobs.update(jobId, jobData);
+        runInAction(() => {
+            const index = this.jobs.findIndex(job => job._id === jobId);
+            if (index !== -1) {
+                this.jobs[index] = updatedJob;
+            }
+        });
+        return updatedJob;
     } catch (error) {
-      console.error('Failed to update job', error);
-      runInAction(() => {
-        this.setError('Failed to update job');
-        this.setLoading(false);
-      });
+        console.error('Failed to update job', error);
+        runInAction(() => {
+            this.setError('Failed to update job');
+        });
+        throw error;
+    } finally {
+        runInAction(() => {
+            this.setLoading(false);
+        });
     }
-  };
+};
 
   getJobById = async (jobId: string) => {
     this.setLoading(true);
@@ -109,19 +112,22 @@ export class JobStore {
   deleteJob = async (jobId: string) => {
     this.setLoading(true);
     try {
-      await agent.Jobs.del(jobId);
-      runInAction(() => {
-        this.jobs = this.jobs.filter(job => job._id !== jobId);
-        this.setLoading(false);
-      });
+        await agent.Jobs.del(jobId);
+        runInAction(() => {
+            this.jobs = this.jobs.filter(job => job._id !== jobId);
+        });
     } catch (error) {
-      console.error('Failed to delete job', error);
-      runInAction(() => {
-        this.setError('Failed to delete job');
-        this.setLoading(false);
-      });
+        console.error('Failed to delete job', error);
+        runInAction(() => {
+            this.setError('Failed to delete job');
+        });
+        throw error; // Re-throw the error so it can be handled in the component
+    } finally {
+        runInAction(() => {
+            this.setLoading(false);
+        });
     }
-  };
+};
 
   getUserJobs = async (userId: string, page: number = 1, limit: number = 10) => {
     this.setLoading(true);

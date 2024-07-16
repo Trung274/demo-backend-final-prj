@@ -1,65 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '@/store';
 import AddJobModal from '@/components/AddJobModal/AddJobModal';
+import { Job } from '@/stores/jobStore';
 
-// Mock data for jobs
-const initialJobs = [
-    {
-        _id: '1',
-        jobTitle: 'Senior Software Engineer',
-        location: 'San Francisco, CA',
-        employmentType: ['fulltime', 'remote'],
-        expiredAt: '2024-07-01T00:00:00.000Z',
-    },
-    {
-        _id: '2',
-        jobTitle: 'UX Designer',
-        location: 'New York, NY',
-        employmentType: ['fulltime'],
-        expiredAt: '2024-06-30T00:00:00.000Z',
-    },
-    {
-        _id: '3',
-        jobTitle: 'Data Scientist',
-        location: 'Seattle, WA',
-        employmentType: ['fulltime', 'internship'],
-        expiredAt: '2024-07-15T00:00:00.000Z',
-    },
-    {
-        _id: '4',
-        jobTitle: 'Frontend Developer',
-        location: 'Los Angeles, CA',
-        employmentType: ['contract', 'remote'],
-        expiredAt: '2024-07-10T00:00:00.000Z',
-    },
-    {
-        _id: '5',
-        jobTitle: 'Marketing Specialist',
-        location: 'Chicago, IL',
-        employmentType: ['part-time', 'remote'],
-        expiredAt: '2024-07-05T00:00:00.000Z',
-    },
-    {
-        _id: '6',
-        jobTitle: 'Environmental Scientist',
-        location: 'Denver, CO',
-        employmentType: ['fulltime', 'internship'],
-        expiredAt: '2024-07-20T00:00:00.000Z',
-    },
-    {
-        _id: '7',
-        jobTitle: 'Diversity and Inclusion Manager',
-        location: 'Boston, MA',
-        employmentType: ['fulltime', 'remote'],
-        expiredAt: '2024-07-12T00:00:00.000Z',
-    },
-    // Feel free to customize further!
-];
-
-const MockManageJobs: React.FC = () => {
-    const [jobs, setJobs] = useState(initialJobs);
-    const [selectedJob, setSelectedJob] = useState<any>(null);
+const ManageJobs: React.FC = observer(() => {
+    const { jobStore, userStore } = useStore();
+    const [selectedJob, setSelectedJob] = useState<Partial<Job> | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+
+    useEffect(() => {
+        if (userStore.currentUser) {
+            jobStore.getUserJobs(userStore.currentUser._id);
+        }
+    }, [jobStore, userStore.currentUser]);
 
     const handleAddJob = () => {
         setSelectedJob({
@@ -67,32 +22,52 @@ const MockManageJobs: React.FC = () => {
             description: '',
             location: '',
             salary: '',
+            businessLogoUrl: '',
             employmentType: [],
             expiredAt: '',
         });
         setIsModalOpen(true);
     };
 
-    const handleEditJob = (job: any) => {
+    const handleEditJob = (job: Job) => {
         setSelectedJob({ ...job });
         setIsModalOpen(true);
     };
 
-    const handleDeleteJob = (jobId: string) => {
-        setJobs(jobs.filter(job => job._id !== jobId));
-    };
-
-    const handleSaveJob = (job: any) => {
-        if (job._id) {
-            setJobs(jobs.map(j => (j._id === job._id ? job : j)));
-        } else {
-            const newJob = { ...job, _id: Date.now().toString() };
-            setJobs([...jobs, newJob]);
+    const handleDeleteJob = async (jobId: string) => {
+        if (window.confirm("Are you sure you want to delete this job?")) {
+            try {
+                await jobStore.deleteJob(jobId);
+                // Refresh the job list after successful deletion
+                if (userStore.currentUser) {
+                    jobStore.getUserJobs(userStore.currentUser._id);
+                }
+            } catch (error) {
+                console.error("Error deleting job:", error);
+                // Toast error
+            }
         }
-        setIsModalOpen(false);
     };
 
-    const filteredJobs = jobs.filter(job =>
+    const handleSaveJob = async (job: Partial<Job>) => {
+        try {
+            if (job._id) {
+                await jobStore.updateJob(job._id, job);
+            } else {
+                await jobStore.createJob(job);
+            }
+            setIsModalOpen(false);
+            // Refresh the job list after successful update/create
+            if (userStore.currentUser) {
+                jobStore.getUserJobs(userStore.currentUser._id);
+            }
+        } catch (error) {
+            console.error("Error saving job:", error);
+            // Toast error
+        }
+    };
+
+    const filteredJobs = jobStore.jobs.filter(job =>
         job.jobTitle.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
@@ -154,6 +129,6 @@ const MockManageJobs: React.FC = () => {
             />
         </div>
     );
-};
+});
 
-export default MockManageJobs;
+export default ManageJobs;

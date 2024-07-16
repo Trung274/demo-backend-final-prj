@@ -19,7 +19,7 @@ import ProfileSettings from './pages/ProfileSettings';
 import MockProfile from './pages/UserProfile/index.mock.test';
 import MockBusiness from './pages/BusinessProfile/index.mock.test';
 import MockSaveJobs from './pages/SaveJobs/index.mock.test';
-import MockManageJobs from './pages/ManageJobs/index.mock.test';
+import ManageJobs from './pages/ManageJobs';
 import MockManageUsers from './pages/ManageUsers/index.mock.test';
 import MockAddUsers from './pages/AddUsers/index.mock.test';
 import Loader from './common/loader';
@@ -67,7 +67,7 @@ const App: React.FC = () => {
               <Route path="dashboard" element={(<PrivateRoute><Dashboard /></PrivateRoute>)} />
               <Route path="users/me" element={(<PrivateRoute><ProfileSettings /></PrivateRoute>)} />
               <Route path="mock-savejobs" element={(<PrivateRoute><MockSaveJobs /></PrivateRoute>)} />
-              <Route path="mock-manage-jobs" element={(<PrivateRoute><MockManageJobs /></PrivateRoute>)} />
+              <Route path="/manage-jobs" element={(<PrivateRoute><ManageJobs /></PrivateRoute>)} />
               <Route path="mock-manage-users" element={(<PrivateRoute><MockManageUsers /></PrivateRoute>)} />
               <Route path="mock-add-users" element={(<PrivateRoute><MockAddUsers /></PrivateRoute>)} />
               {/* <Route path="users/me" element={(<PrivateRoute><UserProfile /></PrivateRoute>)} /> */}
