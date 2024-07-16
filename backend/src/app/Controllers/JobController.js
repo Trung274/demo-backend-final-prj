@@ -60,7 +60,7 @@ class JobController {
 
   async createJob(request, response) {
   try {
-    const jobData = { ...request.body }; 
+    const jobData = { ...request.body, userId: request.user.user_id }; 
     const job = await model.create(jobData);
     return response.status(201).json(job);
   } catch (error) {
