@@ -38,6 +38,9 @@ export class UserStore {
   updatingUser?: boolean;
   updatingUserErrors: any;
 
+  listBusinesses: string[] = [];
+  isLoadingBusinesses = false;
+
   constructor() {
     makeObservable(this, {
       currentUser: observable,
@@ -47,7 +50,10 @@ export class UserStore {
       pullUser: action,
       updateUser: action,
       forgetUser: action,
-      updateProfile: action
+      updateProfile: action,
+      listBusinesses: observable,
+      loadListBusinesses: action,
+      isLoadingBusinesses: observable,
     });
   }
 
@@ -85,6 +91,15 @@ export class UserStore {
       });
     }
   };
+
+  loadListBusinesses() {
+    this.isLoadingBusinesses = true;
+    return agent.Category.getAll()  //note get bus
+      .then(action((bu: string[]) => { 
+        this.listBusinesses = bu
+    }))
+      .finally(action(() => { this.isLoadingBusinesses = false; }))
+  }
 }
 
 export default new UserStore();

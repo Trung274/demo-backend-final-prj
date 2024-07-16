@@ -1,9 +1,5 @@
 import React, { useEffect } from "react";
-// import { BeakerIcon } from '@heroicons/react/24/solid'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeadphones, faUserTie, faPeopleRoof, faChartLine, faHandshakeSlash, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from "react-router-dom";
-import faContactCard from 'assets/svg/faContactCard.svg';
 import { useStore } from "@/store";
 import { Observer } from "mobx-react-lite";
 import LoadingSpinner from "@/components/LoadingSpinner";

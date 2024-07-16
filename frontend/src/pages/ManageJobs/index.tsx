@@ -6,10 +6,17 @@ import AddJobModal from '@/components/AddJobModal/AddJobModal';
 import { Job } from '@/stores/jobStore';
 
 const ManageJobs: React.FC = observer(() => {
-    const { jobStore, userStore } = useStore();
+    const { jobStore, userStore, categoryStore } = useStore();
     const [selectedJob, setSelectedJob] = useState<Partial<Job> | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+
+    useEffect(() => {
+        async function loadCategories() {
+            await categoryStore.loadCategories();
+        }
+        loadCategories();
+    }, [categoryStore]);
 
     useEffect(() => {
         if (userStore.currentUser) {
@@ -127,6 +134,7 @@ const ManageJobs: React.FC = observer(() => {
                 onSave={handleSaveJob}
                 job={selectedJob}
                 setJob={setSelectedJob}
+                category={categoryStore.categories}
             />
         </div>
     );
