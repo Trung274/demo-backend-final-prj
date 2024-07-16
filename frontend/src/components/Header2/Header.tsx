@@ -16,8 +16,8 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar, currentUser }: { sidebarOpe
     const handleOpenRegisterModal = () => setIsRegisterOpen(true);
     const handleCloseRegisterModal = () => setIsRegisterOpen(false);
     return (
-        <header className="shadow-sm bg-white">
-            <nav className="container py-2.5">
+        <header className="fixed top-0 w-full p-4 bg-white shadow-md" style={{zIndex: 99}}>
+            <nav>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center">
                         <a className="hidden sm:flex" href="/">
@@ -35,6 +35,7 @@ const LoggedOutView = ({ sidebarOpen, toggleSidebar, currentUser }: { sidebarOpe
                             </div>
                         </a>
                     </div>
+                    <div className="lg:hidden"><button className="flex items-center"><svg className="text-white bg-themePrimary block h-8 w-8 p-2 rounded" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Mobile menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg></button></div>
                     <div>
                         <ul className="bg-white w-full z-50 menu-open md:space-x-8 space-x-6 font-semibold hidden lg:flex">
                             <li className="ml-6 xl:ml-0 xl:mb-0">
