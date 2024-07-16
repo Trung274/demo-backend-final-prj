@@ -53,16 +53,19 @@ export class JobStore {
   createJob = async (jobData: Partial<Job>) => {
     this.setLoading(true);
     try {
-      const job = await agent.Jobs.create(jobData);
+      const newJob = await agent.Jobs.create(jobData);
       runInAction(() => {
-        this.jobs.push(job);
-        this.setLoading(false);
+        this.jobs.push(newJob);
       });
-      return job;
+      return newJob;
     } catch (error) {
       console.error('Failed to create job', error);
       runInAction(() => {
         this.setError('Failed to create job');
+      });
+      throw error;
+    } finally {
+      runInAction(() => {
         this.setLoading(false);
       });
     }

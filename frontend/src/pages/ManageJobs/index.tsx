@@ -51,21 +51,21 @@ const ManageJobs: React.FC = observer(() => {
 
     const handleSaveJob = async (job: Partial<Job>) => {
         try {
-            if (job._id) {
-                await jobStore.updateJob(job._id, job);
-            } else {
-                await jobStore.createJob(job);
-            }
-            setIsModalOpen(false);
-            // Refresh the job list after successful update/create
-            if (userStore.currentUser) {
-                jobStore.getUserJobs(userStore.currentUser._id);
-            }
+          if (job._id) {
+            await jobStore.updateJob(job._id, job);
+          } else {
+            await jobStore.createJob(job);
+          }
+          setIsModalOpen(false);
+          // Refresh the job list after successful update/create
+          if (userStore.currentUser) {
+            jobStore.getUserJobs(userStore.currentUser._id);
+          }
         } catch (error) {
-            console.error("Error saving job:", error);
-            // Toast error
+          console.error("Error saving job:", error);
+          // Toast error
         }
-    };
+      };
 
     const filteredJobs = jobStore.jobs.filter(job =>
         job.jobTitle.toLowerCase().includes(searchQuery.toLowerCase())
@@ -74,7 +74,7 @@ const ManageJobs: React.FC = observer(() => {
     return (
         <div className="rounded-lg shadow-lg bg-white">
             <div className="h-16 bg-themeDark mb-8 flex items-center px-10 rounded-lg">
-                <p className="text-xxs text-white">Manage Jobs</p>
+                <p className="text-xxs text-white">Manage All Jobs</p>
             </div>
             <main className="flex-grow mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div className="flex justify-between items-center mb-4">

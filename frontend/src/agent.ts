@@ -87,8 +87,8 @@ const Jobs = {
     requests.get(`/jobs/${jobId}`),
   update: (jobId: string, job: Partial<Job>) => 
     requests.put(`/jobs/update/${jobId}`, job),
-  create: (job: any) =>
-    requests.post('/jobs', { job }),
+  create: (job: Partial<Job>) => 
+    requests.post('/jobs/create', job),
   search: (params: { query?: string; location?: string; categoryId?: string; employmentType?: string[]; page?: number; limit?: number }) =>
     requests.get(`/jobs/search?${qs.stringify(params)}`)
 };
