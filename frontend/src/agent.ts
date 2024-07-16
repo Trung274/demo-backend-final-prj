@@ -2,6 +2,7 @@ import superagentPromise from 'superagent-promise';
 import _superagent, { ResponseError, Request, Response } from 'superagent';
 import commonStore from './stores/commonStore';
 import authStore from './stores/authStore';
+import { Job } from './stores/jobStore';
 import qs from 'query-string';
 import { User } from './stores/userStore';
 
@@ -56,14 +57,14 @@ const requests = {
 const Auth = {
   current: () => requests.get('/users/me'),
   login: (email: string, password: string) => requests.post('/login', { email, password }),
-  register: (firstName: string, lastName: string, email: string, password: string, roleId: string) => 
-    requests.post('/users/create', { 
-      firstName, 
-      lastName, 
-      email, 
-      password, 
+  register: (firstName: string, lastName: string, email: string, password: string, roleId: string) =>
+    requests.post('/users/create', {
+      firstName,
+      lastName,
+      email,
+      password,
       roleId,
-      profile: {} 
+      profile: {}
     }),
   save: (user: any) => requests.put('/user', { user }),
   updateProfile: (profileData: Partial<User>) => requests.put('/users/updateProfile', profileData)
@@ -76,19 +77,19 @@ const Profile = {
 };
 
 const Jobs = {
-  all: (page: number, limit: number) => 
+  all: (page: number, limit: number) =>
     requests.get(`/jobs?${qs.stringify({ limit, page })}`),
-  byUser: (userId: string, page: number, limit: number) => 
+  byUser: (userId: string, page: number, limit: number) =>
     requests.get(`/jobs?userId=${encode(userId)}&${qs.stringify({ limit, page })}`),
-  del: (jobId: string) => 
-    requests.del(`/jobs/${jobId}`),
-  get: (jobId: string) => 
+  del: (jobId: string) =>
+    requests.del(`/jobs/delete/${jobId}`),
+  get: (jobId: string) =>
     requests.get(`/jobs/${jobId}`),
-  update: (jobId: string, job: any) => 
-    requests.put(`/jobs/${jobId}`, { job }),
-  create: (job: any) => 
+  update: (jobId: string, job: Partial<Job>) => 
+    requests.put(`/jobs/update/${jobId}`, job),
+  create: (job: any) =>
     requests.post('/jobs', { job }),
-  search: (params: { query?: string; location?: string; categoryId?: string; employmentType?: string[]; page?: number; limit?: number }) => 
+  search: (params: { query?: string; location?: string; categoryId?: string; employmentType?: string[]; page?: number; limit?: number }) =>
     requests.get(`/jobs/search?${qs.stringify(params)}`)
 };
 

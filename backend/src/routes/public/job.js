@@ -95,7 +95,7 @@
  *           type: array
  *           items:
  *             type: string
- *             enum: [fulltime, parttime, internship, remote, contract]
+ *             enum: [Fulltime, Parttime, Internship, Remote, Contract]
  *           description: Type(s) of employment for the job
  *         categoryId:
  *           type: string
@@ -119,7 +119,7 @@
  *         location: San Francisco, CA
  *         businessLogoUrl: https://example.com/logo.png
  *         salary: $120,000 - $150,000 per year
- *         employmentType: [fulltime, remote]
+ *         employmentType: [Fulltime, Remote]
  *         categoryId: 5f9d5a3b9d3e2a1b1c9d5a3c
  *         createdAt: 2023-06-01T00:00:00.000Z
  *         updatedAt: 2023-06-01T00:00:00.000Z

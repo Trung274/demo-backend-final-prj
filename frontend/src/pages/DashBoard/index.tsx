@@ -20,7 +20,7 @@ const Dashboard: React.FC = () => {
       <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Welcome to your dashboard</h2>
-          <p className="text-gray-600">Here's an overview of your platform's current status:</p>
+          <p className="text-gray-600">Here's an overview of JobHub's current status:</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (

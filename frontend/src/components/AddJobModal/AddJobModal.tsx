@@ -1,17 +1,18 @@
 import React from 'react';
+import { Job } from '@/stores/jobStore';
 
 interface AddJobModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onSave: (job: any) => void;
-    job: any;
-    setJob: (job: any) => void;
+    onSave: (job: Partial<Job>) => void;
+    job: Partial<Job> | null;
+    setJob: (job: Partial<Job>) => void;
 }
 
-const employmentTypes = ['fulltime', 'parttime', 'internship', 'remote', 'contract'];
+const employmentTypes = ['Fulltime', 'Parttime', 'Internship', 'Remote', 'Contract'];
 
 const AddJobModal: React.FC<AddJobModalProps> = ({ isOpen, onClose, onSave, job, setJob }) => {
-    if (!isOpen) return null;
+    if (!isOpen || !job) return null;
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -75,17 +76,26 @@ const AddJobModal: React.FC<AddJobModalProps> = ({ isOpen, onClose, onSave, job,
                                     />
                                 </div>
                                 <div className="mb-4">
+                                    <label className="block text-sm font-medium text-gray-700">Business Logo URL</label>
+                                    <input
+                                        type="text"
+                                        value={job.businessLogoUrl}
+                                        onChange={(e) => setJob({ ...job, businessLogoUrl: e.target.value })}
+                                        className="mt-1 block w-full border rounded-md shadow-sm py-2 px-3"
+                                    />
+                                </div>
+                                <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Employment Type</label>
                                     <div className="mt-2">
                                         {employmentTypes.map((type: string) => (
                                             <label key={type} className="inline-flex items-center mr-4">
                                                 <input
                                                     type="checkbox"
-                                                    checked={job.employmentType.includes(type)}
+                                                    checked={job.employmentType?.includes(type)}
                                                     onChange={(e) => {
                                                         const updatedTypes = e.target.checked
-                                                            ? [...job.employmentType, type]
-                                                            : job.employmentType.filter((t: string) => t !== type);
+                                                            ? [...(job.employmentType || []), type]
+                                                            : job.employmentType?.filter((t: string) => t !== type);
                                                         setJob({ ...job, employmentType: updatedTypes });
                                                     }}
                                                     className="form-checkbox h-5 w-5 text-themePrimary"
@@ -99,7 +109,7 @@ const AddJobModal: React.FC<AddJobModalProps> = ({ isOpen, onClose, onSave, job,
                                     <label className="block text-sm font-medium text-gray-700">Expire Date</label>
                                     <input
                                         type="datetime-local"
-                                        value={job.expiredAt ? job.expiredAt.slice(0, 16) : ''}
+                                        value={job.expiredAt ? new Date(job.expiredAt).toISOString().slice(0, 16) : ''}
                                         onChange={(e) => setJob({ ...job, expiredAt: e.target.value })}
                                         className="mt-1 block w-full border rounded-md shadow-sm py-2 px-3"
                                     />

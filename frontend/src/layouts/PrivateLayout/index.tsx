@@ -36,7 +36,7 @@ const PrivateLayout = () => {
                 <SidebarItem icon={faHome} text="Dashboard" to="/dashboard" />
                 <SidebarItem icon={faUser} text="My Profile" to="/users/me" />
                 <SidebarItem icon={faBookmark} text="Saved Jobs" to="mock-savejobs" />
-                <SidebarItem icon={faBook} text="Manage Jobs" to="mock-manage-jobs" />
+                <SidebarItem icon={faBook} text="Manage All Jobs" to="/manage-jobs" />
                 <SidebarItem icon={faUsers} text="Manage Users" to="mock-manage-users" />
                 <SidebarItem icon={faPlus} text="Add People & Businesses" to="mock-add-users" />
               </ul>

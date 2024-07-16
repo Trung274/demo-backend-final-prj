@@ -32,7 +32,7 @@
  *           type: array
  *           items:
  *             type: string
- *             enum: [fulltime, parttime, internship, remote, contract]
+ *             enum: [Fulltime, Parttime, Internship, Remote, Contract]
  *           description: Type(s) of employment for the job
  *         categoryId:
  *           type: string
