@@ -15,15 +15,8 @@ import {
     Input,
     FormErrorMessage,
     Button,
-    Spinner,
-    Box,
     Text,
-    Container,
-    Flex,
-    Heading,
-    Image,
     Stack,
-    HStack,
     Link
 } from '@chakra-ui/react';
 import { PasswordInput } from '@/components/PasswordInput';
@@ -66,8 +59,7 @@ const LoginDialog: React.FC<LoginProps> = ({ isOpen, onClose }) => {
             })
             .catch((e: any) => {
                 loadingService.stop();
-                toast.error(e.message || 'An error occurred during login');
-                setLoginError(e.message);
+                setLoginError(e.response.body.message);
             });
         } catch (e: any) {
             setLoginError(e.message);
@@ -88,7 +80,7 @@ const LoginDialog: React.FC<LoginProps> = ({ isOpen, onClose }) => {
                 <ModalBody pb={6}>
                     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
                         {loginError ? (
-                            <Text fontSize="14px" color="primary.500">
+                            <Text className="text-center p-4 text-red-600">
                                 {loginError}
                             </Text>
                         ) : null}

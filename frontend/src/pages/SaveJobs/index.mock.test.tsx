@@ -51,22 +51,20 @@ const mockJobs = [
 ];
 
 const SaveMockJobs: React.FC = () => {
-    return (
-        <div className="container flex flex-col min-h-screen bg-gray-100">
-          <header className="bg-white shadow">
-            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-              <h1 className="text-3xl font-bold text-gray-900">All Saved Jobs</h1>
-            </div>
-          </header>
-          <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {mockJobs.map(job => (
-                <JobCard key={job._id} job={job} />
-              ))}
-            </div>
-          </main>
+  return (
+    <div className="rounded-lg shadow-lg bg-white">
+      <div className="h-16 bg-themeDark mb-8 flex items-center px-10 rounded-lg">
+        <p className="text-xxs text-white">All Saved Jobs</p>
+      </div>
+      <main className="flex-grow mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {mockJobs.map(job => (
+            <JobCard key={job._id} job={job} />
+          ))}
         </div>
-      );
-    };
-    
-    export default SaveMockJobs;
+      </main>
+    </div>
+  );
+};
+
+export default SaveMockJobs;

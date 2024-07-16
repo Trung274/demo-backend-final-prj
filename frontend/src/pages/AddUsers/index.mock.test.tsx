@@ -54,13 +54,11 @@ const AddPeopleBusinesses: React.FC = () => {
   };
 
   return (
-    <div className="container flex flex-col min-h-screen bg-gray-100">
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Add People & Businesses</h1>
-        </div>
-      </header>
-      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="rounded-lg shadow-lg bg-white">
+      <div className="h-16 bg-themeDark mb-8 flex items-center px-10 rounded-lg">
+        <p className="text-xxs text-white">Add People & Businesses</p>
+      </div>
+      <main className="flex-grow mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-4 flex justify-center">
             <button
@@ -112,7 +110,7 @@ const AddPeopleBusinesses: React.FC = () => {
                 Email
               </label>
               <input
-                {...register("email", { 
+                {...register("email", {
                   required: "Email is required",
                   pattern: {
                     value: /^\S+@\S+$/i,
@@ -131,7 +129,7 @@ const AddPeopleBusinesses: React.FC = () => {
                 Password
               </label>
               <input
-                {...register("password", { 
+                {...register("password", {
                   required: "Password is required",
                   minLength: {
                     value: 6,
@@ -146,7 +144,7 @@ const AddPeopleBusinesses: React.FC = () => {
               {errors.password && <span className="text-red-500 text-xs italic">{errors.password.message}</span>}
             </div>
             <input type="hidden" {...register("roleId")} value={roleType} />
-            
+
             {/* Profile Fields */}
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="profile.name">

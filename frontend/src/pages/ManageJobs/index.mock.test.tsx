@@ -97,13 +97,11 @@ const MockManageJobs: React.FC = () => {
     );
 
     return (
-        <div className="container flex flex-col min-h-screen bg-gray-100">
-            <header className="bg-white shadow">
-                <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold text-gray-900">Manage Jobs</h1>
-                </div>
-            </header>
-            <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="rounded-lg shadow-lg bg-white">
+            <div className="h-16 bg-themeDark mb-8 flex items-center px-10 rounded-lg">
+                <p className="text-xxs text-white">Manage Jobs</p>
+            </div>
+            <main className="flex-grow mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div className="flex justify-between items-center mb-4">
                     <button
                         onClick={handleAddJob}

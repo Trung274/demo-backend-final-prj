@@ -48,8 +48,8 @@ const MockManageUsers: React.FC = () => {
 
   const handleSearch: SubmitHandler<SearchFormData> = (data) => {
     const searchTerm = data.search.toLowerCase();
-    const filtered = users.filter(user => 
-      user.firstName.toLowerCase().includes(searchTerm) || 
+    const filtered = users.filter(user =>
+      user.firstName.toLowerCase().includes(searchTerm) ||
       user.lastName.toLowerCase().includes(searchTerm)
     );
     setFilteredUsers(filtered);
@@ -70,13 +70,11 @@ const MockManageUsers: React.FC = () => {
   };
 
   return (
-    <div className="container flex flex-col min-h-screen bg-gray-100">
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Manage Users</h1>
-        </div>
-      </header>
-      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="rounded-lg shadow-lg bg-white">
+      <div className="h-16 bg-themeDark mb-8 flex items-center px-10 rounded-lg">
+        <p className="text-xxs text-white">Manage Users</p>
+      </div>
+      <main className="flex-grow mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-4">
           <div>
             <button onClick={() => handleFilter('all')} className={`px-4 py-2 rounded ${filter === 'all' ? 'bg-themePrimary text-white' : 'bg-gray-200 text-gray-700'}`}>All</button>

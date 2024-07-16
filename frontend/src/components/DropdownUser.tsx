@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import ClickOutside from '../ClickOutside';
+import ClickOutside from './ClickOutside';
 import UserOne from '@assets/img/avatar.png';
 import { useStore } from '@/store';
 import { Button } from '@chakra-ui/react';

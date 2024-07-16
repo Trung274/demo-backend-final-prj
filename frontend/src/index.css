@@ -265,3 +265,13 @@ select {
 		transform: rotate(360deg);
 	}
 }
+
+.bg-body {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 245 248 / var(--tw-bg-opacity));
+}
+
+.bg-themeDark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(54 65 76 / var(--tw-bg-opacity));
+}

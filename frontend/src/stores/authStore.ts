@@ -26,9 +26,8 @@ export class AuthStore {
       .then((user: LoginResponse) => commonStore.setToken(user.token))
       .then(() => userStore.pullUser())
       .catch(action((err: ResponseError) => {
-        debugger
-        this.errors = err.response && err.response.body && err.response.body;
-        // throw err;
+        this.errors = err.response && err.response.body && err.response.body.errors;
+        throw err;
       }))
       .finally(action(() => { this.inProgress = false; }));
   }
