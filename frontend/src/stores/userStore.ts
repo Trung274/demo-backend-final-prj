@@ -41,6 +41,7 @@ export class UserStore {
   listBusinesses: string[] = [];
   isLoadingBusinesses = false;
 
+  userProfile: any;
   constructor() {
     makeObservable(this, {
       currentUser: observable,
@@ -54,6 +55,8 @@ export class UserStore {
       listBusinesses: observable,
       loadListBusinesses: action,
       isLoadingBusinesses: observable,
+      getUserById: action,
+      userProfile: observable,
     });
   }
 
@@ -97,6 +100,15 @@ export class UserStore {
     return agent.Category.getAll()  //note get bus
       .then(action((bu: string[]) => { 
         this.listBusinesses = bu
+    }))
+      .finally(action(() => { this.isLoadingBusinesses = false; }))
+  }
+
+  getUserById(userId:any) {
+    this.isLoadingBusinesses = true;
+    return agent.Users.getById(userId)  //note get bus
+      .then(action((bu: any) => { 
+        this.userProfile = bu
     }))
       .finally(action(() => { this.isLoadingBusinesses = false; }))
   }

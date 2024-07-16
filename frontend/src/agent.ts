@@ -73,6 +73,7 @@ const Auth = {
 const Users = {
   all: () => requests.get('/users'),
   delete: (userId: string) => requests.del(`/users/delete/${userId}`),
+  getById: (userId: string) => requests.get(`/users/select/${userId}`),
 };
 
 const Jobs = {
