@@ -83,7 +83,7 @@ const Jobs = {
   del: (jobId: string) =>
     requests.del(`/jobs/delete/${jobId}`),
   get: (jobId: string) =>
-    requests.get(`/jobs/${jobId}`),
+    requests.get(`/jobs/select/${jobId}`),
   update: (jobId: string, job: Partial<Job>) => 
     requests.put(`/jobs/update/${jobId}`, job),
   create: (job: Partial<Job>) => 
@@ -92,10 +92,15 @@ const Jobs = {
     requests.get(`/jobs/search?${qs.stringify(params)}`)
 };
 
+const Category = {
+  getAll: () => requests.get(`/jobCategories`),
+};
+
 const agent = {
   Auth,
   Users,
   Jobs,
+  Category
 }
 
 export default agent;

@@ -16,7 +16,6 @@ const JobDetails: React.FC = observer(() => {
   useEffect(() => {
     const loadJob = async () => {
       if (id) {
-        debugger
         const fetchedJob = await jobStore.getJobById(id);
         if (fetchedJob) {
           setJob(fetchedJob);

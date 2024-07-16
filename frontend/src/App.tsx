@@ -62,6 +62,7 @@ const App: React.FC = () => {
               <Route path="mock-job" element={<MockJobPage />} />
               <Route path="mock-profile" element={<MockProfile />} />
               <Route path="jobs/:id" element={<JobDetails />} />
+              <Route path="jobs/category/:id" element={<JobDetails />} />              
               <Route path="business/:id" element={<BusinessProfile />} />
               <Route path="mock-business" element={<MockBusiness />} />
             </Route>

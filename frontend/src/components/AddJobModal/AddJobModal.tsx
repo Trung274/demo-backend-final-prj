@@ -7,22 +7,12 @@ interface AddJobModalProps {
     onSave: (job: Partial<Job>) => void;
     job: Partial<Job> | null;
     setJob: (job: Partial<Job>) => void;
+    category: any;
 }
 
 const employmentTypes = ['Fulltime', 'Parttime', 'Internship', 'Remote', 'Contract'];
 
-const jobCategories = [
-    { _id: "6685109142e0602b2581fb85", name: "Marketing" },
-    { _id: "6685109142e0602b2581fb86", name: "Customer Service" },
-    { _id: "6685109142e0602b2581fb87", name: "Human Resource" },
-    { _id: "6685109142e0602b2581fb88", name: "Project Management" },
-    { _id: "6685109142e0602b2581fb89", name: "Business Development" },
-    { _id: "6685109142e0602b2581fb8a", name: "Programming" },
-    { _id: "6685109142e0602b2581fb8b", name: "Teaching & Education" },
-    { _id: "6685109142e0602b2581fb8c", name: "Design & Creative" }
-];
-
-const AddJobModal: React.FC<AddJobModalProps> = ({ isOpen, onClose, onSave, job, setJob }) => {
+const AddJobModal: React.FC<AddJobModalProps> = ({ isOpen, onClose, onSave, job, setJob, category }) => {
     if (!isOpen || !job) return null;
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -32,8 +22,8 @@ const AddJobModal: React.FC<AddJobModalProps> = ({ isOpen, onClose, onSave, job,
 
     return (
         <>
-            <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={onClose}></div>
-            <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+            <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={onClose} style={{zIndex:99}}></div>
+            <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none" style={{zIndex:99}}>
                 <div className="relative w-full max-w-4xl mx-auto my-6">
                     <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
                         <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
@@ -110,9 +100,9 @@ const AddJobModal: React.FC<AddJobModalProps> = ({ isOpen, onClose, onSave, job,
                                             required
                                         >
                                             <option value="">Select a category</option>
-                                            {jobCategories.map((category) => (
-                                                <option key={category._id} value={category._id}>
-                                                    {category.name}
+                                            {category.map((item:any) => (
+                                                <option key={item._id} value={item._id}>
+                                                    {item.name}
                                                 </option>
                                             ))}
                                         </select>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BusinessCard from './BusinessCard/BusinessCard';
 import BusinessFilter from './BusinessFilter/BusinessFilter';
 import business from '../../assets/img/business.jpg';
@@ -17,6 +17,9 @@ import logo12 from '../../assets/temp/logo12.jpg';
 import logo13 from '../../assets/temp/logo13.png';
 import logo14 from '../../assets/temp/logo14.png';
 import logo15 from '../../assets/temp/logo15.jpg';
+import { useStore } from "@/store";
+import { Observer } from "mobx-react-lite";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 // Mock database
 const mockBusinesses = [
@@ -279,6 +282,15 @@ const mockBusinesses = [
 ];
 
 const Businesses: React.FC = () => {
+  const { userStore } = useStore();
+
+  useEffect(() => {
+      async function getBusinesses() {
+          await userStore.loadListBusinesses();
+      }
+      getBusinesses();
+  }, [userStore]);
+  
   return (
     <>
       <section className="relative bg-cover bg-center bg-no-repeat" style={{ position: 'relative' }}>
