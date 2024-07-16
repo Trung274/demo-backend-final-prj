@@ -44,6 +44,7 @@ const BusinessFilter: React.FC = () => {
               <option value="10-50">10-50</option>
               <option value="50-100">50-100</option>
               <option value="100-500">100-500</option>
+              <option value="100-500">500+</option>
             </select>
           </div>
         </form>

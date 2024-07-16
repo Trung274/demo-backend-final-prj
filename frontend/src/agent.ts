@@ -69,33 +69,6 @@ const Auth = {
   updateProfile: (profileData: Partial<User>) => requests.put('/users/updateProfile', profileData)
 };
 
-const Tags = {
-  getAll: () => requests.get('/tags')
-};
-
-const limit = (count: any, p: any) => `limit=${count}&offset=${p ? p * count : 0}`;
-const omitSlug = (article: any) => Object.assign({}, article, { slug: undefined })
-
-const Articles = {
-  all: (page: any, lim = 10, predicate: string) => requests.get(`/articles?${limit(lim, page)}`),
-  byAuthor: (author: string, page: number, query: any) => requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
-  byTag: (tag: string, page: number, lim = 10) => requests.get(`/articles?tag=${encode(tag)}&${limit(lim, page)}`),
-  del: (slug: string) => requests.del(`/articles/${slug}`),
-  favorite: (slug: string) => requests.post(`/articles/${slug}/favorite`, {}),
-  favoritedBy: (author: string, page: number, _limit: number) => requests.get(`/articles?favorited=${encode(author)}&${limit(5, page)}`),
-  feed: (page: number, limit: number) => requests.get(`/articles/feed?limit=${limit}&offset=${page}`),
-  get: (slug: string) => requests.get(`/articles/${slug}`),
-  unfavorite: (slug: string) => requests.del(`/articles/${slug}/favorite`),
-  update: (article: any) => requests.put(`/articles/${article.slug}`, { article: omitSlug(article) }),
-  create: (article: any) => requests.post('/articles', { article })
-};
-
-const Comments = {
-  create: (slug: string, comment: any) => requests.post(`/articles/${slug}/comments`, { comment }),
-  delete: (slug: string, commentId: number) => requests.del(`/articles/${slug}/comments/${commentId}`),
-  forArticle: (slug: string) => requests.get(`/articles/${slug}/comments`)
-};
-
 const Profile = {
   follow: (username: string) => requests.post(`/profiles/${username}/follow`, {}),
   get: (username: string) => requests.get(`/profiles/${username}`),
@@ -120,11 +93,8 @@ const Jobs = {
 };
 
 const agent = {
-  Articles,
   Auth,
-  Comments,
   Profile,
-  Tags,
   Jobs,
 }
 

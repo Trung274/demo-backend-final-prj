@@ -17,7 +17,6 @@ export class CommonStore {
       appLoaded: observable,
       tags: observable,
       isLoadingTags: observable,
-      loadTags: action,
       setToken: action,
       setAppLoaded: action
     });
@@ -32,13 +31,6 @@ export class CommonStore {
         }
       }
     );
-  }
-
-  loadTags() {
-    this.isLoadingTags = true;
-    return agent.Tags.getAll()
-      .then(action(({ tags }: { tags: string[] }) => { this.tags = tags.map((t: string) => t.toLowerCase()); }))
-      .finally(action(() => { this.isLoadingTags = false; }))
   }
 
   setToken(token: string | null) {

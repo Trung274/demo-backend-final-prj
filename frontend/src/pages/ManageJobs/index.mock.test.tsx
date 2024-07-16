@@ -17,7 +17,42 @@ const initialJobs = [
         employmentType: ['fulltime'],
         expiredAt: '2024-06-30T00:00:00.000Z',
     },
-    // Add more mock jobs as needed
+    {
+        _id: '3',
+        jobTitle: 'Data Scientist',
+        location: 'Seattle, WA',
+        employmentType: ['fulltime', 'internship'],
+        expiredAt: '2024-07-15T00:00:00.000Z',
+    },
+    {
+        _id: '4',
+        jobTitle: 'Frontend Developer',
+        location: 'Los Angeles, CA',
+        employmentType: ['contract', 'remote'],
+        expiredAt: '2024-07-10T00:00:00.000Z',
+    },
+    {
+        _id: '5',
+        jobTitle: 'Marketing Specialist',
+        location: 'Chicago, IL',
+        employmentType: ['part-time', 'remote'],
+        expiredAt: '2024-07-05T00:00:00.000Z',
+    },
+    {
+        _id: '6',
+        jobTitle: 'Environmental Scientist',
+        location: 'Denver, CO',
+        employmentType: ['fulltime', 'internship'],
+        expiredAt: '2024-07-20T00:00:00.000Z',
+    },
+    {
+        _id: '7',
+        jobTitle: 'Diversity and Inclusion Manager',
+        location: 'Boston, MA',
+        employmentType: ['fulltime', 'remote'],
+        expiredAt: '2024-07-12T00:00:00.000Z',
+    },
+    // Feel free to customize further!
 ];
 
 const MockManageJobs: React.FC = () => {
