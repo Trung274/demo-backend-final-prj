@@ -1,76 +1,52 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { BeakerIcon } from '@heroicons/react/24/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faContactCard } from '@fortawesome/free-regular-svg-icons';
 import { faHeadphones, faUserTie, faPeopleRoof, faChartLine, faHandshakeSlash, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from "react-router-dom";
+import faContactCard from 'assets/svg/faContactCard.svg';
+import { useStore } from "@/store";
+import { Observer } from "mobx-react-lite";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export function Category() {
-    return (
-        <section className="py-16 md:py-20 lg:py-25 !bg-light">
-            <div className="container">
-                <div className="text-center mb-14">
-                    <h2 className="text-4xl font-bold text-black">Explore By Category</h2>
-                </div>
-                <div className="grid gap-4 xl:gap-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-                    <NavLink to="/jobs/category/marketing" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
-                        <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
-                            <FontAwesomeIcon icon={faContactCard} size="3x" className="text-[#1caf57]" />
+    const { categoryStore } = useStore();
+
+    useEffect(() => {
+        async function loadCategories() {
+            await categoryStore.loadCategories();
+        }
+        loadCategories();
+    }, [categoryStore]);
+
+    return <Observer>{() => {
+        const { isLoadingCate, categories } = categoryStore;
+        if (isLoadingCate) {
+            return <LoadingSpinner />;
+        } else if (categories) {
+            return (
+                <section className="py-16 md:py-20 lg:py-25 !bg-light">
+                    <div className="container">
+                        <div className="text-center mb-14">
+                            <h2 className="text-4xl font-bold text-black">Explore By Category</h2>
                         </div>
-                        <h4 className="text-lg text-black font-bold mb-3">Marketing</h4>
-                        <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </NavLink>
-                    <NavLink to="/jobs/category/customer-service" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
-                        <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
-                            <FontAwesomeIcon icon={faHeadphones} size="3x" className="text-[#1caf57]" />
+                        <div className="grid gap-4 xl:gap-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+                            {categories.map((item: any) => {
+                                return (
+                                    <NavLink to={`/jobs/category/${item._id}`} className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
+                                        <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
+                                            <img alt="" src={item.iconUrl} width={60} height={60} />
+                                        </div>
+                                        <h4 className="text-lg text-black font-bold mb-3">{item.name}</h4>
+                                        <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
+                                    </NavLink>
+                                );
+                            })}
                         </div>
-                        <h4 className="text-lg text-black font-bold mb-3">Customer Service</h4>
-                        <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </NavLink>
-                    <NavLink to="/jobs/category/human-resource" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
-                        <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
-                            <FontAwesomeIcon icon={faUserTie} size="3x" className="text-[#1caf57]" />
-                        </div>
-                        <h4 className="text-lg text-black font-bold mb-3">Human Resource</h4>
-                        <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </NavLink>
-                    <NavLink to="/jobs/category/project-management" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
-                        <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
-                            <FontAwesomeIcon icon={faPeopleRoof} size="3x" className="text-[#1caf57]" />
-                        </div>
-                        <h4 className="text-lg text-black font-bold mb-3">Project Management</h4>
-                        <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </NavLink>
-                    <NavLink to="/jobs/category/business-development" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
-                        <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
-                            <FontAwesomeIcon icon={faChartLine} size="3x" className="text-[#1caf57]" />
-                        </div>
-                        <h4 className="text-lg text-black font-bold mb-3">Business Development</h4>
-                        <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </NavLink>
-                    <NavLink to="/jobs/category/programming" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
-                        <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
-                            <FontAwesomeIcon icon={faHandshakeSlash} size="3x" className="text-[#1caf57]" />
-                        </div>
-                        <h4 className="text-lg text-black font-bold mb-3">Programming</h4>
-                        <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </NavLink>
-                    <NavLink to="/jobs/category/teaching-education" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
-                        <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
-                            <FontAwesomeIcon icon={faChalkboardTeacher} size="3x" className="text-[#1caf57]" />
-                        </div>
-                        <h4 className="text-lg text-black font-bold mb-3">Teaching & Education</h4>
-                        <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </NavLink>
-                    <NavLink to="/jobs/category/design-creative" className="text-center bg-white rounded-lg p-6 group cursor-pointer block">
-                        <div className="mb-4 flex justify-center transition-all group-hover:scale-125">
-                            <FontAwesomeIcon icon={faContactCard} size="3x" className="text-[#1caf57]" />
-                        </div>
-                        <h4 className="text-lg text-black font-bold mb-3">Design & Creative</h4>
-                        <p className="text-grayLight text-xss font-normal text-[#1caf57]">1 Job</p>
-                    </NavLink>
-                </div>
-            </div>
-        </section>
-    )
+                    </div>
+                </section>
+            )
+        } else {
+            return null;
+        }
+    }}</Observer>
 }

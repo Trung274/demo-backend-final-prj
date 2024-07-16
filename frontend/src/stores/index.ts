@@ -3,6 +3,7 @@ import authStore, { AuthStore } from './authStore';
 import userStore, { UserStore } from './userStore';
 import profileStore, { ProfileStore } from './profileStore';
 import jobStore, { JobStore } from './jobStore';
+import categoryStore, { CategoryStore } from './categoryStore';
 
 export type RootStore = {
   authStore: AuthStore;
@@ -10,6 +11,7 @@ export type RootStore = {
   profileStore: ProfileStore;
   userStore: UserStore;
   jobStore: JobStore;
+  categoryStore: CategoryStore;
 }
 
 const rootStore: RootStore = {
@@ -17,7 +19,8 @@ const rootStore: RootStore = {
   commonStore,
   profileStore,
   userStore,
-  jobStore  
+  jobStore,
+  categoryStore,
 };
 
 export default rootStore;

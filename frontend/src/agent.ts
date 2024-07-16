@@ -93,10 +93,15 @@ const Jobs = {
     requests.get(`/jobs/search?${qs.stringify(params)}`)
 };
 
+const Category = {
+  getAll: () => requests.get(`/jobCategories`),
+};
+
 const agent = {
   Auth,
   Profile,
   Jobs,
+  Category
 }
 
 export default agent;
