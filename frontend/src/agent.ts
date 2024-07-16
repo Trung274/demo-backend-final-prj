@@ -70,10 +70,9 @@ const Auth = {
   updateProfile: (profileData: Partial<User>) => requests.put('/users/updateProfile', profileData)
 };
 
-const Profile = {
-  follow: (username: string) => requests.post(`/profiles/${username}/follow`, {}),
-  get: (username: string) => requests.get(`/profiles/${username}`),
-  unfollow: (username: string) => requests.del(`/profiles/${username}/follow`)
+const Users = {
+  all: () => requests.get('/users'),
+  delete: (userId: string) => requests.del(`/users/delete/${userId}`),
 };
 
 const Jobs = {
@@ -99,7 +98,7 @@ const Category = {
 
 const agent = {
   Auth,
-  Profile,
+  Users,
   Jobs,
   Category
 }

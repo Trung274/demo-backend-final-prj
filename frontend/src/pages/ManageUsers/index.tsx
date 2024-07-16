@@ -1,48 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-
-// Mock data
-const mockUsers = [
-  { _id: '1', firstName: 'John', lastName: 'Doe', roleId: 'user' },
-  { _id: '2', firstName: 'Jane', lastName: 'Smith', roleId: 'business' },
-  { _id: '3', firstName: 'Bob', lastName: 'Johnson', roleId: 'admin' },
-  { _id: '4', firstName: 'Alice', lastName: 'Brown', roleId: 'user' },
-  { _id: '5', firstName: 'Michael', lastName: 'Davis', roleId: 'business' },
-  { _id: '6', firstName: 'Emily', lastName: 'Wilson', roleId: 'user' },
-  { _id: '7', firstName: 'David', lastName: 'Taylor', roleId: 'admin' },
-  { _id: '8', firstName: 'Sarah', lastName: 'Anderson', roleId: 'business' },
-  { _id: '9', firstName: 'Daniel', lastName: 'Martinez', roleId: 'user' },
-  { _id: '10', firstName: 'Olivia', lastName: 'Thomas', roleId: 'business' },
-];
-
-interface User {
-  _id: string;
-  firstName: string;
-  lastName: string;
-  roleId: string;
-}
+import { useStore } from '@/store';
+import agent from '@/agent';
+import { User } from '@/stores/userStore';
 
 interface SearchFormData {
   search: string;
 }
 
-const MockManageUsers: React.FC = () => {
-  const [users, setUsers] = useState<User[]>(mockUsers);
-  const [filteredUsers, setFilteredUsers] = useState<User[]>(mockUsers);
+const ManageUsers: React.FC = () => {
+  const { userStore } = useStore();
+  const [users, setUsers] = useState<User[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
   const [filter, setFilter] = useState<string>('all');
   const { register, handleSubmit } = useForm<SearchFormData>();
 
   useEffect(() => {
-    setUsers(mockUsers);
-    setFilteredUsers(mockUsers);
+    fetchUsers();
   }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const fetchedUsers = await agent.Users.all();
+      setUsers(fetchedUsers);
+      setFilteredUsers(fetchedUsers);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  };
 
   const handleFilter = (role: string) => {
     setFilter(role);
     if (role === 'all') {
       setFilteredUsers(users);
     } else {
-      setFilteredUsers(users.filter(user => user.roleId === role));
+      const roleId = role === 'user' ? '66627f747573d122a0410137' : '66627f747573d122a0410138';
+      setFilteredUsers(users.filter(user => user.roleId === roleId));
     }
   };
 
@@ -59,14 +52,30 @@ const MockManageUsers: React.FC = () => {
     console.log('Edit user with id:', id);
   };
 
-  const handleDelete = (id: string) => {
-    const updatedUsers = users.filter(user => user._id !== id);
-    setUsers(updatedUsers);
-    setFilteredUsers(updatedUsers);
+  const handleDelete = async (id: string) => {
+    if (window.confirm("Are you sure you want to delete this user?")) {
+      try {
+        await agent.Users.delete(id);
+        fetchUsers(); // Refresh the user list
+      } catch (error) {
+        console.error('Error deleting user:', error);
+      }
+    }
   };
 
   const handleShowProfile = (id: string) => {
     console.log('Show profile for user with id:', id);
+  };
+
+  const getRoleName = (roleId: string) => {
+    switch (roleId) {
+      case '66627f747573d122a0410137':
+        return 'User';
+      case '66627f747573d122a0410138':
+        return 'Business';
+      default:
+        return 'Admin';
+    }
   };
 
   return (
@@ -105,7 +114,7 @@ const MockManageUsers: React.FC = () => {
                 <tr key={user._id}>
                   <td className="px-6 py-4 whitespace-nowrap">{user._id}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{`${user.firstName} ${user.lastName}`}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{user.roleId}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{getRoleName(user.roleId)}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <button onClick={() => handleShowProfile(user._id)} className="text-themePrimary hover:text-blue-900 mr-2">Show Profile</button>
                     <button onClick={() => handleEdit(user._id)} className="text-themePrimary hover:text-blue-900 mr-2">Edit</button>
@@ -121,4 +130,4 @@ const MockManageUsers: React.FC = () => {
   );
 };
 
-export default MockManageUsers;
+export default ManageUsers;

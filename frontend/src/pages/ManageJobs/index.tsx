@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '@/store';
+import toast from 'react-hot-toast';
 import AddJobModal from '@/components/AddJobModal/AddJobModal';
 import { Job } from '@/stores/jobStore';
 
@@ -44,7 +45,7 @@ const ManageJobs: React.FC = observer(() => {
                 }
             } catch (error) {
                 console.error("Error deleting job:", error);
-                // Toast error
+                toast.error("Cannot delete job! Something went wrong.")
             }
         }
     };
@@ -63,7 +64,7 @@ const ManageJobs: React.FC = observer(() => {
           }
         } catch (error) {
           console.error("Error saving job:", error);
-          // Toast error
+          toast.error('Cannot save the job! Something went wrong.')
         }
       };
 
