@@ -60,7 +60,7 @@ const ProfileSettings: React.FC = () => {
       toast.success('Profile updated successfully!');
     } catch (error) {
       console.error('Error updating profile:', error);
-      toast.error('Oops! Something went wrong while updating your profile picture. Please try again later.');
+      toast.error('Oops! Something went wrong while updating your profile. Please try again later.');
     }
   };
 
@@ -175,18 +175,66 @@ const ProfileSettings: React.FC = () => {
               />
             </div>
 
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="slogan">
-                Slogan
-              </label>
-              <input
-                {...register('profile.slogan')}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="slogan"
-                type="text"
-                placeholder="Slogan"
-              />
-            </div>
+            {roleType === 'business' && (
+              <>
+                <div className="mb-4">
+                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="slogan">
+                    Slogan
+                  </label>
+                  <input
+                    {...register('profile.slogan')}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="slogan"
+                    type="text"
+                    placeholder="Slogan"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="employees">
+                    Number of Employees
+                  </label>
+                  <select
+                    {...register('profile.employees')}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="employees"
+                  >
+                    <option value="">Select number of employees</option>
+                    <option value="1-10">1-10</option>
+                    <option value="10-50">10-50</option>
+                    <option value="50-100">50-100</option>
+                    <option value="100-500">100-500</option>
+                    <option value="500+">500+</option>
+                  </select>
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="website">
+                    Website
+                  </label>
+                  <input
+                    {...register('profile.website')}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="website"
+                    type="url"
+                    placeholder="Website URL"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="industry">
+                    Industry
+                  </label>
+                  <input
+                    {...register('profile.industry')}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="industry"
+                    type="text"
+                    placeholder="Industry"
+                  />
+                </div>
+              </>
+            )}
 
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
@@ -213,6 +261,21 @@ const ProfileSettings: React.FC = () => {
                 placeholder="City"
               />
             </div>
+
+            {roleType === 'business' && (
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="address">
+                  Address
+                </label>
+                <input
+                  {...register('profile.address')}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="address"
+                  type="text"
+                  placeholder="Address"
+                />
+              </div>
+            )}
 
             {roleType === 'user' && (
               <div className="mb-4">
@@ -250,62 +313,6 @@ const ProfileSettings: React.FC = () => {
                   </div>
                 </div>
               </div>
-            )}
-
-            {roleType === 'business' && (
-              <>
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="website">
-                    Website
-                  </label>
-                  <input
-                    {...register('profile.website')}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="website"
-                    type="url"
-                    placeholder="Website URL"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="employees">
-                    Number of Employees
-                  </label>
-                  <input
-                    {...register('profile.employees')}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="employees"
-                    type="text"
-                    placeholder="Number of Employees"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="industry">
-                    Industry
-                  </label>
-                  <input
-                    {...register('profile.industry')}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="industry"
-                    type="text"
-                    placeholder="Industry"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="address">
-                    Address
-                  </label>
-                  <input
-                    {...register('profile.address')}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="address"
-                    type="text"
-                    placeholder="Address"
-                  />
-                </div>
-              </>
             )}
 
             <div className="flex items-center justify-between">
