@@ -17,7 +17,7 @@ const DropdownUser = () => {
     const handleClickLogout = () =>
         authStore.logout().then(() => navigate('/'));
 
-    const userName = userStore.currentUser?.profile.name || 'User';
+    const userName = userStore.currentUser?.profile?.name || 'User';
 
     return (
         <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
@@ -30,7 +30,7 @@ const DropdownUser = () => {
                     <span className="block text-sm font-medium text-black dark:text-white">
                         {userName}
                     </span>
-                    <span className="block text-xs leading-4">{userStore.currentUser?.profile.name}</span>
+                    <span className="block text-xs leading-4">{userStore.currentUser?.profile?.name}</span>
                 </span>
 
                 <span className="h-12 w-12 rounded-full">

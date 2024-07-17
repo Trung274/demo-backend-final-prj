@@ -94,8 +94,8 @@ environments, continuously seeking to improve my skill set and contribute to tea
   }, [id, userStore]);
 
   return <Observer>{() => {
-    const { isLoadingBusinesses, userProfile } = userStore;
-    if (isLoadingBusinesses) {
+    const { isLoading, userProfile } = userStore;
+    if (isLoading) {
       return <LoadingSpinner />;
     } else if (userProfile) {
       return (

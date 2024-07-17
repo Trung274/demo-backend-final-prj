@@ -76,10 +76,10 @@ class UserController {
 
   updateProfile = async (request, response) => {
     const updateData = request.body;
-    const userId = request.user.user_id; 
-  
+    const userId = request.user.user_id;
+
     try {
-       // Only allow updating of specific fields
+      // Only allow updating of specific fields
       const allowedUpdates = ['firstName', 'lastName', 'email', 'profile'];
       const updates = Object.keys(updateData)
         .filter(key => allowedUpdates.includes(key))
@@ -87,7 +87,7 @@ class UserController {
           obj[key] = updateData[key];
           return obj;
         }, {});
-  
+
       if (updates.profile) {
         const allowedProfileUpdates = [
           'name', 'avatar', 'description', 'slogan', 'employees',
@@ -100,17 +100,17 @@ class UserController {
             return obj;
           }, {});
       }
-  
+
       const updatedUser = await model.findByIdAndUpdate(userId, updates, { new: true });
-  
+
       if (!updatedUser) {
         return response.status(404).json({ message: "User not found" });
       }
-  
+
       // Remove sensitive information before sending the response
       const userResponse = updatedUser.toObject();
       delete userResponse.password;
-  
+
       return response.status(200).json(userResponse);
     } catch (error) {
       return response.status(500).json({ error: error.message });
@@ -159,78 +159,118 @@ class UserController {
           model: Permission
         }
       });
-  
+
       if (!user) {
         return response.status(404).json({ message: "User not found" });
       }
-  
+
       // Remove sensitive information before sending the response
       const userResponse = user.toObject();
       delete userResponse.password;
-  
+
       return response.status(200).json(userResponse);
     } catch (error) {
       console.error(error);
       return response.status(500).json({ error: "Internal server error" });
     }
-  };  
+  };
 
   changePassword = async (request, response) => {
     try {
       const userId = request.user.user_id;
       const { currentPassword, newPassword, retypeNewPassword } = request.body;
-  
+
       // Check if new password and retyped password match
       if (newPassword !== retypeNewPassword) {
         return response.status(400).json({ message: "New passwords do not match" });
       }
-  
+
       const user = await model.findById(userId);
       if (!user) {
         return response.status(404).json({ message: "User not found" });
       }
-  
+
       const isMatch = await bcrypt.compare(currentPassword, user.password);
       if (!isMatch) {
         return response.status(400).json({ message: "Current password is incorrect" });
       }
-  
+
       user.password = this.hashPassword(newPassword);
       await user.save();
-  
+
       return response.status(200).json({ message: "Password changed successfully" });
     } catch (error) {
       return response.status(500).json({ error: error.message });
     }
   };
-  
+
   deleteAccount = async (request, response) => {
     try {
       const userId = request.user.user_id;
       const result = await model.deleteOne({ _id: userId });
-  
+
       if (result.deletedCount === 0) {
         return response.status(404).json({ message: "User not found" });
       }
-  
+
       return response.status(200).json({ message: "Account deleted successfully" });
     } catch (error) {
       return response.status(500).json({ error: error.message });
     }
   };
 
-deleteUserById = async (request, response) => {
-  const { id } = request.params;
-  try {
-    const result = await model.findByIdAndDelete(id);
-    if (!result) {
-      return response.status(404).json({ message: "User not found" });
+  deleteUserById = async (request, response) => {
+    const { id } = request.params;
+    try {
+      const result = await model.findByIdAndDelete(id);
+      if (!result) {
+        return response.status(404).json({ message: "User not found" });
+      }
+      return response.status(200).json({ message: "User deleted successfully" });
+    } catch (error) {
+      return response.status(500).json(error);
     }
-    return response.status(200).json({ message: "User deleted successfully" });
-  } catch (error) {
-    return response.status(500).json(error);
-  }
-};
+  };
+
+  getUserByType = async (request, response) => {
+    const { type } = request.params;
+    try {
+      const user = await model.aggregate([
+        {
+          $lookup: {
+            from: 'roles',
+            localField: 'roleId',
+            foreignField: '_id',
+            as: 'userRoles'
+          }
+        },
+        {
+          $unwind: '$userRoles'
+        },
+        {
+          $match: { 'userRoles.name': type }
+        },
+        {
+          $project: {
+            _id: 1,
+            firstName: 1,
+            lastName: 1,
+            email: 1,
+            profile: 1,
+            roleId: 1,
+          }
+        }
+      ])
+
+      if (!user) {
+        return response.status(404).json({ message: "Not found" });
+      }
+
+      return response.status(200).json(user);
+    } catch (error) {
+      return response.status(404).json(error);
+    }
+  };
 }
 
 module.exports = new UserController();

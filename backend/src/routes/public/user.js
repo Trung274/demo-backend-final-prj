@@ -27,4 +27,5 @@ const UserController = require("../../app/Controllers/UserController");
 module.exports = (app) => {
   app.post("/users/create", UserController.createUser);
   app.get("/users/select/:id", UserController.searchUserById);
+  app.get("/users/:type", UserController.getUserByType);
 };
