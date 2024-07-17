@@ -39,10 +39,32 @@ export function ListJobs() {
                                     </div>
                                 </TabItem>
                                 <TabItem label="Full Time">
-                                    <p>Full Time</p>
+                                    <div className="grid gap-6 xl:gap-6 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 justify-normal sm:justify-center">
+                                        {jobs.filter((job) => job.employmentType.includes('Fulltime')).map((job) => (
+                                            <JobCard key={job._id} job={job} />
+                                        ))}
+                                    </div>
+                                    <div className="mt-8">
+                                        <div className="grid grid-cols-1">
+                                            <div className="text-center">
+                                                <a href="/jobs" className="btn text-white border-transparent btn focus:ring focus:ring-custom-500/20 bg-[#1caf57]">View More  <i className="uil uil-arrow-right ms-1"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </TabItem>
                                 <TabItem label="Part Time">
-                                    <p>Part Time</p>
+                                    <div className="grid gap-6 xl:gap-6 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 justify-normal sm:justify-center">
+                                        {jobs.filter((job) => job.employmentType.includes('Parttime')).map((job) => (
+                                            <JobCard key={job._id} job={job} />
+                                        ))}
+                                    </div>
+                                    <div className="mt-8">
+                                        <div className="grid grid-cols-1">
+                                            <div className="text-center">
+                                                <a href="/jobs" className="btn text-white border-transparent btn focus:ring focus:ring-custom-500/20 bg-[#1caf57]">View More  <i className="uil uil-arrow-right ms-1"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </TabItem>
                             </TabList>
                         </div>
