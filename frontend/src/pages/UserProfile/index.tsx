@@ -18,9 +18,9 @@ const UserProfile: React.FC = () => {
     lastName: "Goodman",
     email: "bettercallsaul@gmail.com",
     profile: {
-        name: "Saul Goodman",
-        avatar: saul,
-        description: `
+      name: "Saul Goodman",
+      avatar: saul,
+      description: `
             <h2>Full-Stack Developer</h2>
             <h3>Profile:</h3>
             <p>Highly skilled Full-Stack Developer with 5 years of experience in designing and implementing robust web applications.
@@ -71,22 +71,26 @@ environments, continuously seeking to improve my skill set and contribute to tea
     technical and non-technical stakeholders.</li>
 </ul>
         `,
-        slogan: "Fullstack Developer",
-        phone: "+1234567890",
-        city: "Albuquerque, NM",
-        socialMedia: {
-            facebook: "https://facebook.com/bettercallsaul",
-            twitter: "https://twitter.com/bettercallsaul",
-            linkedin: "https://linkedin.com/in/saulgoodman"
-        }
+      slogan: "Fullstack Developer",
+      phone: "+1234567890",
+      city: "Albuquerque, NM",
+      socialMedia: {
+        facebook: "https://facebook.com/bettercallsaul",
+        twitter: "https://twitter.com/bettercallsaul",
+        linkedin: "https://linkedin.com/in/saulgoodman"
+      }
     }
-};
+  };
 
   useEffect(() => {
-    async function loadCategories() {
-      await userStore.getUserById(id);
-    }
-    loadCategories();
+    const fetchUser = async () => {
+      try {
+        await userStore.getUserById(id);
+      } catch (error) {
+      }
+    };
+
+    fetchUser();
   }, [id, userStore]);
 
   return <Observer>{() => {

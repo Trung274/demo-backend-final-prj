@@ -106,11 +106,9 @@ export class UserStore {
 
   getUserById(userId:any) {
     this.isLoadingBusinesses = true;
-    return agent.Users.getById(userId)  //note get bus
-      .then(action((bu: any) => { 
+    return agent.Users.getById(userId).then(action((bu: any) => { 
         this.userProfile = bu
-    }))
-      .finally(action(() => { this.isLoadingBusinesses = false; }))
+    })).finally(action(() => { this.isLoadingBusinesses = false; }))
   }
 }
 
