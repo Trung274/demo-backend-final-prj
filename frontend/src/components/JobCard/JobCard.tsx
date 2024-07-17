@@ -49,7 +49,7 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
             <span style={{ boxSizing: "border-box", display: "inline-block", overflow: "hidden", width: "initial", height: "initial", background: "none", opacity: 1, border: "0px", margin: "0px", padding: "0px", position: "relative", maxWidth: "100%" }}>
               <span style={{ boxSizing: "border-box", display: "block", width: "initial", height: "initial", background: "none", opacity: 1, border: "0px", margin: "0px", padding: "0px", maxWidth: "100%" }}>
                 <img
-                  src={`${process.env.REACT_APP_API_URL}${job.businessLogoUrl}`}
+                  src={job.businessLogoUrl}
                   alt="Company Logo"
                   className="rounded-lg w-16 h-16"
                   onError={(e) => {

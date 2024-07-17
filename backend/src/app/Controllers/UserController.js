@@ -261,11 +261,11 @@ class UserController {
           }
         }
       ])
-
+  
       if (!user) {
         return response.status(404).json({ message: "Not found" });
       }
-
+  
       return response.status(200).json(user);
     } catch (error) {
       return response.status(404).json(error);
