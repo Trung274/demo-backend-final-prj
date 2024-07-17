@@ -38,7 +38,7 @@ export class UserStore {
   updatingUser?: boolean;
   updatingUserErrors: any;
 
-  listBusinesses: string[] = [];
+  listUser: string[] = [];
   isLoading = false;
 
   userProfile: any;
@@ -52,8 +52,8 @@ export class UserStore {
       updateUser: action,
       forgetUser: action,
       updateProfile: action,
-      listBusinesses: observable,
-      loadListBusinesses: action,
+      listUser: observable,
+      loadUserByType: action,
       isLoading: observable,
       getUserById: action,
       userProfile: observable,
@@ -95,11 +95,11 @@ export class UserStore {
     }
   };
 
-  loadListBusinesses() {
+  loadUserByType(type: string) {
     this.isLoading = true;
-    return agent.Category.getAll()  //note get bus
+    return agent.Users.getUsesByType(type)  //note get bus
       .then(action((bu: string[]) => { 
-        this.listBusinesses = bu
+        this.listUser = bu
     }))
       .finally(action(() => { this.isLoading = false; }))
   }

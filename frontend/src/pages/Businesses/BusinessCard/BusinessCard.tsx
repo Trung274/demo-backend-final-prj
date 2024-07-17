@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
+import FallbackImage from '@assets/img/FallBack.jpg';
 
 interface BusinessCardProps {
   _id: string;
@@ -18,7 +19,14 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ _id, name, slogan, descript
     <div className="relative grid content-between bg-white p-6 border-gray border border-solid transition-all rounded-md group hover:!border-themePrimary">
       <div className="text-center pt-4 pb-6">
         <div className="flex justify-center mb-3">
-          <img src={avatar} alt={name} className="w-24 h-24 rounded-lg" />
+          <img 
+          src={avatar} 
+          alt={name} 
+          className="w-24 h-24 rounded-lg" 
+          onError={(e) => {
+            e.currentTarget.src = FallbackImage;
+          }}
+          />
         </div>
         <h3 className="text-xs font-normal text-black leading-6 mb-0">{name}</h3>
         <p className="text-deep text-xss1 font-normal mb-2 leading-6">{slogan}</p>

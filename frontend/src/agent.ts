@@ -74,6 +74,7 @@ const Users = {
   all: () => requests.get('/users'),
   delete: (userId: string) => requests.del(`/users/delete/${userId}`),
   getById: (userId: string) => requests.get(`/users/select/${userId}`),
+  getUsesByType: (type: string) => requests.get(`/users/${type}`),
 };
 
 const Jobs = {
