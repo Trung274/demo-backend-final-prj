@@ -1,4 +1,5 @@
 import React from 'react';
+import FallbackImage from '@assets/img/FallBack.jpg';
 
 interface BusinessTitleProps {
   name: string;
@@ -15,6 +16,9 @@ const BusinessTitle: React.FC<BusinessTitleProps> = ({ name, avatar, slogan }) =
             src={avatar} 
             alt={name} 
             className="w-full h-full object-cover rounded-md"
+            onError={(e) => {
+              e.currentTarget.src = FallbackImage;
+            }}
           />
         </div>
         <div className="mb-6 xl:mb-0">
