@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '@/store';
+interface JobsFilterCardProps {
+  category?: string[];
+  selected?: string;
+}
 
-const JobFilter: React.FC = observer(() => {
+interface JobFilterState {
+  query: string;
+  location: string;
+  categoryId: string;
+  employmentType: string[];
+}
+
+const JobFilter: React.FC<JobsFilterCardProps> = ({ category, selected }) => {
   const { jobStore } = useStore();
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState<JobFilterState>({
     query: '',
     location: '',
-    categoryId: '',
-    employmentType: [] as string[]
+    categoryId: selected || '',
+    employmentType: [],
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -27,15 +38,16 @@ const JobFilter: React.FC = observer(() => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  const searchParams = {
-    query: filters.query,
-    location: filters.location,
-    categoryId: filters.categoryId,
-    employmentType: filters.employmentType
+    e.preventDefault();
+    const searchParams = {
+      query: filters.query,
+      location: filters.location,
+      categoryId: filters.categoryId,
+      employmentType: filters.employmentType
+    };
+    setFilters(searchParams);
+    jobStore.searchJobs(searchParams);
   };
-  jobStore.searchJobs(searchParams);
-};
 
   return (
     <div className="bg-white rounded-lg">
@@ -73,14 +85,11 @@ const JobFilter: React.FC = observer(() => {
               onChange={handleInputChange}
             >
               <option value="">Select Category</option>
-              <option value="6685109142e0602b2581fb85">Marketing</option>
-              <option value="6685109142e0602b2581fb86">Customer Service</option>
-              <option value="6685109142e0602b2581fb87">Human Resource</option>
-              <option value="6685109142e0602b2581fb88">Project Management</option>
-              <option value="6685109142e0602b2581fb89">Business Development</option>
-              <option value="6685109142e0602b2581fb8a">Programming</option>
-              <option value="6685109142e0602b2581fb8b">Teaching & Education</option>
-              <option value="6685109142e0602b2581fb8c">Design & Creative</option>
+              {category?.map((slot: any) => (
+                <option key={slot._id} value={slot._id}>
+                  {slot.name}
+                </option>
+              ))}
             </select>
           </div>
         </form>
@@ -131,6 +140,6 @@ const JobFilter: React.FC = observer(() => {
       </div>
     </div>
   );
-});
+};
 
 export default JobFilter;
